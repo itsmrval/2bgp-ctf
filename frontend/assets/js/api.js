@@ -64,7 +64,7 @@ async function createTeam(name, type) {
 async function joinTeam(team_id) {
     try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`${API_URL}/teams/${team_id}/join`, {
+        const response = await fetch(`${API_URL}/teams/${team_id}`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -82,4 +82,20 @@ async function joinTeam(team_id) {
     }
 }
 
-export { login, getUserTeam, createTeam, joinTeam };
+// Get team
+async function getTeams() {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/teams`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return await response.json();
+    }
+    catch (error) {
+        throw new Error('Error getting team');
+    }
+}
+
+export { login, getUserTeam, createTeam, joinTeam, getTeams };

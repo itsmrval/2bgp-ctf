@@ -3,15 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star Wars Login</title>
-  <link rel="stylesheet" href="Login.css">
+  <title>Star Wars Choice</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-<div>
-    <h2>Accueil</h2>
-    <p>Lorem ipsum</p>
-</div>
+
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#">
+        <img src="assets/logo/starwars.png" alt="Star Wars Logo">
+      </a>
+    </div>
+    <div class="profile">
+      <i class="fa-solid fa-user"></i>
+      <span id="profileUsername" class="user-name">Loading</span>
+      <button class="disconnect-btn" id="logout">Déconnexion</button>
+    </div>
+  </nav>
+
+  <div class="space-background">
+    <img class="foreground-image" src="assets/homepage/1.png" alt="Planètes et Vaisseau">
+  </div>
+
 </body>
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/loggedIn.js" type="module"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/loggedIn.js" type="module"></script>
 </html>
