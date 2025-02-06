@@ -2,7 +2,9 @@ async function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     localStorage.removeItem('name');
+    localStorage.removeItem('expiration');
 
+    window.location.href = '/login';
     console.log('Logout successful');
 }
 
@@ -35,12 +37,17 @@ async function isLoggedIn() {
 }
 
 async function main() {
-    if (await isLoggedIn()) {
-        console.log('User is logged in');
-    } else {
-        console.log('User is not logged in');
-        //window.location.href = '/login';
+    if (!await isLoggedIn()) {
+        window.location.href = '/login';
     }
+
+    $('#profileUsername').text(localStorage.getItem('username'));
 }
 
-main();
+$(document).ready(function () {
+    $('#logout').click(async function () {
+        await logout();
+    });
+
+    main();
+})
