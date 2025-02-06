@@ -40,12 +40,8 @@ body {
 }
 
 @keyframes stars {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-100%);
-  }
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
 }
 
 .navbar {
@@ -155,15 +151,21 @@ body {
   white-space: pre-line;
 }
 
-.inputbox {
-  position: absolute; 
-  bottom: 20px;      
-  left: 50%;         
-  transform: translateX(-50%);  
-  width: 200px;     
-  margin-bottom: 0;  
-  text-align: center;
+.coords-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  width: auto;
+  align-items: flex-end;  
+}
 
+.inputbox {
+  position: relative;
+  width: 200px;
+  margin-bottom: 0;
 }
 
 .inputbox input {
@@ -174,22 +176,44 @@ body {
   border-bottom: 2px solid white;
   color: white;
   font-size: 16px;
-  text-align: center; 
+  text-align: center;
 }
 
 .inputbox label {
   position: absolute;
-  left: 50%;          
-  transform: translateX(-50%);  
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
   color: white;
   pointer-events: none;
   transition: 0.5s;
-  width: 100%;
+  font-size: 12px;
 }
 
 .inputbox input:focus ~ label,
 .inputbox input:valid ~ label {
-  top: -20px;
   color: #03a9f4;
-  font-size: 12px;
+}
+
+
+.submit-btn .btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.submit-btn .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-5px);
+}
+
+.submit-btn .btn:active {
+  transform: translateY(0px);
 }
