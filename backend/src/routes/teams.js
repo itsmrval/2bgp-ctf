@@ -15,9 +15,17 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', authenticate, async (req, res) => {
+  const { name, type } = req.body;
+  if (!name) {
+    return res.status(400).json({ error: 'Name is required' });
+  }
+  if (type && type !== 'sith' && type !== 'jedi') {
+    return res.status(400).json({ error: 'Invalid type' });
+  }
   try {
     const team = new Team({ 
-      name: req.body.name, 
+      name,
+      type,
       members: [req.user._id] 
     });
     await team.save();

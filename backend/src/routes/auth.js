@@ -2,6 +2,8 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const { generateToken } = require('../utils/jwt');
+const { authenticate, isAdmin } = require('../middleware/auth');
+
 
 const router = express.Router();
 
@@ -70,6 +72,23 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ error: 'Login failed', details: error.message });
+  }
+});
+
+router.get('/me', authenticate, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    return res.json({
+      id: user._id.toString(),
+      username: user.username,
+      role: user.role
+    });
+  } catch (error) {
+    console.error('Me error:', error);
+    res.status(500).json({ error: 'Me failed', details: error.message });
   }
 });
 
