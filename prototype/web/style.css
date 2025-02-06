@@ -39,6 +39,12 @@ body {
   top: 100%;
 }
 
+.foreground-image {
+  display: block;
+  margin: 0 auto;
+  width: 80%; /* Ajustez ce pourcentage pour la taille souhaitée */
+}
+
 @keyframes stars {
   from { transform: translateY(0); }
   to { transform: translateY(-100%); }
