@@ -10,6 +10,11 @@ Choix du groupe (camp ? Sith / Jedi)
 
 Niveaux: (planètes)
 
+*** First Level ***
+Le vaisseau est perdu il y a un article de presse pour le retrouver. 
+Une image est dans l'article avec des metadonnées concernant les coordonnées du vaisseau.
+Avec un champ sur la map pour indiquer les coordonées une fois trouvés. 
+
 
 *** Trouver entrée base ***
 - 1: Image de l’entrée avec en metadata coordonnées
