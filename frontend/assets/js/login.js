@@ -13,11 +13,12 @@ $(document).ready(function () {
         const passwordField = $('#password').val();
 
         try {
-            const {token, username, role} = await login(usernameField, passwordField);
+            const {token, username, role, id} = await login(usernameField, passwordField);
             localStorage.setItem('token', token);
             localStorage.setItem('role', role);
             localStorage.setItem('username', username);
             localStorage.setItem('expiration', Date.now() + 3600000);
+            localStorage.setItem('id', id);
             window.location.href = '/';
         } catch (error) {
             console.error('Error logging in:', error);
