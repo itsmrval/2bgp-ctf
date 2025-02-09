@@ -33,6 +33,7 @@
     height: 100%;
     overflow: hidden;
     display: flex;
+    pointer-events: none;
     justify-content: center;
     align-items: center;
   }
@@ -206,6 +207,8 @@
     color: #03a9f4;
     font-size: 12px;
   }
+
+  
   
   /* Form Elements */
   .checkbox-container {
@@ -288,3 +291,76 @@
     border-radius: 5px;
     text-align: center;
   }
+
+  /* selected team css */
+
+  .inputboxSelect {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .inputboxSelect input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .inputboxSelect label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .inputboxSelect input:focus ~ label,
+  .inputboxSelect input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 0;
+    color: #03a9f4;
+    font-size: 12px;
+  }
+  
+  .team-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .team-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: transparent;
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .team-list li:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .team-list li:active {
+    background: #03a9f4;
+    color: black;
+  }
+  
+  .team-list li .btn {
+    margin-left: auto;
+  }
+
+  
+  

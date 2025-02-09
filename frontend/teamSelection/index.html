@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
 
   <nav class="navbar">
@@ -17,27 +19,69 @@
     </div>
     <div class="profile">
       <i class="fa-solid fa-user"></i>
-      <span id="profileUsername" class="user-name">Loading</span>
-      <button class="disconnect-btn" id="logout">Déconnexion</button>
+      <span class="user-name">John Doe</span>
+      <button class="disconnect-btn">Déconnexion</button>
     </div>
   </nav>
 
   <div class="space-background">
-    <div class="container">
+    <div class="container" id="main-container">
       <h1 class="titlebox">Select your team</h1>
       <div class="choices">
-        <a class="choice">
+        <a class="choice" onclick="selectTeam('Sith')">
           <img src="../assets/logo/sith.png" alt="Sith Logo">
           <p>Sith</p>
         </a>
-        <a  class="choice">
+        <a class="choice" onclick="selectTeam('Jedi')">
           <img src="../assets/logo/jedi.png" alt="Jedi Logo">
           <p>Jedi</p>
         </a>
       </div>
     </div>
+    <div class="container" id="team-container" style="display: none; width: 800px; height: 500px;">
+      <h1 id="team-title"></h1>
+      <div class="inputboxSelect" style="display: flex;">
+        <input type="search" id="search" placeholder="">
+        <label for="search">Search for a team</label>
+      </div>
+      <ul class="team-list" id="team-list">
+        <li>
+          <span>Team 2</span>
+          <button class="btn">Join</button>
+        </li>
+        <li>
+          <span>Team 3</span>
+          <button class="btn">Join</button>
+        </li>
+        <li>
+          <span>Team 4</span>
+          <button class="btn">Join</button>
+        </li>
+        <li>
+          <span>Team 5</span>
+          <button class="btn">Join</button>
+        </li>
+        <li>
+          <span>Team 6</span>
+          <button class="btn">Join</button>
+        </li>
+      </ul>
+      <button class="btn" onclick="goBack()">Retour</button>
+      <button class="btn" style="margin: 0; margin-left: 300px; width: 200px;">Create Team</button>
+    </div>
   </div>
+  <script>
+    function selectTeam(team) {
+      document.getElementById('main-container').style.display = 'none';
+      document.getElementById('team-container').style.display = 'block';
+      document.getElementById('team-title').innerText = `Selected Team : ${team}`;
+    }
+    function goBack() {
+      document.getElementById('team-container').style.display = 'none';
+      document.getElementById('main-container').style.display = 'block';
+    }
+  </script>
+
 </body>
-<script src="../assets/js/jquery.min.js"></script>
-<script src="../assets/js/loggedIn.js" type="module"></script>
+
 </html>
