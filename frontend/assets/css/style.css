@@ -294,9 +294,150 @@
 
   /* selected team css */
 
+  body.team-selection-body {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    height: 100vh; /* Fixe la hauteur de la page */
+    background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
+    overflow: hidden; /* Empêche le défilement du body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .space-background {
+    width: 100%;
+    height: 100vh; /* Assure que le conteneur occupe toute la hauteur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .container-selected {
+    width: 800px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Empêche le contenu de dépasser */
+  }
+  
+  .choices {
+    display: flex;
+    gap: 60px;
+  }
+  
+  .choice {
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .choice p {
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .team-list {
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 280px; /* Fixe la hauteur de la liste */
+    overflow-y: auto; /* Active le défilement vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .team-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-bottom: 1px solid white;
+  }
+  
+  .team-list li span {
+    flex: 1; /* Permet aux éléments de s'étirer pour occuper l'espace */
+    text-align: left;
+  }
+  
+  .members {
+    text-align: center;
+    flex: 0.3; /* Ajuste la largeur de la colonne membres */
+  }
+  
+  .team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .team-name-header {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .team-members-header {
+    flex: 1.55;
+    text-align: left;
+  }
+  
+  .team-list li:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .team-list li:active {
+    background: #03a9f4;
+  }
+  
+  .team-list li .btn {
+    margin-left: auto;
+  }
+
+  .team-list-container {
+    width: 100%;
+  }
+  
   .inputboxSelect {
     position: relative;
     margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .container-for-list {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    pointer-events: auto;
   }
   
   .inputboxSelect input {
@@ -327,40 +468,11 @@
     color: #03a9f4;
     font-size: 12px;
   }
-  
-  .team-list {
-    list-style: none;
-    padding: 0;
+  .team-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .team-list li {
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 10px;
-    background: transparent;
-    border-bottom: 2px solid white;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
+    gap: 15px; /* Ajoute un espace entre les boutons */
+    width: 100%;
   }
-  
-  .team-list li:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-  
-  .team-list li:active {
-    background: #03a9f4;
-    color: black;
-  }
-  
-  .team-list li .btn {
-    margin-left: auto;
-  }
-
-  
   

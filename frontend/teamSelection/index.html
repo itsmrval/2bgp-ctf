@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body>
+<body class="team-selection-body" id="team-selection-body">
 
   <nav class="navbar">
     <div class="logo">
@@ -25,7 +25,7 @@
   </nav>
 
   <div class="space-background">
-    <div class="container" id="main-container">
+    <div class="container-selected" id="main-container">
       <h1 class="titlebox">Select your team</h1>
       <div class="choices">
         <a class="choice" onclick="selectTeam('Sith')">
@@ -38,36 +38,64 @@
         </a>
       </div>
     </div>
-    <div class="container" id="team-container" style="display: none; width: 800px; height: 500px;">
+    <div class="container-for-list" id="team-container" style="display: none; width: 800px; height: 600px; margin-top: 90px;">
       <h1 id="team-title"></h1>
       <div class="inputboxSelect" style="display: flex;">
         <input type="search" id="search" placeholder="">
         <label for="search">Search for a team</label>
       </div>
-      <ul class="team-list" id="team-list">
-        <li>
-          <span>Team 2</span>
-          <button class="btn">Join</button>
-        </li>
-        <li>
-          <span>Team 3</span>
-          <button class="btn">Join</button>
-        </li>
-        <li>
-          <span>Team 4</span>
-          <button class="btn">Join</button>
-        </li>
-        <li>
-          <span>Team 5</span>
-          <button class="btn">Join</button>
-        </li>
-        <li>
-          <span>Team 6</span>
-          <button class="btn">Join</button>
-        </li>
-      </ul>
-      <button class="btn" onclick="goBack()">Retour</button>
-      <button class="btn" style="margin: 0; margin-left: 300px; width: 200px;">Create Team</button>
+      <div class="team-header">
+        <span class="team-name-header">Name</span>
+        <span class="team-members-header">Members</span>
+      </div>
+      <div class="team-list-container">
+        <ul class="team-list" id="team-list">
+          <li>
+            <span>Team 2</span>
+            <span class="members">1/4</span>
+            <button class="btn">Join</button>
+          </li>
+          <li>
+            <span>Team 2022</span>
+            <span class="members">0/4</span>
+            <button class="btn">Join</button>
+          </li>
+          <li>
+            <span>Team 2</span>
+            <span class="members">2/4</span>
+            <button class="btn">Join</button>
+          </li>
+          <li>
+            <span>Team 222</span>
+            <span class="members">0/4</span>
+            <button class="btn">Join</button>
+          </li>
+          <li>
+            <span>Team 3</span>
+            <span class="members">3/4</span>
+            <button class="btn">Join</button>
+          </li>
+          <li>
+            <span>Team 4</span>
+            <span class="members">2/4</span>
+            <button class="btn">Join</button>
+          </li>
+          <li>
+            <span>Team 5</span>
+            <span class="members">4/4</span>
+            <button class="btn" disabled>Full</button>
+          </li>
+          <li>
+            <span>Team 6</span>
+            <span class="members">1/4</span>
+            <button class="btn">Join</button>
+          </li>
+        </ul>
+      </div>
+      <div class="team-buttons">
+        <button class="btn" onclick="goBack()">Retour</button>
+        <button class="btn" style="margin: 0; margin-left: 70%; width: 200px;">Create Team</button>
+      </div>
     </div>
   </div>
   <script>
@@ -78,7 +106,7 @@
     }
     function goBack() {
       document.getElementById('team-container').style.display = 'none';
-      document.getElementById('main-container').style.display = 'block';
+      document.getElementById('main-container').style.display = 'flex';
     }
   </script>
 
