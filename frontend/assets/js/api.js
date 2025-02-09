@@ -25,6 +25,31 @@ async function login(username, password) {
     }
 }
 
+// Register user and return token
+async function register(username, password) {
+    try {
+        const response = await fetch(`${API_URL}/auth/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            const { token, user } = data;
+            const { role, username, id } = user;
+
+            return { token, role, username, id };
+        } else {
+            throw new Error('Registration failed');
+        }
+    } catch (error) {
+        throw new Error('Error during registration');
+    }
+}
+
 // Get user team by id
 async function getUserTeam(id) {
     try {
@@ -133,4 +158,94 @@ async function deleteUser(id) {
     }
 }
 
-export { login, getUserTeam, createTeam, joinTeam, getTeams, getUsers, deleteUser };
+// Get levels
+async function getLevels() {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/levels`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return await response.json();
+    }
+    catch (error) {
+        throw new Error('Error getting levels');
+    }
+}
+
+// Create level (admin)
+async function createLevel(name, hid, points, flag) {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/levels`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ name, hid, points, flag })
+        });
+
+        if (!response.ok) {
+            throw new Error('Level creation failed');
+        }
+    } catch (error) {
+        throw new Error('Error creating level');
+    }
+}
+
+// Delete level (admin)
+async function deleteLevel(id) {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/levels/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Level deletion failed');
+        }
+    } catch (error) {
+        throw new Error('Error deleting level');
+    }
+}
+
+async function getScoreboard() {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/points`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return await response.json();
+    }
+    catch (error) {
+        throw new Error('Error getting scoreboard');
+    }
+}
+
+async function awardUserPoints(userId, levelId) {
+    const response = await fetch(`${API_URL}/points/${userId}/${levelId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Failed to award points');
+    }
+
+    return await response.json();
+}
+
+
+export { login, register, getUserTeam, getUsers, deleteUser,
+    getTeams, createTeam, joinTeam, 
+    getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints };

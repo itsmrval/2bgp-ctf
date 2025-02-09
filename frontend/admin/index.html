@@ -28,7 +28,17 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <tr>
+                        <td>JohnDoe</td>
+                        <td>Admin</td>
+                        <td>Red Team</td>
+                        <td>
+                            <button onclick="deleteUser('JohnDoe')">Delete</button>
+                            <button onclick="showModal('assignLevelModal')">Assign Level</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
@@ -53,20 +63,21 @@
             <table id="scoreboardTable">
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>Level</th>
-                        <th>Points</th>
-                        <th>Actions</th>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Total Points</th>
+                        <th>Members</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
         </div>
+        
     </div>
 
-    <!-- User Modal -->
     <div id="userModal" class="modal">
         <div class="modal-content">
+            <span class="close" onclick="hideModal('userModal')">&times;</span>
             <h3>Add New User</h3>
             <form id="userForm">
                 <div class="form-group">
@@ -85,14 +96,13 @@
                     </select>
                 </div>
                 <button type="submit">Add User</button>
-                <button type="button" onclick="hideModal('userModal')">Cancel</button>
             </form>
         </div>
     </div>
 
-    <!-- Level Modal -->
     <div id="levelModal" class="modal">
         <div class="modal-content">
+            <span class="close" onclick="hideModal('levelModal')">&times;</span>
             <h3>Add New Level</h3>
             <form id="levelForm">
                 <div class="form-group">
@@ -112,11 +122,41 @@
                     <input type="number" id="points" required>
                 </div>
                 <button type="submit">Add Level</button>
-                <button type="button" onclick="hideModal('levelModal')">Cancel</button>
             </form>
         </div>
     </div>
 
+    <div id="assignLevelModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideModal('assignLevelModal')">&times;</span>
+            <h3>Assign Level to User</h3>
+            <form id="assignLevelForm">
+                <div class="form-group">
+                    <label>Select Level:</label>
+                    <select id="levelSelect"></select>
+                </div>
+                <button type="submit">Assign Level</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/jquery.min.js" type="module"></script>
     <script src="../assets/js/admin.js" type="module"></script>
+
+    <script>
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function hideModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

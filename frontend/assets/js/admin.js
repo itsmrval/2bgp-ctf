@@ -1,4 +1,4 @@
-import { getUsers, getUserTeam, deleteUser} from './api.js';
+import { getUsers, getUserTeam, deleteUser, register, getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints} from './api.js';
 
 // Authentication functions
 function checkAuth() {
@@ -52,11 +52,13 @@ async function loadUsers() {
                     <td>${teamName} ${teamType}</td>
                     <td>
                         <button class="delete-btn" data-id="${user._id}">Delete</button>
+                        <button class="award-btn" data-id="${user._id}">Award</button>
                     </td>
                 </tr>
             `;
         }
 
+        // Set up delete button listeners
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', async (event) => {
                 const userId = event.target.getAttribute('data-id');
@@ -69,68 +71,66 @@ async function loadUsers() {
             });
         });
 
+        // Set up award button listeners
+        document.querySelectorAll('.award-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const userId = event.target.getAttribute('data-id');
+                showAwardModal(userId);
+            });
+        });
+
     } catch (error) {
         console.error('Error loading users:', error);
     }
 }
 
-
+function showAwardModal(userId) {
+    document.getElementById('assignLevelForm').setAttribute('data-user-id', userId);
+    showModal('assignLevelModal');
+}
 
 async function loadLevels() {
     try {
-        const response = await fetch('/api/levels', {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        });
-        const levels = await response.json();
+        const response = await getLevels();
+
+        // Populate level select dropdown
+        const levelSelect = $('#levelSelect')[0];
+        levelSelect.innerHTML = response.map(level => `<option value="${level._id}">${level.name} (${level.points} pts)</option>`).join('');
+        
+        // Populate levels table
         const tbody = document.querySelector('#levelsTable tbody');
         tbody.innerHTML = '';
-        levels.forEach(level => {
-            tbody.innerHTML += `
-                <tr>
-                    <td>${level.name}</td>
-                    <td>${level.hid}</td>
-                    <td>${level.points}</td>
-                    <td>
-                        <button onclick="deleteLevel('${level._id}')">Delete</button>
-                    </td>
-                </tr>
+
+        for (const level of response) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${level.name}</td>
+                <td>${level.hid}</td>
+                <td>${level.points}</td>
+                <td>
+                    <button class="delete-btn" data-id="${level._id}">Delete</button>
+                </td>
             `;
+            tbody.appendChild(row);
+        }
+
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const levelId = event.target.getAttribute('data-id');
+                try {
+                    await deleteLevel(levelId);
+                    loadLevels();
+                } catch (error) {
+                    console.error('Error deleting level:', error);
+                }            
+            });
         });
+
     } catch (error) {
         console.error('Error loading levels:', error);
     }
 }
 
-async function loadScoreboard() {
-    try {
-        const response = await fetch('/api/scoreboard', {
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
-        });
-        const scores = await response.json();
-        const tbody = document.querySelector('#scoreboardTable tbody');
-        tbody.innerHTML = '';
-        scores.forEach(score => {
-            tbody.innerHTML += `
-                <tr>
-                    <td>${score.username}</td>
-                    <td>${score.achieved.level_hid || 'N/A'}</td>
-                    <td>${score.achieved.points}</td>
-                    <td>
-                        <button onclick="awardPoints('${score._id}')">Award Points</button>
-                    </td>
-                </tr>
-            `;
-        });
-    } catch (error) {
-        console.error('Error loading scoreboard:', error);
-    }
-}
-
-// Form submission handlers
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('userForm').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -141,14 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            await fetch('/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify(userData)
-            });
+            await register(userData.username, userData.password);
             hideModal('userModal');
             loadUsers();
         } catch (error) {
@@ -156,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Level form
     document.getElementById('levelForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const levelData = {
@@ -166,57 +160,68 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            await fetch('/api/levels', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify(levelData)
-            });
+            await createLevel(levelData.name, levelData.hid, levelData.points, levelData.flag);
             hideModal('levelModal');
             loadLevels();
         } catch (error) {
             console.error('Error creating level:', error);
         }
     });
+
+    // Award points form
+    document.getElementById('assignLevelForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const userId = e.target.getAttribute('data-user-id');
+        const levelSelect = document.getElementById('levelSelect');
+        const levelId = levelSelect.value;
+
+        try {
+            await awardUserPoints(userId, levelId);
+            hideModal('assignLevelModal');
+            // Refresh the scoreboard to show updated points
+            loadScoreboard();
+            
+            // Show success message (optional)
+            alert('Points awarded successfully!');
+        } catch (error) {
+            console.error('Error awarding points:', error);
+            alert('Error awarding points. Please try again.');
+        }
+    });
 });
 
 
-async function deleteLevel(levelId) {
-    if (confirm('Are you sure you want to delete this level?')) {
-        try {
-            await fetch(`/api/levels/${levelId}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
-            });
-            loadLevels();
-        } catch (error) {
-            console.error('Error deleting level:', error);
-        }
+// Initialize dashboard
+async function loadScoreboard() {
+    try {
+        const scores = await getScoreboard();
+        const tbody = document.querySelector('#scoreboardTable tbody');
+        tbody.innerHTML = '';
+
+        scores.forEach((team, index) => {
+            const isExpanded = index < 3 ? 'open' : '';
+            tbody.innerHTML += `
+                <tr>
+                    <td>${team.rank}</td>
+                    <td>${team.name}</td>
+                    <td>${team.total_points}</td>
+                    <td>
+                        <details ${isExpanded}>
+                            <summary>View Members</summary>
+                            <ul>
+                                ${team.members.map(member => `<li>${member.username}: ${member.points} pts</li>`).join('')}
+                            </ul>
+                        </details>
+                    </td>
+                </tr>
+            `;
+        });
+    } catch (error) {
+        console.error('Error loading scoreboard:', error);
     }
 }
 
-async function awardPoints(userId) {
-    const levelHid = prompt('Enter level HID:');
-    if (levelHid) {
-        try {
-            await fetch(`/api/users/${userId}/award`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify({ levelHid })
-            });
-            loadScoreboard();
-        } catch (error) {
-            console.error('Error awarding points:', error);
-        }
-    }
-}
 
 // Initialize dashboard
 if (checkAuth()) {
