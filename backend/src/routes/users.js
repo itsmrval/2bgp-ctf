@@ -29,4 +29,21 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', authenticate, async (req, res) => {
+  try {
+    if (req.user.id !== req.params.id && req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Unauthorized' });
+    }
+
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    await user.deleteOne();
+    res.json({ message: 'User deleted' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = router;

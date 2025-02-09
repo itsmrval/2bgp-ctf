@@ -19,8 +19,8 @@
     </div>
     <div class="profile">
       <i class="fa-solid fa-user"></i>
-      <span class="user-name">John Doe</span>
-      <button class="disconnect-btn">Déconnexion</button>
+      <span id="profileUsername" class="user-name">Loading</span>
+      <button class="disconnect-btn" id="logout">Déconnexion</button>
     </div>
   </nav>
 
@@ -28,11 +28,11 @@
     <div class="container-selected" id="main-container">
       <h1 class="titlebox">Select your team</h1>
       <div class="choices">
-        <a class="choice" onclick="selectTeam('Sith')">
+        <a class="choice" id="sithSelector">
           <img src="../assets/logo/sith.png" alt="Sith Logo">
           <p>Sith</p>
         </a>
-        <a class="choice" onclick="selectTeam('Jedi')">
+        <a class="choice" id="jediSelector">
           <img src="../assets/logo/jedi.png" alt="Jedi Logo">
           <p>Jedi</p>
         </a>
@@ -50,65 +50,23 @@
       </div>
       <div class="team-list-container">
         <ul class="team-list" id="team-list">
-          <li>
-            <span>Team 2</span>
-            <span class="members">1/4</span>
-            <button class="btn">Join</button>
-          </li>
-          <li>
-            <span>Team 2022</span>
-            <span class="members">0/4</span>
-            <button class="btn">Join</button>
-          </li>
-          <li>
-            <span>Team 2</span>
-            <span class="members">2/4</span>
-            <button class="btn">Join</button>
-          </li>
-          <li>
-            <span>Team 222</span>
-            <span class="members">0/4</span>
-            <button class="btn">Join</button>
-          </li>
-          <li>
-            <span>Team 3</span>
-            <span class="members">3/4</span>
-            <button class="btn">Join</button>
-          </li>
-          <li>
-            <span>Team 4</span>
-            <span class="members">2/4</span>
-            <button class="btn">Join</button>
-          </li>
-          <li>
-            <span>Team 5</span>
-            <span class="members">4/4</span>
-            <button class="btn" disabled>Full</button>
-          </li>
-          <li>
-            <span>Team 6</span>
-            <span class="members">1/4</span>
-            <button class="btn">Join</button>
-          </li>
+         
         </ul>
       </div>
       <div class="team-buttons">
         <button class="btn" onclick="goBack()">Retour</button>
-        <button class="btn" style="margin: 0; margin-left: 70%; width: 200px;">Create Team</button>
+        <button id="createTeamButton" class="btn" style="margin: 0; margin-left: 70%; width: 200px;">Create Team</button>
       </div>
     </div>
-  </div>
+  </div>  
   <script>
-    function selectTeam(team) {
-      document.getElementById('main-container').style.display = 'none';
-      document.getElementById('team-container').style.display = 'block';
-      document.getElementById('team-title').innerText = `Selected Team : ${team}`;
-    }
     function goBack() {
       document.getElementById('team-container').style.display = 'none';
       document.getElementById('main-container').style.display = 'flex';
     }
   </script>
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/loggedIn.js" type="module"></script>
 
 </body>
 

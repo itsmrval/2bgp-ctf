@@ -53,39 +53,74 @@ async function isMemberOfTeam() {
     }
 }
 
-async function displayTeamChoice() {
+async function selectTeam(team) {
+    document.getElementById('main-container').style.display = 'none';
+    document.getElementById('team-container').style.display = 'block';
+    document.getElementById('team-title').innerText = `Selected Team : ${team}`;
+    await displayTeamChoice(team);
+  }
+
+async function displayTeamChoice(selectedTeam) {
     try {
         const teams = await getTeams();
-        const tableBody = document.getElementById('tableBody');
-        tableBody.innerHTML = '';
+        const teamList = document.getElementById('team-list');
+        teamList.innerHTML = '';
 
         teams.forEach(team => {
-            const row = document.createElement('tr');
-
-            const nameCell = document.createElement('td');
-            nameCell.textContent = team.name;
-            row.appendChild(nameCell);
-
-            const typeCell = document.createElement('td');
-            typeCell.textContent = team.type;
-            row.appendChild(typeCell);
-
-            const actionCell = document.createElement('td');
+            if (selectedTeam && selectedTeam !== team.type) {
+                return;
+            }
+            const li = document.createElement('li');
+            console.log(team);
+            
+            // Team name
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = team.name;
+            li.appendChild(nameSpan);
+            
+            // Members count
+            const membersSpan = document.createElement('span');
+            membersSpan.className = 'members';
+            membersSpan.textContent = `${team.members.length}/${team.maxMembers || 4}`; // Assuming max 4 members
+            li.appendChild(membersSpan);
+            
+            // Join button
             const joinButton = document.createElement('button');
-            joinButton.textContent = 'Join';
-            joinButton.addEventListener('click', async () => {
-                try {
-                    await joinTeam(team._id);
-                    window.location.href = '/';
-                } catch (error) {
-                    console.error('Error joining team:', error);
-                }
-            });
-            actionCell.appendChild(joinButton);
-            row.appendChild(actionCell);
-
-            tableBody.appendChild(row);
+            joinButton.className = 'btn';
+            
+            // Check if team is full
+            const isFull = team.currentMembers >= (team.maxMembers || 4);
+            if (isFull) {
+                joinButton.textContent = 'Full';
+                joinButton.disabled = true;
+            } else {
+                joinButton.textContent = 'Join';
+                joinButton.addEventListener('click', async () => {
+                    try {
+                        await joinTeam(team._id);
+                        window.location.href = '/';
+                    } catch (error) {
+                        console.error('Error joining team:', error);
+                    }
+                });
+            }
+            li.appendChild(joinButton);
+            
+            teamList.appendChild(li);
         });
+
+        // Setup search functionality
+        const searchInput = document.getElementById('search');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const listItems = teamList.getElementsByTagName('li');
+            
+            Array.from(listItems).forEach(item => {
+                const teamName = item.firstElementChild.textContent.toLowerCase();
+                item.style.display = teamName.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
     } catch (error) {
         console.error('Error fetching teams:', error);
     }
@@ -104,8 +139,8 @@ async function main() {
     $('#profileUsername').text(localStorage.getItem('username'));
 
     // Check if user is member of a team
-    if (!isUserMemberOfTeam && (window.location.pathname !== '/teamSelection')) {
-            window.location.href = '/teamSelection';
+    if (!isUserMemberOfTeam && (window.location.pathname !== '/teamSelection' && window.location.pathname !== '/teamCreation')) {
+        window.location.href = '/teamSelection';
     }
 
     // Display team choice
@@ -122,6 +157,20 @@ $(document).ready(function () {
     // Handle logout button
     $('#logout').click(async function () {
         await logout();
+    });
+
+    $('#jediSelector').click(async function () {
+        await selectTeam('jedi');
+    });
+
+    $('#sithSelector').click(async function () {
+        await selectTeam('sith');
+    });
+    $('#createTeamButton').click(async function () {
+        window.location.href = '/teamCreation';
+    });
+    $('#backToTeamList').click(async function () {
+        window.location.href = '/teamSelection';
     });
 
     main();

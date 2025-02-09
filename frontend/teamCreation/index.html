@@ -19,8 +19,8 @@
     </div>
     <div class="profile">
       <i class="fa-solid fa-user"></i>
-      <span class="user-name">John Doe</span>
-      <button class="disconnect-btn">Déconnexion</button>
+      <span id="profileUsername" class="user-name">Loading</span>
+      <button class="disconnect-btn" id="logout">Déconnexion</button>
     </div>
   </nav>
 
@@ -32,11 +32,13 @@
         <label for="search">Enter the name of your Team</label>
       </div>
       <div class="team-buttons">
-        <button class="btn">Retour</button>
+        <button id="backToTeamList" class="btn">Retour</button>
         <button class="btn" style="margin: 0; margin-left: 70%; width: 200px;">Validate</button>
       </div>
     </div>
   </div>
 </body>
+<script src="../assets/js/jquery.min.js" type="module"></script>
+<script src="../assets/js/loggedIn.js" type="module"></script>
 
 </html>

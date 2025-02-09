@@ -76,7 +76,6 @@ router.post('/', authenticate, async (req, res) => {
     const team = new Team({ 
       name,
       type,
-      members: [req.user._id] 
     });
     await team.save();
     res.status(201).json(team);

@@ -98,4 +98,39 @@ async function getTeams() {
     }
 }
 
-export { login, getUserTeam, createTeam, joinTeam, getTeams };
+// Get users (admin)
+async function getUsers() {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/users`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return await response.json();
+    }
+    catch (error) {
+        throw new Error('Error getting users');
+    }
+}
+
+// Delete user (admin)
+async function deleteUser(id) {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/users/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('User deletion failed');
+        }
+    } catch (error) {
+        throw new Error('Error deleting user');
+    }
+}
+
+export { login, getUserTeam, createTeam, joinTeam, getTeams, getUsers, deleteUser };
