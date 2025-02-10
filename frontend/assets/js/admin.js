@@ -1,4 +1,4 @@
-import { getUsers, getUserTeam, deleteUser, register, getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints} from './api.js';
+import { getUsers, getUserTeam, deleteUser, register, getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints, getTeams, createTeam, deleteTeam} from './api.js';
 
 // Authentication functions
 function checkAuth() {
@@ -34,6 +34,53 @@ function hideModal(modalId) {
 }
 
 // Load data functions
+async function loadTeams() {
+    try {
+        const response = await getTeams();
+        const tbody = document.querySelector('#teamsTable tbody');
+        tbody.innerHTML = '';
+
+        for (const team of response) {
+            
+            tbody.innerHTML += `
+                <tr>
+                    <td>${team.name}</td>
+                    <td>${team.type}</td>
+                    <td>${team.members.length}</td>
+                    <td>
+                        <button class="delete-team-btn" data-id="${team._id}">Delete</button>
+                    </td>
+                </tr>
+            `;
+        }
+
+        // Set up delete button listeners
+        document.querySelectorAll('.delete-team-btn').forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const teamId = event.target.getAttribute('data-id');
+                try {
+                    await deleteTeam(teamId);
+                    loadTeams();
+                } catch (error) {
+                    console.error('Error deleting team:', error);
+                }
+            });
+        });
+
+        // Set up award button listeners
+        document.querySelectorAll('.award-btn').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const userId = event.target.getAttribute('data-id');
+                showAwardModal(userId);
+            });
+        });
+
+    } catch (error) {
+        console.error('Error loading users:', error);
+    }
+}
+
+// Load users functions
 async function loadUsers() {
     try {
         const response = await getUsers();
@@ -149,6 +196,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    document.getElementById('teamForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const teamData = {
+            name: document.getElementById('name').value,
+            type: document.getElementById('type').value,
+        };
+        console.log(teamData);
+
+        try {
+            await createTeam(teamData.name, teamData.type);
+            hideModal('teamModal');
+            loadTeams();
+        } catch (error) {
+            console.error('Error creating team:', error);
+        }
+    });
+
     // Level form
     document.getElementById('levelForm').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -227,5 +291,6 @@ async function loadScoreboard() {
 if (checkAuth()) {
     loadUsers();
     loadLevels();
+    loadTeams();
     loadScoreboard();
 }
