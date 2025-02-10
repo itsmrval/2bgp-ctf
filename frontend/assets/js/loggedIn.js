@@ -1,4 +1,4 @@
-import { getUserTeam, addUserToTeam, getTeams } from './api.js'; 
+import { getUserTeam, addUserToTeam, getTeams, createTeam } from './api.js'; 
 
 // Logout function
 async function logout() {
@@ -57,6 +57,7 @@ async function selectTeam(team) {
     document.getElementById('main-container').style.display = 'none';
     document.getElementById('team-container').style.display = 'block';
     document.getElementById('team-title').innerText = `Selected Team : ${team}`;
+    localStorage.setItem('createTeamType', team);
     await displayTeamChoice(team);
   }
 
@@ -132,6 +133,10 @@ async function main() {
     if (!await isLoggedIn()) {
         logout();
     }
+    // Handle logout button
+    $('#logout').click(async function () {
+        await logout();
+    });
 
     const isUserMemberOfTeam = await isMemberOfTeam();
 
@@ -143,35 +148,62 @@ async function main() {
         window.location.href = '/teamSelection';
     }
 
-    // Display team choice
+    // Team selection page
     if (window.location.pathname === '/teamSelection') {
         if (isUserMemberOfTeam) {
             window.location.href = '/';
         }
+
+        $('#jediSelector').click(async function () {
+            await selectTeam('jedi');
+        });
+    
+        $('#sithSelector').click(async function () {
+            await selectTeam('sith');
+        });
+        $('#createTeamButton').click(async function () {
+            if (localStorage.getItem('createTeamType')) {
+                window.location.href = '/teamCreation';
+            } else {
+                alert('Please select a team first');
+            }
+        });
+
         await displayTeamChoice();
+    }
+    if (window.location.pathname === '/teamCreation') {
+
+        if (isUserMemberOfTeam) {
+            window.location.href = '/';
+        }
+        if (!localStorage.getItem('createTeamType')) {
+            window.location.href = '/teamSelection';
+        }
+
+        $('#backToTeamList').click(async function () {
+            window.location.href = '/teamSelection';
+        });
+
+        $('#teamForm').submit(async function (event) {
+            event.preventDefault();
+            const name = $('#teamName').val();
+            const type = localStorage.getItem('createTeamType');
+            if (type !== 'jedi' && type !== 'sith') {
+                console.error('Invalid team type:', type);
+                return;
+            }
+            
+            try {
+                const team = await createTeam(name, type);
+                await addUserToTeam(localStorage.getItem('id'), team._id);
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Error creating team:', error);
+            }
+        });
     }
 }
 
 $(document).ready(function () {
-
-    // Handle logout button
-    $('#logout').click(async function () {
-        await logout();
-    });
-
-    $('#jediSelector').click(async function () {
-        await selectTeam('jedi');
-    });
-
-    $('#sithSelector').click(async function () {
-        await selectTeam('sith');
-    });
-    $('#createTeamButton').click(async function () {
-        window.location.href = '/teamCreation';
-    });
-    $('#backToTeamList').click(async function () {
-        window.location.href = '/teamSelection';
-    });
-
     main();
 })
