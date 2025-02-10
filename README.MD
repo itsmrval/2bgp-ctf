@@ -10,13 +10,18 @@ Choix du groupe (camp ? Sith / Jedi)
 
 Niveaux: (planètes)
 
+
+In an age long forgotten, as the balance of the Force wavers, the galaxy sinks into darkness. The tyrannical Emperor Valkorion has hatched a sinister plan: to invade and enslave every world, imposing his iron will upon the entire universe. Rallying behind him is the Eternal Empire on Zakel—a relentless force of tyranny—and to ultimately defeat Valkorion, you must first overcome his children, the heirs of his dark legacy.
+
+At the heart of this turmoil, you stand—either as a Jedi apprentice, bearer of light and hope, or as a Sith disciple, driven by the passion and determination of the dark side. Whichever path you choose, your destiny is now inextricably linked to the survival of the galaxy.
+
+Tasked with the heavy mission of overthrowing Valkorion, you must draw upon the Force to rekindle the spark of freedom and restore balance. Shadows lengthen as the epic battle for the future of the universe begins now… Your master awaits you, young Padawan. May the Force be with you.
+
 *** First Level ***
 
-Sur Endor,  Notre personnage fidèle adepte de la Force – qu’elle soit du côté lumineux ou obscur. Votre vaisseau, vital pour vos voyages et vos missions, a mystérieusement disparu lors de votre dernier atterrissage. La seule piste laissée derrière vous ? Un article de presse local, publié dans les journaux indépendants de la galaxie.
+Tu reçois un appel de ton maitre qui t’envoie un ordre de mission ultra secret chiffré dans la langue star wars. La première mission
 
-L'article relate la disparition de votre vaisseau avec une précision étonnante. Une image, prise posé sur Endor, attire particulièrement votre attention. Mais ce n’est pas une simple photographie : en examinant de plus près ses métadonnées, vous découvrez des coordonnées GPS .
 
-Il retrouve son vaisseau, après cela dans son vaissseau il recoit une comunication d'un inconnu qui lui parle deune certaine relique qui pourrait rendre immortel n'importe quel etre qui la détient ce qui intéresse notre personnage soit avide de pouvoir ou qui veut cacher cette relique. Il lui parle de tatoine et que c'est là-bas que notre personnage ira. 
 
 *** Second Level ***
 
