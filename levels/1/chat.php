@@ -60,7 +60,7 @@ $conn->close();
         </div>
     </nav>
     <div class="content-wrapper">
-    <h1 class="title-discussion">Discussion with Mas Tymar</h1>
+    <h1 class="title-discussion">Discussion - Level 1</h1>
         <?php 
         if ($_SESSION['username'] == 'Mas Tymar') {
             echo "<p style=color:red;>FLAG : {XXXXXX}</p>";
