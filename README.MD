@@ -19,25 +19,39 @@ Tasked with the heavy mission of overthrowing Valkorion, you must draw upon the 
 
 *** First Level ***
 
-Tu reçois un appel de ton maitre qui t’envoie un ordre de mission ultra secret chiffré dans la langue star wars. La première mission
-
+Tu reçois un appel de ton maitre qui t’envoie un ordre de mission ultra secret chiffré dans la langue star wars. La première mission est lié au fils et un des bras droits de l'empereur, d'après des informations 
 
 
 *** Second Level ***
 
-À peine le vaisseau qui atterri sur Tatooine que notre héros se retrouve entraîné dans le tumulte d'une cantina locale. Entre les murmures des contrebandiers et le tintement des verres, une rumeur parvient à ses oreilles : Jabba le Hutt détient précieusement une information capitale. Selon les dires, ce secret se trouve dans une pièce secrète, dissimulée au cœur de son antre, et la porte qui y mène est verrouillée derrière un code impénétrable.
-
-Mais voilà le twist digne d'un hacker galactique : la sécurité de la porte repose sur une faille dans le système informatique interne. Le code ne pourra être révélé qu’en exploitant cette vulnérabilité via une injection SQL. Seule une intelligence audacieuse et perspicace parviendra à interroger la base de données et à déchiffrer le mot de passe.
+Vaisseau log.txt avec plein de digi code.  1977 année de sortie de star wars. Il'y a des coordonées dans le vaisseau qui vont vers une planète donc notre personnage y va.
 
 
-Au-delà de la porte dérobée, le message codé révèle la suite de sa quête : Mustafar, planète de feu et de cendres, où l'ombre du côté obscur se fait sentir intensément. Là-bas, de nouveaux mystères et dangers l’attendent.
+
+
+
 
 
 *** Third Level ***
 
-Le personnage se rend sur mustafar 
 
 
+
+*** 4 Level ***
+
+
+*** 8 Level Injection SQL ***
+
+Récupéré le compte de notre maitre qui communique avec le chef ennemi (commme cela faire la discussion pour la futur attaque xss)
+
+
+*** 9 Level Attaque XSS ***
+
+Pendant son périple il se fait arréter par un blocus pirates ( ou empire zakelien) pour se sortir de cette situation il doit se faire passer pour un chef ennemi et dire de le laisser passer. 
+
+
+
+DOubke autheth attaque. 
 
 
 *** Trouver l’identifiant d’un Jedi ***
