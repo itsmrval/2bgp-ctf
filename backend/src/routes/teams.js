@@ -20,6 +20,20 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.delete('/:team_id', authenticate, isAdmin, async (req, res) => {
+  try {
+    const team = await Team.findById(req.params.team_id);
+    if (!team) {
+      return res.status(404).json({ error: 'Team not found' });
+    }
+    await team.deleteOne();
+    res.status(200).json("Team deleted successfully");
+  }
+  catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 router.post('/:team_id', authenticate, async (req, res) => {
   try {
     const team = await Team.findById(req.params.team_id);
