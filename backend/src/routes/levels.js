@@ -1,5 +1,6 @@
 const express = require('express');
 const Level = require('../models/Level');
+const crypto = require('crypto');
 const { authenticate, isAdmin } = require('../middleware/auth');
 
 const router = express.Router();
@@ -15,6 +16,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', authenticate, isAdmin, async (req, res) => {
   try {
+    // encrypt flag before saving to database
+    if (req.body.flag) {
+      req.body.flag = crypto.createHash('sha256').update(req.body.flag).digest('hex');
+    }
     const level = new Level(req.body);
     await level.save();
     res.status(201).json(level);

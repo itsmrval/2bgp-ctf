@@ -1,4 +1,5 @@
 const express = require('express');
+const crypto = require('crypto');
 const User = require('../models/User');
 const Level = require('../models/Level');
 const Team = require('../models/Team');
@@ -45,14 +46,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Award points to a user
+// Award points to a user for solving a level
 router.post('/:user_id/:level_id', authenticate, async (req, res) => {
   try {
     const { user_id, level_id } = req.params;
 
-
     if (!user_id || !level_id) {
       return res.status(400).json({ error: 'User ID and Level ID are required' });
+    }
+
+    if (!req.user.admin && req.user.id !== user_id) {
+      return res.status(403).json({ error: 'You are not authorized to award points to another user' });
     }
 
     const user = await User.findById(user_id);
@@ -64,25 +68,38 @@ router.post('/:user_id/:level_id', authenticate, async (req, res) => {
     if (!level) {
       return res.status(404).json({ error: 'Level not found' });
     }
+    
+    if (!req.user.admin) {
+      if (!req.body.flag) {
+        return res.status(400).json({ error: 'Flag is required' });
+      }
 
-    // Ensure existingLevel is found before calling `.toString()`
-    const existingLevel = user.achieved.find(l => l.level_id?.toString() === level_id);
+      // Hash the incoming flag before comparing
+      const hashedFlag = crypto.createHash('sha256').update(req.body.flag).digest('hex');
 
-    if (existingLevel) {
-      // Update points if level exists
-      existingLevel.points = level.points;
-    } else {
-      // Add new level if not found
-      user.achieved.push({
-        level_id: level._id,
-        points: level.points || 0
-      });
+      if (level.flag !== hashedFlag) {
+        return res.status(400).json({ error: 'Invalid flag' });
+      }
     }
 
+    // Proceed with further logic
+    const achievedLevel = user.achieved.find(l => l.level_id?.toString() === level_id);
+    if (achievedLevel) {
+      return res.status(400).json({ error: 'Level already achieved' });
+    }
+
+    user.achieved.push({
+      level_id,
+      points: level.points,
+    });
+
     await user.save();
-    res.status(200).json({ message: 'Level updated successfully', achieved: user.achieved });
+
+    res.status(200).json({ message: 'Flag verified successfully' });
+
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
