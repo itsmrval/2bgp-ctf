@@ -16,7 +16,10 @@ router.get('/', async (req, res) => {
 
 router.post('/', authenticate, isAdmin, async (req, res) => {
   try {
-    // encrypt flag before saving to database
+    if (!req.body.name || !req.body.hid || !req.body.flag || !req.body.points || !req.body.url) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+
     if (req.body.flag) {
       req.body.flag = crypto.createHash('sha256').update(req.body.flag).digest('hex');
     }

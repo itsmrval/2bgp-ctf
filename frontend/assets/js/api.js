@@ -172,7 +172,7 @@ async function getLevels() {
 }
 
 // Create level (admin)
-async function createLevel(name, hid, points, flag) {
+async function createLevel(name, hid, points, flag, url) {
     try {
         const token = localStorage.getItem('token');
         const response = await fetch(`${API_URL}/levels`, {
@@ -181,7 +181,7 @@ async function createLevel(name, hid, points, flag) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({ name, hid, points, flag })
+            body: JSON.stringify({ name, hid, points, flag, url })
         });
 
         if (!response.ok) {

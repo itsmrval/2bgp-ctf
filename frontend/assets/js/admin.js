@@ -16,14 +16,6 @@ function checkAuth() {
     return true;
 }
 
-function logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('username');
-    localStorage.removeItem('expiration');
-    localStorage.removeItem('role');
-    window.location.href = '/login.html';
-}
-
 // Modal functions
 function showModal(modalId) {
     document.getElementById(modalId).style.display = 'block';
@@ -162,6 +154,7 @@ async function loadLevels() {
                 <td>${level.name}</td>
                 <td>${level.hid}</td>
                 <td>${level.points}</td>
+                <td>${level.url}</td>
                 <td>
                     <button class="delete-btn" data-id="${level._id}">Delete</button>
                 </td>
@@ -228,11 +221,12 @@ document.addEventListener('DOMContentLoaded', () => {
             name: document.getElementById('levelName').value,
             hid: document.getElementById('hid').value,
             flag: document.getElementById('flag').value,
-            points: parseInt(document.getElementById('points').value)
+            points: parseInt(document.getElementById('points').value),
+            url: document.getElementById('url').value
         };
 
         try {
-            await createLevel(levelData.name, levelData.hid, levelData.points, levelData.flag);
+            await createLevel(levelData.name, levelData.hid, levelData.points, levelData.flag, levelData.url);
             hideModal('levelModal');
             loadLevels();
         } catch (error) {
