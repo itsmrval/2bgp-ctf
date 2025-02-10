@@ -4,13 +4,11 @@ ini_set('session.cookie_secure', 0);  // Désactive l'attribut Secure en local
 session_start(['cookie_lifetime' => 43200]);
 
 // Vérifie si le cookie PHPSESSID est défini
-if (isset($_COOKIE['PHPSESSID'])) {
-    //$sessionId = $_COOKIE['PHPSESSID'];
-    //echo "La valeur du cookie PHPSESSID est : " . $sessionId;
-} else {
+if (!isset($_SESSION['userid'])) {
     header('Location: index.php');
+    exit();
+   
 }
-
 
 $conn = new mysqli("localhost", "root", "", "attackXSS");
 

