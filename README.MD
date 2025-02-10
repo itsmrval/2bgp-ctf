@@ -46,6 +46,13 @@ Voici le payload SQL.
 
 PAYLOAD = ' UNION SELECT NULL, username, password, NULL, NULL FROM users #
 
+recupere le hash de Llywi Minllegui alleer sur kali et faire un force avec hashcat par ex.
+
+
+
+
+Aller au prochain niveau se connected avec ce password recupere et realiser la prochaine etape.
+
 *** 9 Level Attaque XSS ***
 
 Pendant son périple il se fait arréter par un blocus pirates ( ou empire zakelien) pour se sortir de cette situation il doit se faire passer pour un chef ennemi et dire de le laisser passer. 
