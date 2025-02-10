@@ -22,10 +22,11 @@ Tasked with the heavy mission of overthrowing Valkorion, you must draw upon the 
 Tu reçois un appel de ton maitre qui t’envoie un ordre de mission ultra secret chiffré dans la langue star wars. La première mission est lié au fils et un des bras droits de l'empereur, d'après des informations 
 
 
-*** Second Level ***
+*** Second Level  File Injection GET ***
 
-Vaisseau log.txt avec plein de digi code.  1977 année de sortie de star wars. Il'y a des coordonées dans le vaisseau qui vont vers une planète donc notre personnage y va.
+Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent différents plans. Il y a une faille car c'est directement en clair dans l'URL (GET), et en modifiant cela, on peut récupérer les logs du vaisseau et récupérer le fichier logs.txt. Il faut modifier l'URL de l'image par secret/logs.txt et il sera téléchargé dans le navigateur.
 
+Il y aura le flag dans les logs à récupérer.
 
 
 
