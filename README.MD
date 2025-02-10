@@ -29,10 +29,6 @@ Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent diffé
 Il y aura le flag dans les logs à récupérer.
 
 
-
-
-
-
 *** Third Level ***
 
 
@@ -43,8 +39,12 @@ Il y aura le flag dans les logs à récupérer.
 
 *** 8 Level Injection SQL ***
 
-Récupéré le compte de notre maitre qui communique avec le chef ennemi (commme cela faire la discussion pour la futur attaque xss)
+Récupéré le compte de notre maitre qui est Llywi Minllegui (cest un exemple donne par LIA). Il faut recuper son hash et ensuite force le hash avec un kali. Son password est password ce qui est cense etre simple.
+Cela a pour but de pouvoir se connecter a son compte et discuter avec le chef ennemi (qui est MAS TYMAR). Cela  apour but de lui evnoyer un XSS via la messagerie.
 
+Voici le payload SQL.
+
+PAYLOAD = ' UNION SELECT NULL, username, password, NULL, NULL FROM users #
 
 *** 9 Level Attaque XSS ***
 
