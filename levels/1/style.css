@@ -308,6 +308,7 @@
     transform: translate(-50%, -50%);
     margin: 0; /* Supprime la marge pour éviter le décalage */
     width: 100%; /* Assure un centrage parfait */
+    font-family: 'Starjedi', sans-serif;
   }
 
 
