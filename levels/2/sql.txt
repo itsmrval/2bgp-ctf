@@ -1,0 +1,7 @@
+CREATE TABLE users (
+    userid INT PRIMARY KEY,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    tel VARCHAR(15),
+    password VARCHAR(255)
+);

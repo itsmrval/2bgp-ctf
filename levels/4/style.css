@@ -153,3 +153,52 @@ input[type="submit"]:hover {
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
+
+/* Ajoute une media query pour les écrans plus petits */
+@media (max-width: 768px) {
+  .title {
+    margin-top: 80px; /* Réduit la marge supérieure pour les petits écrans */
+    font-size: 2rem; /* Réduit la taille de la police pour les petits écrans */
+  }
+
+  .navbar {
+    padding: 0.5rem 1rem; /* Réduit l'espacement de la navbar pour les petits écrans */
+  }
+
+  .logo img {
+    width: 100px; /* Réduit la taille du logo pour les petits écrans */
+  }
+
+  .container {
+    margin-top: 10px; /* Réduit la marge supérieure du conteneur */
+  }
+
+  .plan {
+    margin-top: 50px; /* Réduit la marge supérieure du texte "Plan Sélectionné" */
+  }
+}
+
+/* Styles pour les écrans très petits (mobile) */
+@media (max-width: 480px) {
+  .title {
+    margin-top: 60px; /* Réduit encore la marge supérieure pour les très petits écrans */
+    font-size: 1.5rem; /* Réduit davantage la taille de la police */
+  }
+
+  .navbar {
+    padding: 0.5rem; /* Réduit encore l'espacement de la navbar */
+  }
+
+  .logo img {
+    width: 80px; /* Réduit encore la taille du logo */
+  }
+
+  .container {
+    margin-top: 5px; /* Réduit encore la marge supérieure du conteneur */
+  }
+
+  .plan {
+    margin-top: 30px; /* Réduit encore la marge supérieure du texte "Plan Sélectionné" */
+  }
+}
+
