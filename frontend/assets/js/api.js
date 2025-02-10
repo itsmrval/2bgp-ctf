@@ -104,28 +104,6 @@ async function deleteTeam(id) {
     }
 }
 
-// Join team
-async function joinTeam(team_id) {
-    try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`${API_URL}/teams/${team_id}`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            return data;
-        } else {
-            throw new Error('Team join failed');
-        }
-    } catch (error) {
-        throw new Error('Error joining team');
-    }
-}
-
 // Get team
 async function getTeams() {
     try {
@@ -265,7 +243,38 @@ async function awardUserPoints(userId, levelId) {
     return await response.json();
 }
 
+async function addUserToTeam(userId, teamId) {
+    const response = await fetch(`${API_URL}/teams/${teamId}/${userId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        },
+    });
+    
+    if (!response.ok) {
+        throw new Error('Failed to add user to team');
+    }
+    
+    return response.json();
+}
+
+async function removeUserFromTeam(userId, teamId) {
+    const response = await fetch(`${API_URL}/teams/${teamId}/${userId}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+    
+    if (!response.ok) {
+        throw new Error('Failed to remove user from team');
+    }
+    
+    return response.json();
+}
+
 
 export { login, register, getUserTeam, getUsers, deleteUser,
-    getTeams, createTeam, joinTeam, deleteTeam,
+    getTeams, createTeam, deleteTeam, addUserToTeam, removeUserFromTeam,
     getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints };

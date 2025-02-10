@@ -170,6 +170,24 @@
         </div>
     </div>
 
+    <div id="manageTeamModal" class="modal">
+        <div class="modal-content">
+            <h2>Manage Team Members</h2>
+            <div class="team-members-section">
+                <h3>Current Team Members</h3>
+                <ul id="currentTeamMembers"></ul>
+            </div>
+            <form id="manageTeamModalForm">
+                <div class="add-member-section">
+                    <h3>Add New Member</h3>
+                    <select id="availableUsers" required></select>
+                    <button type="submit">Add Member</button>
+                </div>
+            </form>
+            <button onclick="hideModal('manageTeamModal')" class="close-btn">Close</button>
+        </div>
+    </div>
+
     <script src="../assets/js/jquery.min.js" type="module"></script>
     <script src="../assets/js/admin.js" type="module"></script>
 

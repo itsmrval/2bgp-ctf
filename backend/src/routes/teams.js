@@ -34,20 +34,28 @@ router.delete('/:team_id', authenticate, isAdmin, async (req, res) => {
   }
 });
 
-router.post('/:team_id', authenticate, async (req, res) => {
+router.post('/:team_id/:user_id', authenticate, async (req, res) => {
   try {
+
+    if (req.user.id !== req.params.user_id && req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Unauthorized' });
+    }      
+
     const team = await Team.findById(req.params.team_id);
     if (!team) {
       return res.status(404).json({ error: 'Team not found' });
     }
-    if (team.members.length >= 4) {
-      return res.status(400).json({ error: 'Team is full' });
+    const user = await User.findById(req.params.user_id);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
     }
+
+
     // Check if user is already a member of any team
-    if (await Team.findOne({ members: req.user._id })) {
+    if (await Team.findOne({ members: req.params._id })) {
       return res.status(400).json({ error: 'User is already a member of a team' });
     }
-    team.members.push(req.user._id);
+    team.members.push(user._id);
     await team.save();
     res.status(200).json("Team joined successfully");
   } catch (error) {

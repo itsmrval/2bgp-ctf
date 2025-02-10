@@ -1,4 +1,4 @@
-import { getUserTeam, joinTeam, getTeams } from './api.js'; 
+import { getUserTeam, addUserToTeam, getTeams } from './api.js'; 
 
 // Logout function
 async function logout() {
@@ -97,7 +97,7 @@ async function displayTeamChoice(selectedTeam) {
                 joinButton.textContent = 'Join';
                 joinButton.addEventListener('click', async () => {
                     try {
-                        await joinTeam(team._id);
+                        await addUserToTeam(localStorage.getItem('id'), team._id);
                         window.location.href = '/';
                     } catch (error) {
                         console.error('Error joining team:', error);

@@ -1,4 +1,4 @@
-import { getUsers, getUserTeam, deleteUser, register, getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints, getTeams, createTeam, deleteTeam} from './api.js';
+import { getUsers, getUserTeam, deleteUser, register, getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints, getTeams, createTeam, deleteTeam, removeUserFromTeam, addUserToTeam} from './api.js';
 
 // Authentication functions
 function checkAuth() {
@@ -49,6 +49,8 @@ async function loadTeams() {
                     <td>${team.members.length}</td>
                     <td>
                         <button class="delete-team-btn" data-id="${team._id}">Delete</button>
+                        <button class="assign-btn" data-id="${team._id}">Manage</button>
+
                     </td>
                 </tr>
             `;
@@ -68,10 +70,10 @@ async function loadTeams() {
         });
 
         // Set up award button listeners
-        document.querySelectorAll('.award-btn').forEach(button => {
+        document.querySelectorAll('.assign-btn').forEach(button => {
             button.addEventListener('click', (event) => {
                 const userId = event.target.getAttribute('data-id');
-                showAwardModal(userId);
+                showManageTeamModal(userId);
             });
         });
 
@@ -134,6 +136,12 @@ async function loadUsers() {
 function showAwardModal(userId) {
     document.getElementById('assignLevelForm').setAttribute('data-user-id', userId);
     showModal('assignLevelModal');
+}
+
+function showManageTeamModal(teamId) {
+    document.getElementById('manageTeamModalForm').setAttribute('data-team-id', teamId);
+    updateManageTeamModal(teamId);
+    showModal('manageTeamModal');
 }
 
 async function loadLevels() {
@@ -253,6 +261,25 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Error awarding points. Please try again.');
         }
     });
+
+    document.getElementById('manageTeamModalForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const teamId = e.target.getAttribute('data-team-id');
+        const userSelect = document.getElementById('availableUsers');
+        const selectedUserId = userSelect.value;
+    
+        if (selectedUserId) {
+            try {
+                await addUserToTeam(selectedUserId, teamId);
+                await updateManageTeamModal(teamId);
+                await loadTeams();
+            } catch (error) {
+                console.error('Error adding user to team:', error);
+                alert('Failed to add user to team');
+            }
+        }
+    });
+
 });
 
 
@@ -286,6 +313,59 @@ async function loadScoreboard() {
     }
 }
 
+async function updateManageTeamModal(teamId) {
+    try {
+        // Get current team data
+        const teams = await getTeams();
+        const currentTeam = teams.find(team => team._id === teamId);
+        
+        // Get all users
+        const allUsers = await getUsers();
+        
+        // Filter out users already in the team
+        const teamMemberIds = new Set(currentTeam.members.map(member => member._id));
+        const availableUsers = allUsers.filter(user => !teamMemberIds.has(user._id));
+        
+        // Update current members list
+        const teamMembersList = document.getElementById('currentTeamMembers');
+        teamMembersList.innerHTML = '';
+        currentTeam.members.forEach(member => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                ${member.username}
+                <button class="remove-member-btn" data-user-id="${member._id}" data-team-id="${teamId}">
+                    Remove
+                </button>
+            `;
+            teamMembersList.appendChild(li);
+        });
+        
+        // Update available users dropdown
+        const userSelect = document.getElementById('availableUsers');
+        userSelect.innerHTML = availableUsers
+            .map(user => `<option value="${user._id}">${user.username}</option>`)
+            .join('');
+            
+        // Set up remove button listeners
+        document.querySelectorAll('.remove-member-btn').forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const userId = event.target.getAttribute('data-user-id');
+                const teamId = event.target.getAttribute('data-team-id');
+                try {
+                    await removeUserFromTeam(userId, teamId);
+                    await updateManageTeamModal(teamId);
+                    await loadTeams();
+                } catch (error) {
+                    console.error('Error removing user from team:', error);
+                    alert('Failed to remove user from team');
+                }
+            });
+        });
+    } catch (error) {
+        console.error('Error updating team management modal:', error);
+        alert('Failed to update team management modal');
+    }
+}
 
 // Initialize dashboard
 if (checkAuth()) {
