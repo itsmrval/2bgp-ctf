@@ -55,7 +55,7 @@ router.post('/:user_id/:level_id', authenticate, async (req, res) => {
       return res.status(400).json({ error: 'User ID and Level ID are required' });
     }
 
-    if (!req.user.admin && req.user.id !== user_id) {
+    if (req.user.role !== 'admin' && req.user.id !== user_id) {
       return res.status(403).json({ error: 'You are not authorized to award points to another user' });
     }
 
@@ -69,7 +69,7 @@ router.post('/:user_id/:level_id', authenticate, async (req, res) => {
       return res.status(404).json({ error: 'Level not found' });
     }
     
-    if (!req.user.admin) {
+    if (req.user.role !== 'admin') {
       if (!req.body.flag) {
         return res.status(400).json({ error: 'Flag is required' });
       }
