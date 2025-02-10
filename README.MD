@@ -58,6 +58,7 @@ hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 hash.txt : Fichier contenant le hash MD5.
 
 /usr/share/wordlists/rockyou.txt : Chemin vers le fichier de dictionnaire.
+    => Oubliez pas de dezip le rockyou
 
 
 Aller au prochain niveau se connected avec ce password recupere et realiser la prochaine etape.
