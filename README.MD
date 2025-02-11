@@ -40,7 +40,6 @@ Message chiffré par les services secret :
 
 "Nous avons trouvé un vestige, ce vaisseau est ce qui peut nous sauver, selon les légendes c'est le vaisseau le plus rapide du monde, il a été volé par le fils de Valkorion, Arkann. Depuis des années, nous n'avions plus de nouvelles, mais nous avons retrouvé sa piste, rejoignez nous sur notre dernière base qui se trouve sur ... (Endor)."
 
-
 ( je vais trouvé une idée pour qu'il trouve endor plus difficilement ou sur un autre niveau) 
 
 Première fois qu'il arrive sur la vu des planètes, il doit donc cliqué sur la planète Endor pour aller sur la base secrète. 
@@ -52,26 +51,36 @@ Notre personnage se rend à la dernière base des services secrets qui se trouve
 
 Notre personnage met les coordonnées dans son vaisseau et cela lui indique une nouvelle planète, la planète ... ( a trouver) 
 
+L'utiliateur est amené sur la vue des planètes et clique sur la prochaine destination
 
 
-*** Level 3  FILE INJECTION = Reverse Shell (planète)  ***
 
-
+*** Level 3  FILE INJECTION = Reverse Shell (planète ...)  ***
 
 ------------ Image a mettre en fond  dun vaisseau avec une porte et un sorte dordinateur afin denvoyer sa ID card ------------------
 
-Tu as retrouve le vaisseau du de Arkann mais arkann n'est pas présent aux alentours ce que tu trouves étranges (l'aurait t'il abandonné en faisant exprès ici ) mais celui ci est verouillle totalment de partout... Heureusement tu maitrises la force pour ouvrir la porte du vaisseau. 
+Tu as retrouve le vaisseau du  Arkann mais arkann n'est pas présent aux alentours ce que tu trouves étranges (l'aurait t'il abandonné en faisant exprès ici ) mais celui ci est verouillle totalment de partout... Heureusement tu maitrises la force pour ouvrir la porte du vaisseau. 
 
-Tu entres dans le cockpit et tout est éteint et tu voies que sur le tableua de bord il y'a un digicode.  Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au digicode. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt
+Tu entres dans le cockpit et tout est éteint et tu voies que sur le tableua de bord il y'a un code. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au code. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt.  
+
+Lorsque il active le code étant dans le vaisseau le vaisseau indique une nouvelle planète ou allé et du coup on prend ce vaisseau . 
 
 
-*** Level 3  Faille reset password (a faire) ***
------------- Image a mettre en fond d'une piece d'un vaisseau avec un casier et un digicode et un endroit pour reinitlaiser son mdp ------------------
+*** Level 4 Faille reset password (a faire planète Kamino ) ***
 
-Bien joue ! TU es maintenant dans le vaisseau, cepenant, il est occupé par les ennemis ...... Essaye de ne pas te faire attraper ..... Il faut maintenant te deguiser en personnage ennemi. Pour cela va dans le vestiaire, il y a un code du casier de XXX mais tu nas pas son code. Alors il faut reinitlaiser le MDP  (fais dabord sur le compte pour anlyser les requetes etc) et lors de la reinitialisation, il faut changer l'url et indique avec les champs de XXX. 
-Aisni, tu connais le MDP de son casier et tu recupere son costume.
 
-Bie  joue, tu es maintenant deguise !!! tu puex te promener tranquillement dnas le vaisseau et continue ta mission.
+------------  Image d'arrivé sur kamino +  image de la salle d'adn ------------------
+
+Tu te retrouves sur Kamino et tu es attendu par les Kaminoains. Kamino est connu pour leurs science et surtout leurs sciences en clonnage tu es accepté sur le quai et tu es accueilli par les Kanminoains qui disaient attendre un certain Arkann. 
+
+Tu arrives sur les lieux et les Kaminoains t'expliquent que l'empereur eternel à commandé une armée de clones avec comme clone origninel un chasseur de primes. Le problème de cela c'est que déjà sans armées de clone l'empire eternel marche sur la galaxies et est a deux doigt de la controlé, mais avec une armée de cloen il controlera la galaxie encore plus facilement. 
+
+Tu de donnes pour objectif donc de trouver la salle qui contient l'adn des clones pour pouvoir la detruire. Dans la salle d'adn il y'a un ordinateur central qui gère les adn et il y'a un mot de passe qu'il te faut renitialiser (fais dabord sur le compte pour anlyser les requetes etc) et lors de la reinitialisation, il faut changer l'url et indique avec les champs de XXX.)
+
+Tu réussis donc à renitialiser le mot de passe pour te connecter donc tu detruire les données. 
+
+Tu t'enfuis sans que personne ne le remarque, tu ne comprends toujours pas si on te laisse faire cela 
+
 
 *** Level 4 ***
 
@@ -86,7 +95,7 @@ Il y aura le flag dans les logs à récupérer.
 
 *** 8 Level Injection SQL (a voire quand mettre cette faille) ***
 
-Récupéré le compte de notre maitre qui est Llywi Minllegui (cest un exemple donne par LIA). Il faut recuper son hash et ensuite force le hash avec un kali. Son password est password ce qui est cense etre simple.
+Pour récupéré le mot de passe Récupéré le compte de notre maitre qui est Llywi Minllegui (cest un exemple donne par LIA). Il faut recuper son hash et ensuite force le hash avec un kali. Son password est password ce qui est cense etre simple.
 Cela a pour but de pouvoir se connecter a son compte et discuter avec le chef ennemi (qui est MAS TYMAR). Cela  apour but de lui evnoyer un XSS via la messagerie.
 
 Voici le payload SQL.
@@ -113,15 +122,18 @@ Aller au prochain niveau se connected avec ce password recupere et realiser la p
 
 *** 9 Level Attaque XSS (a voire quand mettre cette faille)  ***
 
-Pendant son périple il se fait arréter par un blocus pirates ( ou empire zakelien) pour se sortir de cette situation il doit se faire passer pour un chef ennemi et dire de le laisser passer.
+Grace au vaisseau récupérer 
 Ainsi, maintenant qu'on a le compte de notre chef qui communique avec le chef ennemi pour se mettre d'accord, il faut pouvoir communiquer avce le chef ennemi et se connecter a son compte pour envoyer un message a ses soldats afin de leur dire de me relacher !!!!
 Pour cela, lorsque le chef ennemi se connecte on recupere le cookie avec une XSS et on se levnoie sur un serveur web et on se connect a lurl chat.php du chef afin de mettre le cookie dans les datas et on est connecte au chef ennemi.
 
 
 
+*** Avant dernieer niveau Level Attaque XSS (a voire quand mettre cette faille)  ***
+
+
 *** Exemple dattaque a faire :   ***
 
-DOubke autheth attaque. 
+Doubke authenth attaque. 
 
 
 *** Trouver l’identifiant d’un Jedi ***
