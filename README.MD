@@ -63,22 +63,28 @@ Tu as retrouve le vaisseau du  Arkann mais arkann n'est pas présent aux alentou
 
 Tu entres dans le cockpit et tout est éteint et tu voies que sur le tableua de bord il y'a un code. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au code. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt.  
 
-Lorsque il active le code étant dans le vaisseau le vaisseau indique une nouvelle planète ou allé et du coup on prend ce vaisseau . 
+Lorsque il active le code le vaisseau s'allume tout seul et s'envole vers une nouvelle planete. 
 
 
-*** Level 4 Faille reset password (a faire planète Kamino ) ***
+*** Level 4  DB (planète Hoth)  ***
+
+Sur cette nouvelle planète glaciale le vaisseau se pose devant un temple.  
+
+Tu n'es pas là par hasard et tu te dois de rentrer dans ce temple. En rentrant dans ce temple au milieu tu vois un holocron, en tant que maitre de le force tu arrives à ouvrir cet holocron partiellement ou totalement cet holocron. Dans cet holocron il y'a un texte annoncant un grand danger l'empereur aurait commandé une armée de clone. Et jsp comment mais met que il a envoyé cet homme (Jango fett)   pour etre le clone originel et met son mail dedans. Il y'a aussi le lieu qui est kamino. 
+
+Quand tu rentres dans ton vaisseau tu vois qu'il n'y a plus d'auto pilot et tu as donc pour prochain objectif de te rendre sur cette planete pour arreter la lancée de la construction de cette armée. 
+
+
+*** Level 5 Faille reset password (a faire planète Kamino ) ***
 
 ------------  Image d'arrivé sur kamino +  image de la salle d'adn ------------------
 
-Tu te retrouves sur Kamino et tu es attendu par les Kaminoains. Kamino est connu pour leurs science et surtout leurs sciences en clonnage tu es accepté sur le quai et tu es accueilli par les Kanminoains qui disaient attendre un certain Arkann. 
+Tu te retrouves sur Kamino, où les Kaminoans t'attendaient, annonçant l'arrivée d'un certain Arkann. Réputée pour ses prouesses en clonage, cette planète abrite les esprits derrière la création de l'armée de clones de l'Empereur Éternel. Dès ton arrivée, les Kaminoans t'informent que l'Empereur a mandaté leur expertise pour fabriquer une armée de clones, basée sur l'exemple d'un chasseur de primes légendaire. Le problème est d'une gravité extrême : même sans cette armée, l'Empire Éternel est à deux doigts de dominer la galaxie, et avec elle, il imposera son contrôle sur l'univers en toute impunité.
 
-Tu arrives sur les lieux et les Kaminoains t'expliquent que l'empereur eternel à commandé une armée de clones avec comme clone origninel un chasseur de primes. Le problème de cela c'est que déjà sans armées de clone l'empire eternel marche sur la galaxies et est a deux doigt de la controlé, mais avec une armée de cloen il controlera la galaxie encore plus facilement. 
+Ta mission consiste à localiser la salle contenant l'ADN des clones, véritable noyau de l'opération. Dans cette salle, un ordinateur central gère toutes les données ADN. Tu devras d'abord te connecter pour analyser les requêtes, puis réinitialiser le mot de passe. Lors de cette réinitialisation, il te faudra modifier l'URL en renseignant les champs indiqués par XXX pour contourner les mesures de sécurité.
 
-Tu de donnes pour objectif donc de trouver la salle qui contient l'adn des clones pour pouvoir la detruire. Dans la salle d'adn il y'a un ordinateur central qui gère les adn et il y'a un mot de passe qu'il te faut renitialiser (fais dabord sur le compte pour anlyser les requetes etc) et lors de la reinitialisation, il faut changer l'url et indique avec les champs de XXX.)
+Après avoir réinitialisé le mot de passe et infiltré le système, tu parviens à détruire les données essentielles. Tu t'enfuis discrètement, sans éveiller le moindre soupçon.
 
-Tu réussis donc à renitialiser le mot de passe pour te connecter donc tu detruire les données. 
-
-Tu t'enfuis sans que personne ne le remarque, tu ne comprends toujours pas si on te laisse faire cela 
 
 
 *** Level 5 (planete tatooine) ***
