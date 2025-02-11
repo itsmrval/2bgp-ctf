@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Scoreboard
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./scoreBoard.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">
+                <img src="../../frontend/assets/logo/starwars.png" alt="Star Wars Logo">
+            </a>
+        </div>
+        <div class="profile">
+            <i class="fa-solid fa-user"></i>
+            <span id="profileUsername" class="user-name">Loading</span>
+            <button class="disconnect-btn" id="logout">Déconnexion</button>
+        </div>
+    </nav>
+    <div class="space-background"></div>
+
+    <div class="container">
+        <table class="scoreboard">
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Rank</th>
+                    <th>Member</th>
+                    <th>Score</th>
+                    <th>Missions Progress</th>
+                    <th>Completion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rebels -->
+                <tr class="team-header">
+                    <td colspan="6" class="team-name">Rebels #1</td>
+                </tr>
+                <tr>
+                    <td>Rebels</td>
+                    <td class="rank"><i class="fas fa-crown"></i></td>
+                    <td>Luke Skywalker</td>
+                    <td>1200</td>
+                    <td class="missions">12/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 80%"></div>
+                            <div class="completion-text">80%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rebels</td>
+                    <td></td>
+                    <td>Leia Organa</td>
+                    <td>1000</td>
+                    <td class="missions">10/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 67%"></div>
+                            <div class="completion-text">67%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Rebels</td>
+                    <td></td>
+                    <td>Han Solo</td>
+                    <td>800</td>
+                    <td class="missions">8/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 53%"></div>
+                            <div class="completion-text">53%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="team-total">
+                    <td>Team Total</td>
+                    <td></td>
+                    <td></td>
+                    <td>3000</td>
+                    <td>30/45</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 67%"></div>
+                            <div class="completion-text">67%</div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Empire -->
+                <tr class="team-header">
+                    <td colspan="6" class="team-name">Empire</td>
+                </tr>
+                <tr>
+                    <td>Empire</td>
+                    <td class="rank"><i class="fas fa-medal"></i>2</td>
+                    <td>Darth Vader</td>
+                    <td>1100</td>
+                    <td class="missions">11/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 73%"></div>
+                            <div class="completion-text">73%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Empire</td>
+                    <td></td>
+                    <td>Emperor Palpatine</td>
+                    <td>900</td>
+                    <td class="missions">9/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 60%"></div>
+                            <div class="completion-text">60%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Empire</td>
+                    <td></td>
+                    <td>Stormtrooper</td>
+                    <td>700</td>
+                    <td class="missions">7/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 47%"></div>
+                            <div class="completion-text">47%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="team-total">
+                    <td>Team Total</td>
+                    <td></td>
+                    <td></td>
+                    <td>2700</td>
+                    <td>27/45</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 60%"></div>
+                            <div class="completion-text">60%</div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Mandalorians -->
+                <tr class="team-header">
+                    <td colspan="6" class="team-name">Mandalorians</td>
+                </tr>
+                <tr>
+                    <td>Mandalorians</td>
+                    <td class="rank"><i class="fas fa-medal"></i>3</td>
+                    <td>Din Djarin</td>
+                    <td>950</td>
+                    <td class="missions">9/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 60%"></div>
+                            <div class="completion-text">60%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mandalorians</td>
+                    <td></td>
+                    <td>Bo-Katan Kryze</td>
+                    <td>850</td>
+                    <td class="missions">8/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 53%"></div>
+                            <div class="completion-text">53%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Mandalorians</td>
+                    <td></td>
+                    <td>Sabine Wren</td>
+                    <td>600</td>
+                    <td class="missions">6/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 40%"></div>
+                            <div class="completion-text">40%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="team-total">
+                    <td>Team Total</td>
+                    <td></td>
+                    <td></td>
+                    <td>2400</td>
+                    <td>23/45</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 51%"></div>
+                            <div class="completion-text">51%</div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Bounty Hunters -->
+                <tr class="team-header">
+                    <td colspan="6" class="team-name">Bounty Hunters</td>
+                </tr>
+                <tr>
+                    <td>Bounty Hunters</td>
+                    <td class="rank">N/A</td>
+                    <td>Boba Fett</td>
+                    <td class="na">N/A</td>
+                    <td class="na">0/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 0%"></div>
+                            <div class="completion-text">0%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="team-total">
+                    <td>Team Total</td>
+                    <td></td>
+                    <td></td>
+                    <td class="na">N/A</td>
+                    <td class="na">0/15</td>
+                    <td>
+                        <div class="completion">
+                            <div class="completion-bar" style="width: 0%"></div>
+                            <div class="completion-text">0%</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

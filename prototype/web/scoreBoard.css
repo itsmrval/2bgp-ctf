@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: transparent;
+    z-index: -20;
+    background-color: #090A0F;
+    position: relative;
+}
+
+@font-face {
+    font-family: 'Starjedi';
+    src: url('fonts/Starjedi.ttf') format('truetype');
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: transparent;
+}
+
+.space-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+.space-background::before,
+.space-background::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50" cy="50" r="1" fill="white" /><circle cx="200" cy="150" r="1" fill="white" /><circle cx="300" cy="300" r="1" fill="white" /><circle cx="400" cy="50" r="1" fill="white" /><circle cx="500" cy="200" r="1" fill="white" /><circle cx="700" cy="100" r="1" fill="white" /><circle cx="800" cy="250" r="1" fill="white" /><circle cx="900" cy="400" r="1" fill="white" /><circle cx="100" cy="500" r="1" fill="white" /><circle cx="250" cy="600" r="1" fill="white" /><circle cx="450" cy="700" r="1" fill="white" /><circle cx="600" cy="800" r="1" fill="white" /><circle cx="750" cy="900" r="1" fill="white" /><circle cx="900" cy="1000" r="1" fill="white" /><circle cx="100" cy="1100" r="1" fill="white" /><circle cx="300" cy="1200" r="1" fill="white" /><circle cx="500" cy="1300" r="1" fill="white" /><circle cx="700" cy="1400" r="1" fill="white" /><circle cx="900" cy="1500" r="1" fill="white" /><circle cx="150" cy="1600" r="1" fill="white" /><circle cx="350" cy="1700" r="1" fill="white" /><circle cx="550" cy="1800" r="1" fill="white" /><circle cx="750" cy="1900" r="1" fill="white" /><circle cx="950" cy="2000" r="1" fill="white" /></svg>');
+    animation: stars 50s linear infinite;
+}
+
+.space-background::after {
+    top: 100%;
+}
+
+.foreground-image {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    /* Ajustez ce pourcentage pour la taille souhaitée */
+}
+
+@keyframes stars {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+.navbar {
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.profile:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.profile i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.user-name {
+    color: white;
+    margin: 0 1rem;
+    font-family: Arial, sans-serif;
+}
+
+.disconnect-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.disconnect-btn:hover {
+    background-color: #ff0000;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+
+@keyframes rotate {
+    0% {
+        transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+    }
+
+    100% {
+        transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(360deg);
+    }
+}
+
+.stars {
+    animation: rotate 200s linear infinite;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0, 0, 0, 0)),
+        radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+        radial-gradient(1px 1px at 90px 40px, #fff, rgba(0, 0, 0, 0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+}
+
+.navbar {
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 232, 31, 0.3);
+}
+
+.logo {
+    text-align: center;
+}
+
+.logo h1 {
+    color: #FFE81F;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.7);
+    letter-spacing: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.scoreboard {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    margin-top: 2rem;
+}
+
+.scoreboard thead th {
+    background: rgba(255, 232, 31, 0.1);
+    padding: 1rem;
+    font-size: 1.1rem;
+    color: #FFE81F;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255, 232, 31, 0.3);
+}
+
+.team-header {
+    background: rgba(255, 232, 31, 0.05);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.team-name {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+    color: #FFE81F;
+    text-shadow: 0 0 5px rgba(255, 232, 31, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.team-total {
+    font-weight: bold;
+    color: #FFE81F;
+    background: rgba(255, 232, 31, 0.1);
+}
+
+.scoreboard tbody tr:not(.team-header):not(.team-total) {
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.scoreboard tbody tr:not(.team-header):not(.team-total):hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+}
+
+.scoreboard td {
+    padding: 1rem;
+    text-align: center;
+}
+
+.rank {
+    font-weight: bold;
+    color: #FFE81F;
+}
+
+.rank i {
+    margin-right: 5px;
+}
+
+.trophy {
+    color: #FFE81F;
+    text-shadow: 0 0 5px rgba(255, 232, 31, 0.7);
+}
+
+.missions {
+    color: #00ff00;
+}
+
+.completion {
+    position: relative;
+    width: 100px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 0 auto;
+}
+
+.completion-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #00ff007a;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.completion-text {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 0.8rem;
+    line-height: 20px;
+}
+
+.na {
+    color: #ff4444;
+    font-style: italic;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 232, 31, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 232, 31, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(255, 232, 31, 0.5);
+    }
+}
+
+.scoreboard tbody tr:first-child td {
+    animation: glow 2s infinite;
+}

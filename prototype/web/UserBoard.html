@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserBoard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./user.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#">
+                <img src="../../frontend/assets/logo/starwars.png" alt="Star Wars Logo">
+            </a>
+        </div>
+        <div class="profile">
+            <i class="fa-solid fa-user"></i>
+            <span id="profileUsername" class="user-name">Loading</span>
+            <button class="disconnect-btn" id="logout">Déconnexion</button>
+        </div>
+    </nav>
+    <div class="space-background"></div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="menu-item active">
+                <i class="fas fa-user"></i>
+                <span>Account Settings</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Team Management</span>
+            </div>
+            <div class="menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Progress</span>
+            </div>
+            <div class="menu-item logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Account Settings Section -->
+            <section class="section active">
+                <h2>Account Settings</h2>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" value="Luke_Skywalker" />
+                </div>
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <input type="password" />
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" />
+                </div>
+                <div class="form-group">
+                    <label>Confirm New Password</label>
+                    <input type="password" />
+                </div>
+                <button>Save Changes</button>
+            </section>
+
+             <!-- Team Management Section -->
+            <section class="section">
+                <h2>Team Management</h2>
+                <div class="team-info">
+                    <h3>Current Team: Rebels</h3>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <h4>Team Rank</h4>
+                            <p>#1</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Team Score</h4>
+                            <p>3000</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Missions Completed</h4>
+                            <p>30/45</p>
+                        </div>
+                    </div>
+                    
+                    <div class="member-list">
+                        <h4>Team Members</h4>
+                        <ul>
+                            <li><i class="fas fa-crown"></i> Luke Skywalker (Captain)</li>
+                            <li><i class="fas fa-user"></i> Leia Organa</li>
+                            <li><i class="fas fa-user"></i> Han Solo</li>
+                        </ul>
+                    </div>
+
+                    <div class="leave-team">
+                        <button class="danger-button">Leave Team</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="section">
+                <h2>Progress Tracking</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+                <p>Overall Completion: 60%</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <h4>Challenges Completed</h4>
+                        <p>12/15</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>Total Score</h4>
+                        <p>1200</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>Current Rank</h4>
+                        <p>#1</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Simple menu navigation
+        document.querySelectorAll('.menu-item').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                // Update menu items
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Update sections
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.querySelectorAll('.section')[index].classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
