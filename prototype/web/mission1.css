@@ -96,11 +96,10 @@
     display: block;
   }
   
-  /* Style de la bulle de texte */
   .bubble {
     position: absolute;
-    top: 20px; /* Ajustez la position verticale de la bulle */
-    left: 60%; /* Ajustez la position horizontale de la bulle */
+    top: 20px; /* Ajustez selon vos besoins */
+    left: 60%; /* Ajustez selon vos besoins */
     max-width: 60%;
     padding: 15px;
     background: #b2f4ff;
@@ -110,4 +109,16 @@
     line-height: 1.4;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   }
+  
+  /* Ajout de la flèche avec un pseudo-élément */
+  .bubble::before {
+    content: "";
+    position: absolute;
+    top: 20px;  /* Position verticale de la flèche par rapport à la bulle */
+    left: -20px; /* Position horizontale, ici à gauche de la bulle */
+    border-width: 10px 20px 10px 0;
+    border-style: solid;
+    border-color: transparent #b2f4ff transparent transparent;
+  }
+  
   
