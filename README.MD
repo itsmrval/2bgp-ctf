@@ -68,7 +68,6 @@ Lorsque il active le code étant dans le vaisseau le vaisseau indique une nouvel
 
 *** Level 4 Faille reset password (a faire planète Kamino ) ***
 
-
 ------------  Image d'arrivé sur kamino +  image de la salle d'adn ------------------
 
 Tu te retrouves sur Kamino et tu es attendu par les Kaminoains. Kamino est connu pour leurs science et surtout leurs sciences en clonnage tu es accepté sur le quai et tu es accueilli par les Kanminoains qui disaient attendre un certain Arkann. 
@@ -82,15 +81,24 @@ Tu réussis donc à renitialiser le mot de passe pour te connecter donc tu detru
 Tu t'enfuis sans que personne ne le remarque, tu ne comprends toujours pas si on te laisse faire cela 
 
 
-*** Level 4 ***
+*** Level 5 (planete tatooine) ***
+
+Il se retrouve sur tatoine repaire ... 
 
 Se rendre dnas le cotpit afin de pouvoir demarrer le vaisseau........ a continuer.....
+
+
+
 
 *** LEVEL X ?? URL  GET ***
 
 Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent différents plans. Il y a une faille car c'est directement en clair dans l'URL (GET), et en modifiant cela, on peut récupérer les logs du vaisseau et récupérer le fichier logs.txt. Il faut modifier l'URL de l'image par secret/logs.txt et il sera téléchargé dans le navigateur.
 
 Il y aura le flag dans les logs à récupérer.
+
+** LEVEL Bruteforce  ***
+
+Soeur dans la prison bruteforce 
 
 
 *** 8 Level Injection SQL (a voire quand mettre cette faille) ***
