@@ -27,7 +27,7 @@ Premiere planete, l'article de journal. Il y a un vaisseau qui s'est perdu dans 
 *** Level 2  FILE INJECTION = Reverse Shell ***
 
 Tu as trouve le vaisseau mais celui ci est verouillle totalment de partout... dommage, tu ne peux pas entrer dnas le vaisseau afin de l'utiliser. ATTENTION : tu te rends compte, que le vaisseau est habite par les ennemis, il le garde afin de le proteger. Si jamais tu reussir a entrer dnas le vaisseau, essaye de ne pas te faire attraper ..... Il faudra peut etre te faire passer pour une autre personne et enfiler ton meilleur costme.
-Afin de rentrer dnas le vaisseau, il faut presenter son badge (STAR WARS) afin de deverouiller la porte. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au digicode. Il trouve le code.
+Afin de rentrer dnas le vaisseau, il faut presenter son badge (STAR WARS) afin de deverouiller la porte. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au digicode. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt
 
 
 
