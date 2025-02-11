@@ -1,4 +1,9 @@
-import { getUserTeam, addUserToTeam, getTeams, createTeam } from './api.js'; 
+import { getUserTeam, addUserToTeam, getTeams, createTeam, getLevels } from './api.js'; 
+
+//
+// LOGIN LOGIC
+//
+
 
 // Logout function
 async function logout() {
@@ -52,6 +57,10 @@ async function isMemberOfTeam() {
         return false;
     }
 }
+
+//
+// TEAM SELECTION
+//
 
 async function selectTeam(team) {
     document.getElementById('main-container').style.display = 'none';
@@ -127,6 +136,127 @@ async function displayTeamChoice(selectedTeam) {
     }
 }
 
+// 
+// HOMEPAGE
+//
+
+function displayPlanets(levels, planetPositions) {
+    const planetsContainer = document.querySelector('.planets-container');
+    
+    // Clear existing planets
+    planetsContainer.innerHTML = '';
+    
+    // Create and append planets
+    levels.forEach((level, index) => {
+        // Create planet div
+        const planetDiv = document.createElement('div');
+        planetDiv.className = `planet`;
+        
+        // Apply position from our positions array
+        const position = planetPositions[index];
+        planetDiv.style.top = position.top;
+        planetDiv.style.left = position.left;
+        
+        // Add click handler
+        planetDiv.onclick = () => goToPlanet(level.hid);
+        
+        // Create planet image
+        const img = document.createElement('img');
+        img.src = `../assets/logo/levels/${level.hid}.png`;
+        img.alt = level.name;
+        
+        // Create planet name div
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'planet-name';
+        nameDiv.textContent = level.name;
+        
+        // Append elements
+        planetDiv.appendChild(img);
+        planetDiv.appendChild(nameDiv);
+        planetsContainer.appendChild(planetDiv);
+    });
+}
+
+function startHyperspace(duration = 3000, url) {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Setup canvas
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.zIndex = '-1';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+    
+    const stars = [];
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    
+    function animate() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Add more stars per frame
+      for(let i = 0; i < 3; i++) { 
+        if (stars.length < 300) {
+          const angle = Math.random() * Math.PI * 2;
+          stars.push({
+            x: centerX,
+            y: centerY,
+            speed: 3 + Math.random() * 1,
+            angle: angle,
+            size: 1 + Math.random() * 2,
+            alpha: Math.random()
+          });
+        }
+      }
+      
+      // Update and draw stars
+      stars.forEach((star, index) => {
+        star.x += Math.cos(star.angle) * star.speed;
+        star.y += Math.sin(star.angle) * star.speed;
+        star.speed *= 1.03; 
+        star.size *= 1.02;
+        
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(255, 255, 255, ${star.alpha})`;
+        ctx.lineWidth = star.size;
+        ctx.moveTo(star.x, star.y);
+        ctx.lineTo(
+          star.x - Math.cos(star.angle) * star.speed,
+          star.y - Math.sin(star.angle) * star.speed
+        );
+        ctx.stroke();
+        
+        // Remove stars that are off screen
+        if (star.x < 0 || star.x > canvas.width || 
+            star.y < 0 || star.y > canvas.height) {
+          stars.splice(index, 1);
+        }
+      });
+    }
+    
+    const animation = setInterval(animate, 1000 / 60);
+    
+    // Clean up after duration
+    setTimeout(() => {
+        window.location.href = url;
+    }, duration);
+  }
+
+async function goToPlanet(id) {
+    startHyperspace(1000, `/admin`);
+    console.log('Going to planet:', id);
+}
+
+
+
+// 
+// MAIN
+//
+
 async function main() {
 
     // Check if user is logged in
@@ -171,6 +301,8 @@ async function main() {
 
         await displayTeamChoice();
     }
+
+    // Team creation page
     if (window.location.pathname === '/teamCreation') {
 
         if (isUserMemberOfTeam) {
@@ -201,7 +333,28 @@ async function main() {
                 console.error('Error creating team:', error);
             }
         });
+        
     }
+    // Home page
+    if (window.location.pathname === '/') {
+        
+        const planetPositions = [
+            { top: '30%', left: '-70%' },
+            { top: '80%', left: '-80%' },
+            { top: '50%', left: '-10%' },
+            { top: '70%', left: '15%' },
+            { top: '20%', left: '-30%' },
+            { top: '60%', left: '-40%' },
+            { top: '35%', left: '45%' },
+            { top: '78%', left: '75%' },
+            { top: '50%', left: '85%' },
+            { top: '90%', left: '95%' }
+        ];
+
+        let levels = await getLevels();
+        displayPlanets(levels, planetPositions);
+    }
+    
 }
 
 $(document).ready(function () {
