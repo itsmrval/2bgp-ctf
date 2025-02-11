@@ -66,11 +66,11 @@ Tu entres dans le cockpit et tout est éteint et tu voies que sur le tableua de 
 Lorsque il active le code le vaisseau s'allume tout seul et s'envole vers une nouvelle planete. 
 
 
-*** Level 4  DB (planète Hoth)  ***
+*** Level 4  Bruteforce DB (planète Hoth)  ***
 
 Sur cette nouvelle planète glaciale le vaisseau se pose devant un temple.  
 
-Tu n'es pas là par hasard et tu te dois de rentrer dans ce temple. En rentrant dans ce temple au milieu tu vois un holocron, en tant que maitre de le force tu arrives à ouvrir cet holocron partiellement ou totalement cet holocron. Dans cet holocron il y'a un texte annoncant un grand danger l'empereur aurait commandé une armée de clone. Et jsp comment mais met que il a envoyé cet homme (Jango fett)   pour etre le clone originel et met son mail dedans. Il y'a aussi le lieu qui est kamino. 
+Tu n'es pas là par hasard et tu te dois de rentrer dans ce temple. En rentrant dans ce temple au milieu tu vois un holocron, en tant que maitre de le force tu essaye d'ouvrir cet holocron (Bruteforce la base de donné, un holocron c'es un artefact dans star war qui peut contenir tout). Dans cet holocron il y'a un texte annoncant un grand danger l'empereur aurait commandé une armée de clone. Et jsp comment mais met que il a envoyé cet homme (Jango fett)   pour etre le clone originel et met son mail dedans. Il y'a aussi le lieu qui est kamino. (Mail comme j'ai pu t'expliqué hésite pas a m'appeler si il le faut) 
 
 Quand tu rentres dans ton vaisseau tu vois qu'il n'y a plus d'auto pilot et tu as donc pour prochain objectif de te rendre sur cette planete pour arreter la lancée de la construction de cette armée. 
 
@@ -87,9 +87,12 @@ Après avoir réinitialisé le mot de passe et infiltré le système, tu parvien
 
 
 
-*** Level 5 (planete tatooine) ***
+*** Level 6 (planete tatooine) ***
 
 Il se retrouve sur tatoine repaire ... 
+
+
+
 
 Se rendre dnas le cotpit afin de pouvoir demarrer le vaisseau........ a continuer.....
 
