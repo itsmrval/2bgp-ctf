@@ -1,0 +1,169 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+ /* Déclaration de la police Starjedi */
+ @font-face {
+    font-family: 'Starjedi';
+    src: url('fonts/Starjedi.ttf') format('truetype');
+  }
+  
+  
+  body {
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
+    overflow: hidden; /* évite la barre de scroll */
+    font-family: Arial, sans-serif;
+  }
+  
+  /*********************************
+   * NAVBAR
+   *********************************/
+  .navbar {
+    position: absolute;
+    top: 0; 
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+  }
+  
+  .logo img {
+    width: 150px;
+    height: auto;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  .profile:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .profile i {
+    font-size: 1.5rem;
+    color: white;
+  }
+  .user-name {
+    color: white;
+    margin: 0 1rem;
+  }
+  .disconnect-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .disconnect-btn:hover {
+    background-color: #ff0000;
+  }
+  
+  /*********************************
+   * BACKGROUND ÉTOILÉ
+   *********************************/
+  .space-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow: hidden;
+  }
+  
+  .space-background::before,
+  .space-background::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50" cy="50" r="1" fill="white" /><circle cx="200" cy="150" r="1" fill="white" /><circle cx="300" cy="300" r="1" fill="white" /><circle cx="400" cy="50" r="1" fill="white" /><circle cx="500" cy="200" r="1" fill="white" /><circle cx="700" cy="100" r="1" fill="white" /><circle cx="800" cy="250" r="1" fill="white" /><circle cx="900" cy="400" r="1" fill="white" /><circle cx="100" cy="500" r="1" fill="white" /><circle cx="250" cy="600" r="1" fill="white" /><circle cx="450" cy="700" r="1" fill="white" /><circle cx="600" cy="800" r="1" fill="white" /><circle cx="750" cy="900" r="1" fill="white" /><circle cx="900" cy="1000" r="1" fill="white" /><circle cx="100" cy="1100" r="1" fill="white" /><circle cx="300" cy="1200" r="1" fill="white" /><circle cx="500" cy="1300" r="1" fill="white" /><circle cx="700" cy="1400" r="1" fill="white" /><circle cx="900" cy="1500" r="1" fill="white" /><circle cx="150" cy="1600" r="1" fill="white" /><circle cx="350" cy="1700" r="1" fill="white" /><circle cx="550" cy="1800" r="1" fill="white" /><circle cx="750" cy="1900" r="1" fill="white" /><circle cx="950" cy="2000" r="1" fill="white" /></svg>');
+    animation: stars 50s linear infinite;
+  }
+  .space-background::after {
+    top: 100%;
+  }
+  @keyframes stars {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+  }
+  
+  /*********************************
+   * CONTENEUR PLANÈTES + VAISSEAU
+   *********************************/
+  .planets-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Au-dessus du background */
+  }
+  
+  /* Style générique pour chaque planète */
+  .planet {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+  }
+  .planet img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  /* Style pour les labels de planète */
+  .planet .planet-name {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Starjedi', sans-serif;
+    font-size: 15px; /* ajustez la taille selon vos besoins */
+    color: transparent; /* intérieur transparent */
+    -webkit-text-stroke: 1px yellow; /* contour en jaune */
+    text-stroke: 1px yellow; /* pour les navigateurs qui supportent cette propriété */
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Positions des planètes */
+  .planet1  { top: 30%; left: 7%;  }
+  .planet2  { top: 80%; left: 15%; }
+  .planet3  { top: 50%; left: 25%; }
+  .planet4  { top: 70%; left: 35%; }
+  .planet5  { top: 20%; left: 45%; }
+  .planet6  { top: 60%; left: 55%; }
+  .planet7  { top: 35%; left: 65%; }
+  .planet8  { top: 78%; left: 75%; }
+  .planet9  { top: 50%; left: 85%; }
+  .planet10 { top: 90%; left: 95%; }
+  
+  /*********************************
+   * VAISSEAU ANIMÉ
+   *********************************/
+  /* Le vaisseau est positionné initialement sur la planète 1 (mêmes coordonnées que planet1) */
+  .spaceship {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: url('logo/sith-ship.png') no-repeat center/contain;
+    top: 25%;    /* même top que la planète 1 */
+    left: 10%;    /* même left que la planète 1 */
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  

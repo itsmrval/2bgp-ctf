@@ -1,0 +1,113 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Déclaration de la police Starjedi */
+  @font-face {
+    font-family: 'Starjedi';
+    src: url('fonts/Starjedi.ttf') format('truetype');
+  }
+  
+  /* Application de l'image de fond au body */
+  body {
+    height: 100vh;
+    background: url('logo/maitre.webp') no-repeat center center/cover;
+    /* Si vous souhaitez combiner l'image avec un overlay, vous pouvez utiliser :
+       background: radial-gradient(ellipse at bottom, rgba(28,40,55,0.5) 0%, rgba(5,6,8,0.5) 100%), url('images/background.jpg') no-repeat center center/cover;
+    */
+    overflow: hidden; /* évite la barre de scroll */
+    font-family: Arial, sans-serif;
+  }
+  
+  /*********************************
+   * NAVBAR
+   *********************************/
+  .navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
+  }
+  
+  .logo img {
+    width: 150px;
+    height: auto;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .profile i {
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  .user-name {
+    color: white;
+    margin: 0 1rem;
+  }
+  
+  .disconnect-btn {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .disconnect-btn:hover {
+    background-color: #ff0000;
+  }
+  
+  /*********************************
+   * PHOTO AVEC BULLE DE TEXTE
+   *********************************/
+  
+  /* Conteneur pour l'image et la bulle */
+  .container {
+    position: relative;
+    max-width: 800px;
+    margin: 120px auto; /* Ajustement pour laisser la place à la navbar */
+  }
+  
+  /* Style de l'image */
+  .container img {
+    width: 100%;
+    display: block;
+  }
+  
+  /* Style de la bulle de texte */
+  .bubble {
+    position: absolute;
+    top: 20px; /* Ajustez la position verticale de la bulle */
+    left: 60%; /* Ajustez la position horizontale de la bulle */
+    max-width: 60%;
+    padding: 15px;
+    background: #b2f4ff;
+    color: #000;
+    border-radius: 10px;
+    font-size: 18px;
+    line-height: 1.4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  

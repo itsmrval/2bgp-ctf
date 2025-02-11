@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Star Wars Choice</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Feuille de style externe -->
+  <link rel="stylesheet" href="mainpage.css">
+  
+  <!-- Font Awesome -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  
+  <!-- GSAP TweenMax -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+  <!-- Lodash -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"></script>
 </head>
 <body>
-
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">
       <a href="#">
-        <img src="logo/starwars.png" alt="Star Wars Logo">
+        <img src="logo/starwars.png" alt="Star Wars Logo" />
       </a>
     </div>
     <div class="profile">
@@ -22,9 +34,58 @@
     </div>
   </nav>
 
-  <div class="space-background">
-    <img class="foreground-image" src="logo/Plan de travail 1.png" alt="Planètes et Vaisseau">
+  <!-- BACKGROUND ÉTOILÉ (statique) -->
+  <div class="space-background"></div>
+
+  <!-- CONTENEUR DES PLANÈTES -->
+  <div class="planets-container">
+    <!-- Chaque div .planet contient l'image et un label affichant le nom de la planète -->
+    <div class="planet planet1" onclick="goToPlanet(1)">
+      <img src="logo/croiseur.png" alt="croiseur" />
+      <div class="planet-name">croiseur</div>
+    </div>
+    <div class="planet planet2" onclick="goToPlanet(2)">
+      <img src="logo/tatoine.png" alt="Tatooine" />
+      <div class="planet-name">Tatooine</div>
+    </div>
+    <div class="planet planet3" onclick="goToPlanet(3)">
+      <img src="logo/mustafar.png" alt="Mustafar" />
+      <div class="planet-name">Mustafar</div>
+    </div>
+    <div class="planet planet4" onclick="goToPlanet(4)">
+      <img src="logo/hoth.png" alt="Hoth" />
+      <div class="planet-name">Hoth</div>
+    </div>
+    <div class="planet planet5" onclick="goToPlanet(5)">
+      <img src="logo/coruscant.png" alt="Coruscant" />
+      <div class="planet-name">Coruscant</div>
+    </div>
+    <div class="planet planet6" onclick="goToPlanet(6)">
+      <img src="logo/naboo.png" alt="Naboo" />
+      <div class="planet-name">Naboo</div>
+    </div>
+    <div class="planet planet7" onclick="goToPlanet(7)">
+      <img src="logo/kamino.png" alt="Kamino" />
+      <div class="planet-name">Kamino</div>
+    </div>
+    <div class="planet planet8" onclick="goToPlanet(8)">
+      <img src="images/planet8.png" alt="Planet 8" />
+      <div class="planet-name">Planet 8</div>
+    </div>
+    <div class="planet planet9" onclick="goToPlanet(9)">
+      <img src="images/planet9.png" alt="Planet 9" />
+      <div class="planet-name">Planet 9</div>
+    </div>
+    <div class="planet planet10" onclick="goToPlanet(10)">
+      <img src="logo/zakel.png" alt="zakel" />
+      <div class="planet-name">zakel</div>
+    </div>
+
+    <!-- Le vaisseau animé (positionné initialement sur la planète 1) -->
+    <div class="spaceship"></div>
   </div>
 
+  <!-- Inclusion du script JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
