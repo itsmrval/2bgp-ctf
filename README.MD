@@ -22,41 +22,41 @@ Chargé(e) de la mission titanesque de renverser Valkorion, vous devez puiser da
 
 *** First Level ***
 
-Ton maitre te communique ta mission pour plus de sécurité en sachant bien que l'Empire Eternel est partout ton maitre t'a envoyé ton rapport de mission dans une certaine langue et il faut dechiffrer ta mission sur le croiseur pour connaitre ton but. 
+Ton maitre te communique ta mission sur un holoprohecteur : 
 
 Message du Maitre : 
 
 Mon cher Padawan,
 
-Mes troupes et moi-même sommes actuellement submergés par l'assaut de l'Empire éternel.
+Mes troupes et moi sommes actuellement submergés par l'assaut implacable de l'Empire éternel.
 
-Ce qui reste de nos services secrets, désormais réduits à leurs derniers moyens, nous a transmis une ultime communication cryptée, rédigée dans une langue étrangère. Ce message recèle peut-être la clé pour renverser le cours de cette guerre.
+Les derniers vestiges de nos services secrets, réduits à leurs ultimes moyens, nous ont transmis un ultime message crypté, rédigé dans une langue étrangère. Ce message recèle peut-être la clé pour renverser le cours de cette guerre.
 
-En t'envoyant dans cette mission suicide, je sais pertinemment que tu risques ta vie, mais c'est un sacrifice nécessaire pour sauver notre galaxie. Hélas, malgré tous nos efforts, nous n'avons pas réussi à déchiffrer ce message, et je n'ai plus le temps de le faire. Cela sera peut-être notre dernière communication ensemble...
+En te confiant cette mission suicide, je suis conscient que tu risques ta vie, mais c'est un sacrifice nécessaire pour sauver notre galaxie. Hélas, malgré tous nos efforts, nous n'avons pas réussi à déchiffrer ce message, et le temps nous est compté. Nos espoirs reposent désormais sur toi. Je t'envoie donc ce message en ultime secours, sachant que cela pourrait être notre dernière communication ensemble.
 
 Que la Force soit avec toi.
 
 Message chiffré par les services secret : 
 
-"Nous avons trouvé un vestige, ce vaisseau est ce qui peut nous sauver, selon les légendes c'est le vaisseau le plus rapide du monde, il a été volé par le fils de Valkorion, Arkann. Depuis des années, nous n'avions plus de nouvelles, mais nous avons retrouvé sa piste sur Endor."
+"Nous avons trouvé un vestige, ce vaisseau est ce qui peut nous sauver, selon les légendes c'est le vaisseau le plus rapide du monde, il a été volé par le fils de Valkorion, Arkann. Depuis des années, nous n'avions plus de nouvelles, mais nous avons retrouvé sa piste, rejoignez nous sur notre dernière base qui se trouve sur ... (Endor)."
 
 
 ( je vais trouvé une idée pour qu'il trouve endor plus difficilement ou sur un autre niveau) 
 
 
-*** Second Level ***
+*** Level 2 ***
 
 Premiere planete, l'article de journal. Il y a un vaisseau qui s'est perdu dans la galaxie mais c'est le seul a le connaitre. Celui ci te permettrait deja plus facilement de te deplacer au-sein de la galaxie. Retrouve vite ce vaisseau avant u'il ne soit trop tard !!!!!!
 
 
 
-*** Level 2  FILE INJECTION = Reverse Shell ***
-
+*** Level 3  FILE INJECTION = Reverse Shell ***
 
 ------------ Image a mettre en fond  dun vaisseau avec une porte et un sorte dordinateur afin denvoyer sa ID card ------------------
 
-Tu as trouve le vaisseau mais celui ci est verouillle totalment de partout... dommage, tu ne peux pas entrer dnas le vaisseau afin de l'utiliser. 
-Afin de rentrer dnas le vaisseau, il faut presenter son badge (STAR WARS) afin de deverouiller la porte. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au digicode. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt
+Tu as retrouve le vaisseau du de Arkann mais arkann n'est pas présent aux alentours ce que tu trouves étranges (l'aurait t'il abandonné en faisant exprès ici ) mais celui ci est verouillle totalment de partout... Heureusement tu maitrises la force pour ouvrir la porte du vaisseau. 
+
+Tu entres dans le cockpit et tout est éteint et tu voies que sur le tableua de bord il y'a un digicode.  Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au digicode. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt
 
 
 *** Level 3  Faille reset password (a faire) ***
