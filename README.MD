@@ -12,24 +12,47 @@ Niveaux: (planètes)
 
 *** INTRO ***
 
-Dans une époque oubliée depuis longtemps, alors que l'équilibre de la Force vacille, la galaxie sombre dans les ténèbres. Le tyrannique empereur Valkorion a élaboré un sinistre plan : envahir et asservir chaque monde, imposant sa volonté de fer à l'univers entier. L'Empire éternel de Zakel se rallie derrière lui, une force tyrannique implacable. Pour finalement vaincre Valkorion, vous devez d'abord vaincre ses enfants, les héritiers de son sombre héritage.
+Dans une époque lointaine et oubliée, alors que l’équilibre de la Force chancelle, la galaxie sombre dans une obscurité implacable. Le tyrannique empereur Valkorion ourdit un sinistre dessein : envahir et asservir chaque monde, imposant sa volonté de fer sur l’univers tout entier. Soutenu par l’Empire éternel de Zakel, une force impitoyable et sans répit, il ne recule devant rien pour étendre son règne de terreur. Pour triompher de Valkorion, vous devrez d’abord vaincre ses enfants, héritiers de son sombre héritage, et briser la muraille de vaisseaux qui protège leurs planètes, la flotte éternelle.
 
-Au cœur de cette tourmente, vous vous trouvez, soit en tant qu'apprenti Jedi, porteur de lumière et d'espoir, soit en tant que disciple Sith, animé par la passion et la détermination du côté obscur. Quelle que soit la voie que vous choisissez, votre destin est désormais inextricablement lié à la survie de la galaxie.
+Au cœur de ce chaos, vous vous trouvez, soit en tant qu’apprenti Jedi, porteur de lumière et d’espoir, soit en tant que disciple Sith, animé par la passion dévorante et la détermination du côté obscur. Quelle que soit la voie que vous choisirez, votre destin est désormais intimement lié à celui de la galaxie.
 
-Chargé de la lourde mission de renverser Valkorion, vous devez faire appel à la Force pour raviver l'étincelle de la liberté et rétablir l'équilibre. Les ombres s'allongent alors que la bataille épique pour l'avenir de l'univers commence maintenant… Votre maître vous attend, jeune Padawan. Que la Force soit avec vous.
+Chargé(e) de la mission titanesque de renverser Valkorion, vous devez puiser dans la Force pour rallumer l’étincelle de liberté et rétablir l’équilibre universel. Les ombres s’allongent et l’épopée pour l’avenir de l’univers débute à cet instant… Votre maître vous attend, jeune Padawan. Que la Force soit avec vous.
 
-=> Le but est d'aller tuer sur la derniere planete Valkorion. (jai mis un but sinon yen avait pas apres vous me dites)
-
-
-
+( Objectif aller sur Zakel pour faire tomber Valkorion et libérer la galaxy) 
 
 *** First Level ***
+
+Ton maitre te communique ta mission pour plus de sécurité en sachant bien que l'Empire Eternel est partout ton maitre t'a envoyé ton rapport de mission dans une certaine langue et il faut dechiffrer ta mission sur le croiseur pour connaitre ton but. 
+
+Message du Maitre : 
+
+Mon cher Padawan,
+
+Mes troupes et moi-même sommes actuellement submergés par l'assaut de l'Empire éternel.
+
+Ce qui reste de nos services secrets, désormais réduits à leurs derniers moyens, nous a transmis une ultime communication cryptée, rédigée dans une langue étrangère. Ce message recèle peut-être la clé pour renverser le cours de cette guerre.
+
+En t'envoyant dans cette mission suicide, je sais pertinemment que tu risques ta vie, mais c'est un sacrifice nécessaire pour sauver notre galaxie. Hélas, malgré tous nos efforts, nous n'avons pas réussi à déchiffrer ce message, et je n'ai plus le temps de le faire. Cela sera peut-être notre dernière communication ensemble...
+
+Que la Force soit avec toi.
+
+Message chiffré par les services secret : 
+
+"Nous avons trouvé un vestige, ce vaisseau est ce qui peut nous sauver, selon les légendes c'est le vaisseau le plus rapide du monde, il a été volé par le fils de Valkorion, Arkann. Depuis des années, nous n'avions plus de nouvelles, mais nous avons retrouvé sa piste sur Endor."
+
+
+( je vais trouvé une idée pour qu'il trouve endor plus difficilement ou sur un autre niveau) 
+
+
+*** Second Level ***
 
 Premiere planete, l'article de journal. Il y a un vaisseau qui s'est perdu dans la galaxie mais c'est le seul a le connaitre. Celui ci te permettrait deja plus facilement de te deplacer au-sein de la galaxie. Retrouve vite ce vaisseau avant u'il ne soit trop tard !!!!!!
 
 
 
 *** Level 2  FILE INJECTION = Reverse Shell ***
+
+
 ------------ Image a mettre en fond  dun vaisseau avec une porte et un sorte dordinateur afin denvoyer sa ID card ------------------
 
 Tu as trouve le vaisseau mais celui ci est verouillle totalment de partout... dommage, tu ne peux pas entrer dnas le vaisseau afin de l'utiliser. 
