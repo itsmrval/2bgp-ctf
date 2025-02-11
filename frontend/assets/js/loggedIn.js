@@ -247,9 +247,13 @@ function startHyperspace(duration = 3000, url) {
   }
 
 async function goToPlanet(id) {
-    startHyperspace(1000, `/admin`);
+    startHyperspace(2000, `/admin`);
     console.log('Going to planet:', id);
 }
+
+//
+// INTRO
+//
 
 
 
@@ -274,8 +278,8 @@ async function main() {
     $('#profileUsername').text(localStorage.getItem('username'));
 
     // Check if user is member of a team
-    if (!isUserMemberOfTeam && (window.location.pathname !== '/teamSelection' && window.location.pathname !== '/teamCreation')) {
-        window.location.href = '/teamSelection';
+    if (!isUserMemberOfTeam && (window.location.pathname !== '/teamSelection' && window.location.pathname !== '/teamCreation' && window.location.pathname !== '/intro')) {
+        window.location.href = '/intro';
     }
 
     // Team selection page
@@ -354,6 +358,27 @@ async function main() {
         let levels = await getLevels();
         displayPlanets(levels, planetPositions);
     }
+
+    // Intro page
+    if (window.location.pathname === '/intro') {
+        if (isUserMemberOfTeam) {
+            window.location.href = '/';
+        }
+
+        const titleContent = document.querySelector('.star-wars-intro .title-content');
+        const startButton = document.querySelector('.star-wars-intro .space-button');
+        let pauseTimeout;
+    
+        // Pause animation when the start button is visible
+        new IntersectionObserver(([entry]) => {
+          clearTimeout(pauseTimeout);
+          if (entry.isIntersecting) {
+            pauseTimeout = setTimeout(() => titleContent.style.animationPlayState = 'paused', 2000);
+          } else {
+            titleContent.style.animationPlayState = 'running';
+          }
+        }, { threshold: 0.5 }).observe(startButton);
+          }
     
 }
 
