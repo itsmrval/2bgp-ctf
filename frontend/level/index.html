@@ -10,18 +10,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
-<body style="
-height: auto;
-min-height: 100vh;
-display: block;
-font-family: 'Orbitron', sans-serif;
-color: #ffffff;
-overflow-x: hidden;">
+<body class="body-mission">
     <div class="spacemission-background"></div>
     <nav class="navbar-mission">
         <div class="logo">
             <a href="#">
-                <img src="../../frontend/assets/logo/starwars.png" alt="Star Wars Logo">
+                <img src="../assets/logo/starwars.png" alt="Star Wars Logo">
             </a>
         </div>
         <div class="profile">
@@ -34,55 +28,54 @@ overflow-x: hidden;">
     <div class="container-mission">
         <div class="mission-card">
             <div class="mission-header">
-                <h1 class="mission-title">Death Star Plans</h1>
-                <span class="mission-status status-pending">In Progress</span>
+                <h1 id="levelName" class="mission-title">loading</h1>
+                <span class="mission-status status-pending">En cours</span>
+                
             </div>
 
             <div class="mission-info">
 
                 <div class="info-box">
                     <h3>Points</h3>
-                    <p>300</p>
+                    <p id="levelPoints">loading</p>
                 </div>
                 <div class="info-box">
-                    <h3>j'ai pas d'idee</h3>
-                    <p>00</p>
+                    <h3>Taux de succès</h3>
+                    <p>100%</p>
                 </div>
             </div>
 
             <div class="mission-description">
-                <h2>Mission Objective</h2>
-                <p>Imperial networks have been detected containing crucial information about the Death Star's
-                    vulnerabilities. Your mission is to infiltrate their systems, locate the plans, and extract the
-                    hidden flag. Be cautious - Imperial security systems are actively monitoring for Rebel activity.</p>
-                <br>
-                <p>The flag format is:</p>
+                <h2>Objectif de la mission</h2>
+                <p id="levelDescription">
+                    loading
             </div>
 
             <div class="flag-submission">
-                <h2>Submit Flag</h2>
+                <h2>Récupérer la récompense</h2>
                 <form class="flag-form">
-                    <input class="input-mission" type="text" placeholder="Enter flag here..."
-                        pattern="mettre le patern si y'en a" title="Flag here">
+                    <input class="input-mission" type="text" placeholder="Entrer le flag ici.." title="Flag here">
                     <button class="button-mission" type="submit">
                         <i class="fas fa-flag"></i>
-                        Submit
+                        Vérifier
                     </button>
                 </form>
             </div>
 
             <div class="buttonmission-container">
-                <button class="button-mission">
+                <button id="backButton" class="button-mission">
                     <i class="fas fa-arrow-left"></i>
-                    Back to Missions
+                    Retour à l'accueil
                 </button>
-                <button class="launch-button">
+                <button id="startButton" class="launch-button">
                     <i class="fas fa-rocket"></i>
-                    Launch Mission
+                    Lancer la mission
                 </button>
             </div>
         </div>
     </div>
 </body>
+<script src="../assets/js/jquery.min.js" type="module"></script>
+<script src="../assets/js/loggedIn.js" type="module"></script>
 
 </html>

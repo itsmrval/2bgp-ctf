@@ -7,8 +7,20 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const levels = await Level.find({}).select('-flag');
+    const levels = await Level.find({}).select('-flag, -description');
     res.json(levels);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const level = await Level.findById(req.params.id).select('-flag');
+    if (!level) {
+      return res.status(404).json({ error: 'Level not found' });
+    }
+    res.json(level);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

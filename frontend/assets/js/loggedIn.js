@@ -1,4 +1,4 @@
-import { getUserTeam, addUserToTeam, getTeams, createTeam, getLevels } from './api.js'; 
+import { getUserTeam, addUserToTeam, getTeams, createTeam, getLevels, getScoreboard, getLevel } from './api.js'; 
 
 //
 // LOGIN LOGIC
@@ -158,7 +158,7 @@ function displayPlanets(levels, planetPositions) {
         planetDiv.style.left = position.left;
         
         // Add click handler
-        planetDiv.onclick = () => goToPlanet(level.hid);
+        planetDiv.onclick = () => goToPlanet(level._id);
         
         // Create planet image
         const img = document.createElement('img');
@@ -177,86 +177,101 @@ function displayPlanets(levels, planetPositions) {
     });
 }
 
-function startHyperspace(duration = 3000, url) {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    // Setup canvas
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.zIndex = '-1';
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    document.body.appendChild(canvas);
-    
-    const stars = [];
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    
-    function animate() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
-      // Add more stars per frame
-      for(let i = 0; i < 3; i++) { 
-        if (stars.length < 300) {
-          const angle = Math.random() * Math.PI * 2;
-          stars.push({
-            x: centerX,
-            y: centerY,
-            speed: 3 + Math.random() * 1,
-            angle: angle,
-            size: 1 + Math.random() * 2,
-            alpha: Math.random()
-          });
-        }
-      }
-      
-      // Update and draw stars
-      stars.forEach((star, index) => {
-        star.x += Math.cos(star.angle) * star.speed;
-        star.y += Math.sin(star.angle) * star.speed;
-        star.speed *= 1.03; 
-        star.size *= 1.02;
-        
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(255, 255, 255, ${star.alpha})`;
-        ctx.lineWidth = star.size;
-        ctx.moveTo(star.x, star.y);
-        ctx.lineTo(
-          star.x - Math.cos(star.angle) * star.speed,
-          star.y - Math.sin(star.angle) * star.speed
-        );
-        ctx.stroke();
-        
-        // Remove stars that are off screen
-        if (star.x < 0 || star.x > canvas.width || 
-            star.y < 0 || star.y > canvas.height) {
-          stars.splice(index, 1);
-        }
-      });
-    }
-    
-    const animation = setInterval(animate, 1000 / 60);
-    
-    // Clean up after duration
-    setTimeout(() => {
-        window.location.href = url;
-    }, duration);
-  }
-
 async function goToPlanet(id) {
-    startHyperspace(2000, `/admin`);
-    console.log('Going to planet:', id);
+    localStorage.setItem('levelId', id);
+    window.location.href = '/level';
 }
 
 //
-// INTRO
+// SCOREBOARD
 //
 
+// Function to update the scoreboard with new data
+async function updateScoreboard() {
+    try {
+        const teams = await getScoreboard();
+        const tbody = document.querySelector('.scoreboard tbody');
+        tbody.innerHTML = '';
+
+        // Loop through each team
+        for (const team of teams) {
+            // Add team header row
+            const headerRow = document.createElement('tr');
+            headerRow.className = 'team-header';
+            headerRow.innerHTML = `
+                <td colspan="6" class="team-name">${team.name} #${team.rank}</td>
+            `;
+            tbody.appendChild(headerRow);
+
+            // Loop through each member asynchronously
+            for (const member of team.members) {
+                const memberRow = document.createElement('tr');
+                const completionPercentage = await calculateCompletionPercentage(member.points);
+
+                memberRow.innerHTML = `
+                    <td>${member.username}</td>
+                    <td class="rank">${getRankIcon(team.rank)}</td>
+                    <td>${team.name}</td>
+                    <td></td>
+                    <td>
+                      
+                    </td>
+                    <td>${member.points}</td>
+                `;
+                tbody.appendChild(memberRow);
+            }
+
+            // Add team total row
+            const totalRow = document.createElement('tr');
+            totalRow.className = 'team-total';
+            const teamCompletionPercentage = await calculateCompletionPercentage(team.total_points);
+
+            totalRow.innerHTML = `
+                <td>Team Total</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <div class="completion">
+                        <div class="completion-bar" style="width: ${teamCompletionPercentage}%"></div>
+                        <div class="completion-text">${teamCompletionPercentage}%</div>
+                    </div>
+                </td>
+                <td>${team.total_points}</td>
+            `;
+            tbody.appendChild(totalRow);
+        }
+    } catch (error) {
+        console.error('Error updating scoreboard:', error);
+    }
+}
 
 
+// Helper function to get rank icon
+function getRankIcon(rank) {
+    switch (rank) {
+        case 1:
+            return '<i class="fas fa-crown"></i>';
+        case 2:
+            return '<i class="fas fa-medal"></i>2';
+        case 3:
+            return '<i class="fas fa-award"></i>3';
+        default:
+            return 'N/A';
+    }
+}
+
+// Helper function to calculate completion percentage
+async function calculateCompletionPercentage(points) {
+    const levels = await getLevels();
+    let maxPoints = 0; 
+
+    for (const level of levels) {
+        maxPoints += level.points;
+    }
+
+    return Math.round((points / maxPoints) * 100);
+}
 // 
 // MAIN
 //
@@ -369,7 +384,6 @@ async function main() {
         const startButton = document.querySelector('.star-wars-intro .space-button');
         let pauseTimeout;
     
-        // Pause animation when the start button is visible
         new IntersectionObserver(([entry]) => {
           clearTimeout(pauseTimeout);
           if (entry.isIntersecting) {
@@ -378,7 +392,33 @@ async function main() {
             titleContent.style.animationPlayState = 'running';
           }
         }, { threshold: 0.5 }).observe(startButton);
-          }
+    }
+
+    // Scoreboard page
+    if (window.location.pathname === '/scoreboard') {
+        await updateScoreboard();
+    }
+
+    // Level page
+    if (window.location.pathname === '/level') {
+        const level = await getLevel(localStorage.getItem('levelId'));
+        if (!level || level.error) {
+            console.error('Level not found:', levelId);
+            window.location.href = '/';
+        }
+
+        $('#levelName').text(level.name);
+        $('#levelDescription').text(level.description);
+        $('#levelPoints').text(level.points);
+
+
+        $('#startButton').click(() => {
+            window.open(level.url, '_blank');
+        });
+        $('#backButton').click(() => {
+            window.location.href = '/';
+        });
+    }
     
 }
 
