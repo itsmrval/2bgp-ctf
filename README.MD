@@ -53,15 +53,7 @@ Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent diffé
 Il y aura le flag dans les logs à récupérer.
 
 
-*** Third Level ***
-
-
-
-
-*** 4 Level ***
-
-
-*** 8 Level Injection SQL ***
+*** 8 Level Injection SQL (a voire quand mettre cette faille) ***
 
 Récupéré le compte de notre maitre qui est Llywi Minllegui (cest un exemple donne par LIA). Il faut recuper son hash et ensuite force le hash avec un kali. Son password est password ce qui est cense etre simple.
 Cela a pour but de pouvoir se connecter a son compte et discuter avec le chef ennemi (qui est MAS TYMAR). Cela  apour but de lui evnoyer un XSS via la messagerie.
@@ -88,11 +80,7 @@ hash.txt : Fichier contenant le hash MD5.
 Aller au prochain niveau se connected avec ce password recupere et realiser la prochaine etape.
 
 
-
-
-
-
-*** 9 Level Attaque XSS ***
+*** 9 Level Attaque XSS (a voire quand mettre cette faille)  ***
 
 Pendant son périple il se fait arréter par un blocus pirates ( ou empire zakelien) pour se sortir de cette situation il doit se faire passer pour un chef ennemi et dire de le laisser passer.
 Ainsi, maintenant qu'on a le compte de notre chef qui communique avec le chef ennemi pour se mettre d'accord, il faut pouvoir communiquer avce le chef ennemi et se connecter a son compte pour envoyer un message a ses soldats afin de leur dire de me relacher !!!!
