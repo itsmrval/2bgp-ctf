@@ -20,9 +20,9 @@ Chargé(e) de la mission titanesque de renverser Valkorion, vous devez puiser da
 
 ( Objectif aller sur Zakel pour faire tomber Valkorion et libérer la galaxy) 
 
-*** First Level ***
+*** Level 1 - Conversation chiffré ( Croiseur )  ***
 
-Ton maitre te communique ta mission sur un holoprohecteur : 
+Ton maitre te communique ta mission sur un holoprojecteur : 
 
 Message du Maitre : 
 
@@ -46,17 +46,15 @@ Message chiffré par les services secret :
 Première fois qu'il arrive sur la vu des planètes, il doit donc cliqué sur la planète Endor pour aller sur la base secrète. 
 
 
-*** Level 2 - Photo métadonné   ***
+*** Level 2 - Photo métadonné (planete Endor) ***
 
-Premiere planete Endor. 
-
-Notre personnage se rend à la dernière base des services secrets, où une transmission directe du fils de Valkorion, Arkann, à sa sœur Vaylin a été interceptée. Cette communication renferme une photographie du vaisseau perdu. Mais ne vous y méprenez pas : l'image semble dissimuler bien plus qu'une simple illustration. Des indices subtils, minutieusement intégrés, laissent entrevoir un secret crucial pour localiser le vaisseau. C'est en décodant ces détails cachés que vous pourrez reconstituer les coordonnées tant recherchées.
+Notre personnage se rend à la dernière base des services secrets qui se trouvent sur Endor, où une transmission directe du fils de Valkorion, Arkann, à sa sœur Vaylin a été interceptée. Cette communication renferme une photographie du vaisseau perdu. Mais ne vous y méprenez pas : l'image semble dissimuler bien plus qu'une simple illustration. Des indices subtils, minutieusement intégrés, laissent entrevoir un secret crucial pour localiser le vaisseau. C'est en décodant ces détails cachés que vous pourrez reconstituer les coordonnées tant recherchées.
 
 Notre personnage met les coordonnées dans son vaisseau et cela lui indique une nouvelle planète, la planète ... ( a trouver) 
 
 
 
-*** Level 3  FILE INJECTION = Reverse Shell ***
+*** Level 3  FILE INJECTION = Reverse Shell (planète)  ***
 
 
 
