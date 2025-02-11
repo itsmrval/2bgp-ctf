@@ -1,0 +1,776 @@
+/* Reset and Box Sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font Faces */
+@font-face {
+  font-family: 'Starjedi';
+  src: url('../public/fonts/Starjedi.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'test';
+  src: url('../public/fonts/barbatrick.ttf') format('truetype');
+}
+
+/* Body Styles */
+body {
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Space Background */
+.space-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-background::before,
+.space-background::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 200%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><circle cx="50" cy="50" r="1" fill="white" /><circle cx="200" cy="150" r="1" fill="white" /><circle cx="300" cy="300" r="1" fill="white" /><circle cx="400" cy="50" r="1" fill="white" /><circle cx="500" cy="200" r="1" fill="white" /><circle cx="700" cy="100" r="1" fill="white" /><circle cx="800" cy="250" r="1" fill="white" /><circle cx="900" cy="400" r="1" fill="white" /><circle cx="100" cy="500" r="1" fill="white" /><circle cx="250" cy="600" r="1" fill="white" /><circle cx="450" cy="700" r="1" fill="white" /><circle cx="600" cy="800" r="1" fill="white" /><circle cx="750" cy="900" r="1" fill="white" /><circle cx="900" cy="1000" r="1" fill="white" /><circle cx="100" cy="1100" r="1" fill="white" /><circle cx="300" cy="1200" r="1" fill="white" /><circle cx="500" cy="1300" r="1" fill="white" /><circle cx="700" cy="1400" r="1" fill="white" /><circle cx="900" cy="1500" r="1" fill="white" /><circle cx="150" cy="1600" r="1" fill="white" /><circle cx="350" cy="1700" r="1" fill="white" /><circle cx="550" cy="1800" r="1" fill="white" /><circle cx="750" cy="1900" r="1" fill="white" /><circle cx="950" cy="2000" r="1" fill="white" /></svg>');
+  animation: stars 50s linear infinite;
+}
+
+.space-background::after {
+  top: 100%;
+}
+
+@keyframes stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+/* Container Styles */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  pointer-events: auto;
+}
+
+/* Typography */
+h1 {
+  color: white;
+  margin-bottom: 30px;
+}
+
+.titlebox {
+  font-family: 'Starjedi', sans-serif;
+}
+
+/* Choices Section */
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+}
+
+.choice {
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.choice img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+.choice img:hover {
+  transform: scale(1.2);
+}
+
+.choice p {
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* Navigation and Logo */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.logo {
+  position: relative;
+}
+
+.profile {
+  margin-left: auto; /* Pushes the profile section to the right */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+
+.profile:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.profile i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.user-name {
+  color: white;
+  margin: 0 1rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Login Form */
+.login-form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+}
+
+.inputbox {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.inputbox input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 16px;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03a9f4;
+  font-size: 12px;
+}
+
+
+
+/* Form Elements */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-container input {
+  margin-right: 10px;
+}
+
+.checkbox-container label {
+  color: white;
+}
+
+/* Buttons */
+.btn {
+  background: #03a9f4;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  height: 40px;
+  width: 100px;
+  margin: 5% 0;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0288d1;
+}
+
+.disconnect-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.disconnect-btn:hover {
+  background-color: #ff0000;
+}
+
+/* Authentication Section */
+.auth-text,
+.signup-text {
+  color: white;
+  margin: 20px 0;
+}
+
+.auth-providers a {
+  margin: 0 10px;
+}
+
+.auth-providers img {
+  width: 30px;
+  height: 30px;
+}
+
+.signup-text a {
+  color: #03a9f4;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+.alert-message {
+  background-color: rgb(244 105 1);
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* selected team css */
+
+body.team-selection-body {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  height: 100vh; /* Fixe la hauteur de la page */
+  background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
+  overflow: hidden; /* Empêche le défilement du body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.space-background {
+  width: 100%;
+  height: 100vh; /* Assure que le conteneur occupe toute la hauteur */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container-selected {
+  width: 800px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Empêche le contenu de dépasser */
+}
+
+.choices {
+  display: flex;
+  gap: 60px;
+}
+
+.choice {
+  text-align: center;
+  cursor: pointer;
+}
+
+.choice p {
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin-top: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.team-list {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 280px; /* Fixe la hauteur de la liste */
+  overflow-y: auto; /* Active le défilement vertical */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.team-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: 1px solid white;
+}
+
+.team-list li span {
+  flex: 1; /* Permet aux éléments de s'étirer pour occuper l'espace */
+  text-align: left;
+}
+
+.members {
+  text-align: center;
+  flex: 0.3; /* Ajuste la largeur de la colonne membres */
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.team-name-header {
+  flex: 1;
+  text-align: left;
+}
+
+.team-members-header {
+  flex: 1.55;
+  text-align: left;
+}
+
+.team-list li:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.team-list li:active {
+  background: #03a9f4;
+}
+
+.team-list li .btn {
+  margin-left: auto;
+}
+
+.team-list-container {
+  width: 100%;
+}
+
+.inputboxSelect {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.container-for-list {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.inputboxSelect input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.inputboxSelect label {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: white;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.inputboxSelect input:focus ~ label,
+.inputboxSelect input:not(:placeholder-shown) ~ label {
+  top: -10px;
+  left: 0;
+  color: #03a9f4;
+  font-size: 12px;
+}
+.team-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Ajoute un espace entre les boutons */
+  width: 100%;
+}
+
+.planets-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Au-dessus du background */
+}
+
+/* Style générique pour chaque planète */
+.planet {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+.planet img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Style pour les labels de planète */
+.planet .planet-name {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Starjedi', sans-serif;
+  font-size: 15px; /* ajustez la taille selon vos besoins */
+  color: transparent; /* intérieur transparent */
+  -webkit-text-stroke: 1px yellow; /* contour en jaune */
+  text-stroke: 1px yellow; /* pour les navigateurs qui supportent cette propriété */
+  text-align: center;
+  width: 100%;
+}
+
+/* Centered Intro Text */
+.star-wars-text {
+  max-width: 16em;
+  font-size: 200%;
+  font-weight: 400;
+  margin: 20% auto;
+  color: #4ee;
+  opacity: 0;
+  text-align: center;
+  animation: fade-out 2s ease-out;
+}
+
+/* Scrolling Text Container */
+.scrolling-text-container {
+  position: absolute;
+  width: 98%;
+  height: 50em;
+  bottom: 0;
+  font-size: 80px;
+  font-weight: bold;
+  text-align: justify;
+  overflow: hidden;
+  transform: perspective(350px) rotateX(25deg);
+}
+
+/* Scrolling Text Content */
+.scrolling-text {
+  position: absolute;
+  top: 100%;
+  animation: scroll-up 120s linear 4s forwards;
+  text-align: center;
+}
+
+/* Button Style */
+.space-button {
+  color: #EBD71C;
+  border: 8px solid #EBD71C;
+  padding: 15px 30px;
+  background: transparent;
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+  font-size: 1.2em;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.space-button:hover {
+  background-color: #D2BE03;
+  border-color: #D2BE03;
+  color: black;
+}
+
+/* Animations */
+@keyframes fade-out {
+  0%, 90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes scroll-up {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 720px) {
+  .scrolling-text-container {
+      font-size: 35px;
+  }
+}
+
+.star-wars-intro {
+  width: 100%;
+  height: 100%;
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  font-weight: 700;
+  color: #EBD71C;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+.star-wars-intro p.intro-text {
+  position: relative;
+  max-width: 16em;
+  font-size: 200%;
+  font-weight: 400;
+  margin: 20% auto;
+  color: #4ee;
+  opacity: 0;
+  z-index: 1;
+  text-align: center;
+  -webkit-animation: intro 2s ease-out;
+  -moz-animation: intro 2s ease-out;
+  -ms-animation: intro 2s ease-out;
+  -o-animation: intro 2s ease-out;
+  animation: intro 2s ease-out;
+}
+
+.star-wars-intro .main-content{
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  z-index: 3;
+  width: 98%;
+  height: 50em;
+  bottom: 0;
+  font-size: 80px;
+  font-weight: bold;
+  text-align: justify;
+  overflow: hidden;
+  transform-origin: 50% 100%;
+  transform: perspective(350px) rotateX(25deg);
+}
+
+.star-wars-intro .main-content:after {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  bottom: 60%;
+  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.star-wars-intro .space-button {
+  color: #EBD71C;
+  border: 12px solid #EBD71C;
+  padding: 20px;
+  background: transparent;
+  text-decoration: none;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.star-wars-intro .space-button:hover {
+  background-color: #D2BE03;
+  border-color: #D2BE03;
+  color: black;
+}
+
+.star-wars-intro .space-button:active,
+.star-wars-intro .space-button:focus {
+  background-color: #B8A40A;
+  border-color: #B8A40A;
+  color: black;
+}
+
+.star-wars-intro .title-content {
+  position: absolute;
+  top: 100%;
+  animation: scroll 120s linear 4s forwards;
+  animation-play-state: running;
+}
+
+
+.star-wars-intro .title-content > .content-header {
+  text-align: center;
+}
+
+.star-wars-intro .main-logo {
+  position: absolute;
+  width: 2.6em;
+  left: 50%;
+  top: 20vh;
+  font-size: 10em;
+  text-align: center;
+  margin-left: -1.3em;
+  line-height: 0.8em;
+  letter-spacing: -0.05em;
+  color: #000;
+  text-shadow: -2px -2px 0 #EBD71C, 2px -2px 0 #EBD71C, -2px 2px 0 #EBD71C, 2px 2px 0 #EBD71C;
+  opacity: 0;
+  z-index: 1;
+  -webkit-animation: logo 5s ease-out 2.5s;
+  -moz-animation: logo 5s ease-out 2.5s;
+  -ms-animation: logo 5s ease-out 2.5s;
+  -o-animation: logo 5s ease-out 2.5s;
+  animation: logo 5s ease-out 2.5s;
+}
+
+.star-wars-intro .main-logo > img {
+  max-width: 100%;
+}
+
+@-webkit-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-moz-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-ms-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-o-keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes intro {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
+@-webkit-keyframes logo {
+  0% { -webkit-transform: scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -webkit-transform: scale(0.1); opacity: 0; }
+}
+
+@-moz-keyframes logo {
+  0% { -moz-transform: scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -moz-transform: scale(0.1); opacity: 0; }
+}
+
+@-ms-keyframes logo {
+  0% { -ms-transform: scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -ms-transform: scale(0.1); opacity: 0; }
+}
+
+@-o-keyframes logo {
+  0% { -o-transform: scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { -o-transform: scale(0.1); opacity: 0; }
+}
+
+@keyframes logo {
+  0% { transform: scale(1); opacity: 1; }
+  50% { opacity: 1; }
+  100% { transform: scale(0.1); opacity: 0; }
+}
+
+@keyframes scroll {
+  0% { top: 100%; }
+  100% { top: -170%; }
+}
+
+@media screen and (max-width: 720px) {
+  .star-wars-intro .main-content {
+    font-size: 35px;
+  }
+  .star-wars-intro .title-content {
+    position: absolute;
+    top: 100%;
+    animation: scroll 100s linear 4s forwards;
+  }
+}
