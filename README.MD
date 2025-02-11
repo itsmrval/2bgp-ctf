@@ -43,14 +43,22 @@ Message chiffré par les services secret :
 
 ( je vais trouvé une idée pour qu'il trouve endor plus difficilement ou sur un autre niveau) 
 
+Première fois qu'il arrive sur la vu des planètes, il doit donc cliqué sur la planète Endor pour aller sur la base secrète. 
 
-*** Level 2 ***
 
-Premiere planete, l'article de journal. Il y a un vaisseau qui s'est perdu dans la galaxie mais c'est le seul a le connaitre. Celui ci te permettrait deja plus facilement de te deplacer au-sein de la galaxie. Retrouve vite ce vaisseau avant u'il ne soit trop tard !!!!!!
+*** Level 2 - Photo métadonné   ***
+
+Premiere planete Endor. 
+
+Notre personnage se rend à la dernière base des services secrets, où une transmission directe du fils de Valkorion, Arkann, à sa sœur Vaylin a été interceptée. Cette communication renferme une photographie du vaisseau perdu. Mais ne vous y méprenez pas : l'image semble dissimuler bien plus qu'une simple illustration. Des indices subtils, minutieusement intégrés, laissent entrevoir un secret crucial pour localiser le vaisseau. C'est en décodant ces détails cachés que vous pourrez reconstituer les coordonnées tant recherchées.
+
+Notre personnage met les coordonnées dans son vaisseau et cela lui indique une nouvelle planète, la planète ... ( a trouver) 
 
 
 
 *** Level 3  FILE INJECTION = Reverse Shell ***
+
+
 
 ------------ Image a mettre en fond  dun vaisseau avec une porte et un sorte dordinateur afin denvoyer sa ID card ------------------
 
