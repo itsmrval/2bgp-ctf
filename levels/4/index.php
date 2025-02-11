@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,32 +26,98 @@
 
         <!-- Formulaire de réinitialisation de mot de passe -->
         <form method="POST" action="">
-            <label for="username">Nom d'utilisateur :</label>
+            <label for="username">username :</label>
             <input type="text" id="username" name="username" required>
             <br>
-            <label for="email">Adresse e-mail :</label>
-            <input type="email" id="email" name="email" required>
+            <label for="password">password :</label>
+            <input type="password" id="password" name="password" required>
             <br>
-            <input type="submit" name="reset_password" value="Reset Password">
+            <input type="submit" name="submit" value="submit">
+            <a href="send_token.php" class="forgot-password">forgot your password ?</a>
         </form>
 
         <?php
-        if (isset($_POST['reset_password'])) {
-            $username = $_POST['username'];
-            $email = $_POST['email'];
+        
+        $host = 'localhost';
+        $dbname = 'attackresetpwd';
+        $user = 'root';
+        $password = '';
+        
+        // Connexion à la base de données
+        $mysqli = new mysqli($host, $user, $password, $dbname);
+        
+        // Vérifier la connexion
+        if ($mysqli->connect_error) {
+            die("Erreur de connexion à la base de données : " . $mysqli->connect_error);
+        }
 
-            // Simuler une vérification de l'utilisateur
-            $valid_user = "test";
-            $valid_email = "test@test.com";
+        // Vérifier si la table `users` est vide
+        $query = "SELECT COUNT(*) AS count FROM users";
+        $result = $mysqli->query($query);
+        $row = $result->fetch_assoc();
+        $userCount = $row['count'];
 
-            if ($username === $valid_user && $email === $valid_email) {
-                // Générer un token de réinitialisation (simulé)
-                $token = bin2hex(random_bytes(16));
-                echo "<div class='message success'>Token has been sent to your mailbox <strong>$token</strong></div>";
-            } else {
-                echo "<div class='message error'>Error: Incorrect email or username</div>";
+        if ($userCount == 0) {
+            // La table `users` est vide, insérer les utilisateurs
+            $users = [
+                ['LukeSkywalker', 'luke.skywalker@2bgp-ctf.com', 'F0rc3!@#123'],
+                ['DarthVader', 'darth.vader@2bgp-ctf.com', 'D@rkV4d3r!99'],
+                ['LeiaOrgana', 'leia.organa@2bgp-ctf.com', 'R3b3l$c0ut!'],
+                ['HanSolo', 'han.solo@2bgp-ctf.com', 'K3ss3lR@n!'],
+                ['Yoda', 'yoda@2bgp-ctf.com', 'Tr@1nJ3d1$'],
+                ['ObiWanKenobi', 'obiwan@2bgp-ctf.com', 'H3ll0Th3r3!'],
+                ['Rey', 'rey@2bgp-ctf.com', 'Sc@v3ng3r!'],
+                ['KyloRen', 'kylo.ren@2bgp-ctf.com', 'V@d3rF@n!'],
+                ['Chewbacca', 'chewie@2bgp-ctf.com', 'R@wr!1234'],
+                ['ValkorionEmpereur', 'ValkorionEmpereur@2bgp-ctf.com', 'Qu33n0fN@b00!'],
+                ['PadmeAmidala', 'padme@2bgp-ctf.com', 'N@b00Qu33n!']
+            ];
+
+            foreach ($users as $userData) {
+                $username = $userData[0];
+                $email = $userData[1];
+                $plainPassword = $userData[2];
+
+                // Hacher le mot de passe
+                $hashedPassword = password_hash($plainPassword, PASSWORD_BCRYPT);
+
+                // Insérer l'utilisateur dans la base de données
+                $query = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+                $stmt = $mysqli->prepare($query);
+                $stmt->bind_param('sss', $username, $email, $hashedPassword);
+                $stmt->execute();
             }
-            
+        }
+
+        if (isset($_POST['submit'])) {
+            $username = htmlspecialchars($_POST['username']);
+            $password = htmlspecialchars($_POST['password']);
+
+            // Vérifier si l'utilisateur existe dans la base de données
+            $query = "SELECT username, email, password FROM users WHERE username = ?";
+            $stmt = $mysqli->prepare($query);
+            $stmt->bind_param('s', $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $userData = $result->fetch_assoc();
+
+            if ($userData) {
+                // Vérifier le mot de passe
+                if (password_verify($password, $userData['password'])) {
+                    // Authentification réussie
+                    echo "<div class='message success'>Authentification réussie.</div>";
+                    $_SESSION['username'] = $userData['username'];
+                    echo "<div class='message flag'>" . $_SESSION['username'] . "</div>";
+                    header('Location: destroy.php');
+                    exit;
+                } else {
+                    // Mot de passe incorrect
+                    echo "<div class='message error'>Mot de passe incorrect.</div>";
+                }
+            } else {
+                // Utilisateur introuvable
+                echo "<div class='message error'>Utilisateur introuvable.</div>";
+            }
         }
         ?>
     </div>
