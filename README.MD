@@ -10,19 +10,28 @@ Choix du groupe (camp ? Sith / Jedi)
 
 Niveaux: (planètes)
 
+*** INTRO ***
 
-In an age long forgotten, as the balance of the Force wavers, the galaxy sinks into darkness. The tyrannical Emperor Valkorion has hatched a sinister plan: to invade and enslave every world, imposing his iron will upon the entire universe. Rallying behind him is the Eternal Empire on Zakel—a relentless force of tyranny—and to ultimately defeat Valkorion, you must first overcome his children, the heirs of his dark legacy.
+Dans une époque oubliée depuis longtemps, alors que l'équilibre de la Force vacille, la galaxie sombre dans les ténèbres. Le tyrannique empereur Valkorion a élaboré un sinistre plan : envahir et asservir chaque monde, imposant sa volonté de fer à l'univers entier. L'Empire éternel de Zakel se rallie derrière lui, une force tyrannique implacable. Pour finalement vaincre Valkorion, vous devez d'abord vaincre ses enfants, les héritiers de son sombre héritage.
 
-At the heart of this turmoil, you stand—either as a Jedi apprentice, bearer of light and hope, or as a Sith disciple, driven by the passion and determination of the dark side. Whichever path you choose, your destiny is now inextricably linked to the survival of the galaxy.
+Au cœur de cette tourmente, vous vous trouvez, soit en tant qu'apprenti Jedi, porteur de lumière et d'espoir, soit en tant que disciple Sith, animé par la passion et la détermination du côté obscur. Quelle que soit la voie que vous choisissez, votre destin est désormais inextricablement lié à la survie de la galaxie.
 
-Tasked with the heavy mission of overthrowing Valkorion, you must draw upon the Force to rekindle the spark of freedom and restore balance. Shadows lengthen as the epic battle for the future of the universe begins now… Your master awaits you, young Padawan. May the Force be with you.
+Chargé de la lourde mission de renverser Valkorion, vous devez faire appel à la Force pour raviver l'étincelle de la liberté et rétablir l'équilibre. Les ombres s'allongent alors que la bataille épique pour l'avenir de l'univers commence maintenant… Votre maître vous attend, jeune Padawan. Que la Force soit avec vous.
+
+=> Le but est d'aller tuer sur la derniere planete Valkorion. (jai mis un but sinon yen avait pas apres vous me dites)
 
 *** First Level ***
 
-Tu reçois un appel de ton maitre qui t’envoie un ordre de mission ultra secret chiffré dans la langue star wars. La première mission est lié au fils et un des bras droits de l'empereur, d'après des informations 
+Premiere planete, l'article de journal. Il y a un vaisseau qui s'est perdu dans la galaxie mais c'est le seul a le connaitre. Celui ci te permettrait deja plus facilement de te deplacer au-sein de la galaxie. Retrouve vite ce vaisseau avant u'il ne soit trop tard !!!!!!
+
+*** Level 2  FILE INJECTION = Reverse Shell ***
+
+Tu as trouve le vaisseau mais celui ci est verouillle totalment de partout... dommage, tu ne peux pas entrer dnas le vaisseau afin de l'utiliser. ATTENTION : tu te rends compte, que le vaisseau est habite par les ennemis, il le garde afin de le proteger. Si jamais tu reussir a entrer dnas le vaisseau, essaye de ne pas te faire attraper ..... Il faudra peut etre te faire passer pour une autre personne et enfiler ton meilleur costme.
+Afin de rentrer dnas le vaisseau, il faut presenter son badge (STAR WARS) afin de deverouiller la porte. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au digicode. Il trouve le code.
 
 
-*** Second Level  File Injection GET ***
+
+*** Second Level  URL  GET ***
 
 Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent différents plans. Il y a une faille car c'est directement en clair dans l'URL (GET), et en modifiant cela, on peut récupérer les logs du vaisseau et récupérer le fichier logs.txt. Il faut modifier l'URL de l'image par secret/logs.txt et il sera téléchargé dans le navigateur.
 
