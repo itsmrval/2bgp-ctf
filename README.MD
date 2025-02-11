@@ -20,18 +20,33 @@ Chargé de la lourde mission de renverser Valkorion, vous devez faire appel à l
 
 => Le but est d'aller tuer sur la derniere planete Valkorion. (jai mis un but sinon yen avait pas apres vous me dites)
 
+
+
+
 *** First Level ***
 
 Premiere planete, l'article de journal. Il y a un vaisseau qui s'est perdu dans la galaxie mais c'est le seul a le connaitre. Celui ci te permettrait deja plus facilement de te deplacer au-sein de la galaxie. Retrouve vite ce vaisseau avant u'il ne soit trop tard !!!!!!
 
+
+
 *** Level 2  FILE INJECTION = Reverse Shell ***
 
-Tu as trouve le vaisseau mais celui ci est verouillle totalment de partout... dommage, tu ne peux pas entrer dnas le vaisseau afin de l'utiliser. ATTENTION : tu te rends compte, que le vaisseau est habite par les ennemis, il le garde afin de le proteger. Si jamais tu reussir a entrer dnas le vaisseau, essaye de ne pas te faire attraper ..... Il faudra peut etre te faire passer pour une autre personne et enfiler ton meilleur costme.
+Tu as trouve le vaisseau mais celui ci est verouillle totalment de partout... dommage, tu ne peux pas entrer dnas le vaisseau afin de l'utiliser. 
 Afin de rentrer dnas le vaisseau, il faut presenter son badge (STAR WARS) afin de deverouiller la porte. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au digicode. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt
 
 
+*** Level 3  Faille reset password (a faire) ***
 
-*** Second Level  URL  GET ***
+Bien joue ! TU es maintenant dans le vaisseau, cepenant, il est occupé par les ennemis ...... Essaye de ne pas te faire attraper ..... Il faut maintenant te deguiser en personnage ennemi. Pour cela va dans le vestiaire, il y a un code du casier de XXX mais tu nas pas son code. Alors il faut reinitlaiser le MDP  (fais dabord sur le compte pour anlyser les requetes etc) et lors de la reinitialisation, il faut changer l'url et indique avec les champs de XXX. 
+Aisni, tu connais le MDP de son casier et tu recupere son costume.
+
+Bie  joue, tu es maintenant deguise !!! tu puex te promener tranquillement dnas le vaisseau et continue ta mission.
+
+*** Level 4 ***
+
+Se rendre dnas le cotpit afin de pouvoir demarrer le vaisseau........ a continuer.....
+
+*** LEVEL X ?? URL  GET ***
 
 Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent différents plans. Il y a une faille car c'est directement en clair dans l'URL (GET), et en modifiant cela, on peut récupérer les logs du vaisseau et récupérer le fichier logs.txt. Il faut modifier l'URL de l'image par secret/logs.txt et il sera téléchargé dans le navigateur.
 
