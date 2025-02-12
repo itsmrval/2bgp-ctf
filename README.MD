@@ -112,7 +112,7 @@ Jango,
 
 Pour remporter cette guerre, une armée de clones m'est indispensable. Tu dois être l’ADN originel, le modèle parfait à partir duquel naîtront mes soldats d’élite. Pars immédiatement pour Kamino et exécute ta mission sans la moindre hésitation. Sache que ton engagement ne passera pas inaperçu : tes compétences seront récompensées grassement et ta loyauté te vaudra une compensation à la hauteur de l’enjeu.
 
-N’oublie pas ton adresse secrète, c’est la clé pour sceller ton ADN sur Kamino et garantir le succès de notre entreprise.
+N’oublie pas ton adresse mail secrète, c’est la clé pour sceller ton ADN sur Kamino et garantir le succès de notre entreprise.
 
 — Valkorion
 
@@ -129,7 +129,7 @@ Alors que vous quittez le temple, vous retournez à votre vaisseau pour constate
 
 Vous atterrissez sur Kamino, la planète réputée pour ses prouesses en clonage. Dans les couloirs high-tech de la station, les Kaminoans, discrets et méthodiques, vous attendent. Ils vous informent qu'ils attendaient certain Arkann, un nom qui résonne comme une ombre menaçante dans l'Empire. Tu comprends donc qu'il faut te faire passer pour ce certain Arkann pour ne pas eveiller quelconque soupcon. Ici, au cœur de ces laboratoires ultramodernes, se trame le sinistre dessein de l'Empereur Éternel : forger une armée de clones, basée sur l'ADN d'un chasseur de primes légendaire Jango Fett.
 
-Le danger est imminent. Même en l'absence de cette armée, l'Empire Éternel est à deux doigts de plonger la galaxie dans un joug autoritaire impitoyable. Votre mission, aussi périlleuse qu'essentielle, consiste à pénétrer dans la salle secrète abritant l'ADN des clones, véritable noyau de l'opération. Là, un ordinateur central contrôle toutes les données génétiques. Vous devez vous connecter, analyser minutieusement les requêtes, et ensuite réinitialiser le mot de passe de sécurité. Pour y parvenir, il vous faudra modifier l'URL en renseignant les champs marqués par XXX, contournant ainsi les dispositifs de sécurité élaborés.
+Le danger est imminent. Même en l'absence de cette armée, l'Empire Éternel est à deux doigts de plonger la galaxie dans un joug autoritaire impitoyable. Votre mission, aussi périlleuse qu'essentielle, consiste à pénétrer dans la salle secrète abritant l'ADN des clones, véritable noyau de l'opération. Là, un ordinateur central contrôle toutes les données génétiques. Vous devez vous connecter, mais le password du chasseur de primes n'est en votre possession, à vous de le retrouver.  
 
 ** Après avoir trouvé le flag : 
 
@@ -149,8 +149,7 @@ Après avoir atterri sur Tatooine, la chaleur implacable et les sables infinis d
 
 Sans détour, vous le confrontez. Sous la pression de vos menaces et l'éclat déterminé dans vos yeux, Jango comprend qu'il ne peut plus se dérober à votre quête. Bien qu'il ne possède pas d'informations détaillées sur les plans de l'Empereur, il révèle une nouvelle capitale : une prime a été lancée pour libérer Vaylin, la fille de Valkorion, détenue dans une prison ultra-sécurisée.
 
-Grâce à ses contacts, Jango a mis la main sur les plans de cette prison qui se situe sur la planète Nathema, dissimulés dans plusieurs images numériques. Chaque image représente une partie des installations, mais une faille technique vous offre l’accès à une information cruciale. En effet, une simple modification de l’URL (GET) de l'image permet de télécharger directement un fichier contenant les logs du vaisseau de la prison. En remplaçant l’URL par secret/logs.txt, le fichier se télécharge dans votre navigateur, révélant le flag indispensable à votre mission.
-
+Grâce à ses contacts, Jango a mis la main sur les plans de cette prison qui se situe sur la planète Nathema, dissimulés dans plusieurs images numériques. Chaque image représente une partie des installations, mais une faille technique vous offre l’accès à une information cruciale. 
 
 ** Après avoir trouvé le flag : 
 
@@ -163,7 +162,7 @@ Armé de cette nouvelle information, vous vous préparez à infiltrer la prison.
 
 *** Level 7 (Planete Nathema :  https://starwars.fandom.com/fr/wiki/Nathema) ***
 
-Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive. Toutefois, le mécanisme de verrouillage, fragilisé par une attaque récente, vous offre une ouverture. Grâce à la Force et à votre perspicacité, vous identifiez la faille dans le système et parvenez à forcer l'ouverture.
+Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive.  ( Attaque à voir ) 
 
 ** Après avoir trouvé le flag : 
 
