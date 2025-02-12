@@ -1,0 +1,26 @@
+services:
+  backend:
+    image: 2bgp-ctf_backend
+    container_name: backend
+    ports:
+      - "3000:3000" 
+    env_file:
+      - config/backend.env
+
+  frontend:
+    image: 2bgp-ctf_frontend
+    container_name: frontend
+    ports:
+      - "80:80" 
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    volumes:
+      - mongodata:/data/db
+    env_file:
+      - config/mongodb.env
+
+volumes:
+  mongodata:
+    external: false
