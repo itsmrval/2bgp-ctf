@@ -398,8 +398,13 @@ async function displayContent() {
     }, 100);
 }
 
+async function checkPath(pathRequired) {
+    const regex = new RegExp(`^/${pathRequired}/?$`);
+    return regex.test(window.location.pathname);
+}
 
 async function main() {
+    console.log(window.location.pathname);
     // Check if user is logged in
     if (!await isLoggedIn()) {
         logout();
@@ -408,26 +413,28 @@ async function main() {
     const isUserMemberOfTeam = await isMemberOfTeam();
 
     // Check if user is member of a team
-    if (!isUserMemberOfTeam && (window.location.pathname !== '/teamSelection' && window.location.pathname !== '/teamCreation' && window.location.pathname !== '/intro')) {
+    if (!isUserMemberOfTeam && !(await checkPath('teamSelection') || await checkPath('teamCreation') || await checkPath('intro'))) {
+        console.log("User is not a member of a team");
         window.location.href = '/intro';
     }
 
     // Team selection page
-    if (window.location.pathname === '/teamSelection') {
+    if (await checkPath('teamSelection')) {
         if (isUserMemberOfTeam) {
+            console.log('User is already a member of a team');
             window.location.href = '/';
         }
 
         $('#jediSelector').click(async function () {
             await selectTeam('jedi');
-            displayContent();        
+            displayContent();
         });
-    
+
         $('#sithSelector').click(async function () {
             await selectTeam('sith');
             displayContent();
-
         });
+
         $('#createTeamButton').click(async function () {
             if (localStorage.getItem('createTeamType')) {
                 window.location.href = '/teamCreation';
@@ -441,12 +448,13 @@ async function main() {
     }
 
     // Team creation page
-    if (window.location.pathname === '/teamCreation') {
-
+    if (await checkPath('teamCreation')) {
         if (isUserMemberOfTeam) {
+            console.log('User is already a member of a team');
             window.location.href = '/';
         }
         if (!localStorage.getItem('createTeamType')) {
+            console.error('Team type not found');
             window.location.href = '/teamSelection';
         }
 
@@ -463,20 +471,20 @@ async function main() {
                 console.error('Invalid team type:', type);
                 return;
             }
-            
+
             try {
                 const team = await createTeam(name, type);
                 await addUserToTeam(localStorage.getItem('id'), team._id);
                 window.location.href = '/';
             } catch (error) {
-                alert('Team already exist');
+                alert('Team already exists');
                 console.error('Error creating team:', error);
             }
         });
-        
     }
+
     // Home page
-    if (window.location.pathname === '/') {
+    if (await checkPath('')) {
         const planetPositions = [
             { top: '30%', left: '-85%' },
             { top: '80%', left: '-70%' },
@@ -489,42 +497,42 @@ async function main() {
             { top: '50%', left: '85%' },
             { top: '90%', left: '95%' }
         ];
-        
+
         let levels = await getLevels();
         await displayPlanets(levels, planetPositions);
         displayContent();
-
     }
 
     // Intro page
-    if (window.location.pathname === '/intro') {
+    if (await checkPath('intro')) {
         if (isUserMemberOfTeam) {
+            console.log('User is already a member of a team (intro)');
             window.location.href = '/';
         }
 
         const titleContent = document.querySelector('.star-wars-intro .title-content');
         const startButton = document.querySelector('.star-wars-intro .space-button');
         let pauseTimeout;
-    
+
         new IntersectionObserver(([entry]) => {
-          clearTimeout(pauseTimeout);
-          if (entry.isIntersecting) {
-            pauseTimeout = setTimeout(() => titleContent.style.animationPlayState = 'paused', 2000);
-          } else {
-            titleContent.style.animationPlayState = 'running';
-          }
+            clearTimeout(pauseTimeout);
+            if (entry.isIntersecting) {
+                pauseTimeout = setTimeout(() => titleContent.style.animationPlayState = 'paused', 2000);
+            } else {
+                titleContent.style.animationPlayState = 'running';
+            }
         }, { threshold: 0.5 }).observe(startButton);
         displayContent();
     }
 
     // Scoreboard page
-    if (window.location.pathname === '/scoreboard') {
+    if (await checkPath('scoreboard')) {
         await updateScoreboard();
         displayContent();
     }
 
     // Level page
-    if (window.location.pathname === '/level') {
+    if (await checkPath('level')) {
         const level = await getLevel(localStorage.getItem('levelId'));
         if (!level || level.error) {
             console.error('Level not found:', levelId);
@@ -536,7 +544,6 @@ async function main() {
         document.getElementById('levelPoints').innerText = level.points;
         const nextLevel = await getTeamNextLevel();
         if (level.hid < nextLevel) {
-            
             // Status
             document.getElementById('flagContainer').style.display = 'none';
             document.getElementById('levelStatus').textContent = 'Completed';
@@ -574,11 +581,9 @@ async function main() {
                 alert('Error submitting flag');
             }
         });
-            
     }
-    
 }
 
 $(document).ready(function () {
     main();
-})
+});
