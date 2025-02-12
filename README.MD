@@ -85,19 +85,20 @@ Ta mission consiste à localiser la salle contenant l'ADN des clones, véritable
 
 Après avoir réinitialisé le mot de passe et infiltré le système, tu parviens à détruire les données essentielles. Tu t'enfuis discrètement, sans éveiller le moindre soupçon.
 
+Après cela tu te donnes pour objectif de retrouvé Jango fett, tu sais que sa planète de prédilection est tatooine. Tu dois donc te diriger vers tatooine. 
+
+*** Level 6 Transversale avec un fichier log telecharger (planete tatooine) ***
+
+Arrivée sur tatooine tu arrives en utilisant la force a savoir ou loge le chasseur de prime Jango Fett. 
+
+Tu vas le rencontrer et tu le menaces pour en savoir plus, il ne sait rien de plus sur les agissements de l'empereur, mais il sait que une prime à été donné pour libérer la fille de Valkorion d'une prison.  
+
+Il te donne les plans de la prison qu'il a réussi a recevoir d'une certaine manière. Ton objectif est de trouver dans quelle salle de la prison est prisonnière Vaylin la fille de Valkorion. 
 
 
-*** Level 6 (planete tatooine) ***
+*** Level 7 (planete Nathema) ***
 
-Il se retrouve sur tatoine repaire ... 
-
-
-
-
-Se rendre dnas le cotpit afin de pouvoir demarrer le vaisseau........ a continuer.....
-
-
-
+Tu te rends sur la planète ou il y'a dans la prison 
 
 *** LEVEL X ?? URL  GET ***
 
