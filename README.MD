@@ -107,19 +107,21 @@ Tu vas le rencontrer et tu le menaces pour en savoir plus, il ne sait rien de pl
 
 Il te donne les plans de la prison qu'il a réussi a recevoir d'une certaine manière. Ton objectif est de trouver dans quelle salle de la prison est prisonnière Vaylin la fille de Valkorion. 
 
-
-*** Level 7 (planete Nathema) ***
-
-Tu te rends sur la planète ou il y'a dans la prison 
-
-
-*** LEVEL X ?? URL  GET ***
-
 Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent différents plans. Il y a une faille car c'est directement en clair dans l'URL (GET), et en modifiant cela, on peut récupérer les logs du vaisseau et récupérer le fichier logs.txt. Il faut modifier l'URL de l'image par secret/logs.txt et il sera téléchargé dans le navigateur.
 
 Il y aura le flag dans les logs à récupérer.
 
+Tu trouves ou est la salle ou est emprisoné Vaylin. Tu te dois d'aller la sauver
 
+*** Level 7 (planete Nathema) ***
+
+Arrivé sur la planète Nathema tu arrives a te faufiler dans la prison pour aller la libérer. 
+
+Il y'a un problème la porte qui emprisone Vaylin est bloqué ( selon l'attaque faut trouver) 
+
+On la sauve et elle nous explique qu'elle a ressenti dans la force la perte de son frere qui à du etre tué par son père l'empereur Valkorion. Vos objectifs deviennent commun pour elle c'est vengé son frere et nous c'est vengé la mort de notre maitre et sauver la galaxie. 
+
+Tu as donc pour objectif de te rendre sur Zakel mais pour cela 
 
 
 *** 8 Level Injection SQL (a voire quand mettre cette faille) ***
