@@ -9,21 +9,19 @@
   src: url('fonts/Starjedi.ttf') format('truetype');
 }
 
-html,body{
-  overflow: hidden;
+html, body {
+  height: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  min-height: 100vh;
   background: url('logo/bg_level2.png') no-repeat center center fixed;
   background-size: cover;
   color: white;
   font-family: Arial, sans-serif;
   position: relative;
-  padding-bottom: 100px; /* Add padding for footer */
+  padding-bottom: 60px; /* Espace pour le footer */
 }
-
-
 
 .navbar {
   position: fixed;
@@ -44,19 +42,19 @@ body {
 
 .content-wrapper {
   position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 15%);
   width: 100%;
-  padding: 20px;
+  padding: 100px 20px 20px;
   z-index: 1;
-  pointer-events: none;
+  min-height: calc(100vh - 60px); /* Hauteur du viewport moins la hauteur du footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 .news-section {
   position: relative;
   display: flex;
+  flex-direction: column;
   gap: 40px;
   max-width: 1200px;
   width: 90%;
@@ -64,15 +62,17 @@ body {
   backdrop-filter: blur(10px);
   padding: 30px;
   border-radius: 10px;
-  padding-bottom: 150px;
   margin: 0 auto;
-  pointer-events: auto;
 }
 
+.news-content {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 60px; /* Ajout de marge en bas */
+}
 
 .news-image {
-  flex: 0 0 auto;
-  width: 300px;
+  flex: 0 0 300px;
   display: flex;           
   align-items: center;    
 }
@@ -123,14 +123,11 @@ body {
 }
 
 .coords-container {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   display: flex;
-  gap: 20px;
-  width: auto;
-  align-items: flex-end;  
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .coords-container form {
@@ -141,7 +138,7 @@ body {
 
 .inputbox {
   position: relative;
-  width: 200px;
+  width: 300px;
   margin-bottom: 0;
 }
 
@@ -194,11 +191,8 @@ body {
   transform: translateY(0px);
 }
 
-
-/* Update just the container styles */
 .container {
   width: 80%;
-
   max-width: 800px;
   margin: 20px 0; 
   position: relative;
@@ -207,18 +201,41 @@ body {
   margin-top: 10%;
 }
 
-/* Update the text-box styles */
 .text-box {
   padding: 2rem;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Added: centers the text inside */
+  text-align: center;
 }
 
 .text-box p {
   color: white;
   margin: 0;
   line-height: 1.6;
+}
+
+.message.error {
+  position: fixed;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1001;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000;
 }
