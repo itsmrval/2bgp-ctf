@@ -1,4 +1,3 @@
-import { describe } from 'node:test';
 import { getUsers, getUserTeam, deleteUser, register, getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints, getTeams, createTeam, deleteTeam, removeUserFromTeam, addUserToTeam} from './api.js';
 
 // Authentication functions
