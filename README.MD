@@ -62,7 +62,7 @@ Notre personnage doit donc aller sur Endor pour en savoir plus
 
 *** Level 2 - Photo métadonné (Planete Endor : https://starwars.fandom.com/fr/wiki/Endor/L%C3%A9gendes) ***
 
-Après avoir quitté Endor, vous pénétrez dans les recoins secrets de la dernière base des services spéciaux. Dans ce sanctuaire caché, une transmission clandestine a été interceptée, émanant du fils redouté de Valkorion, Arkann. Le message, énigmatique et porteur d'un défi contient une photographie qui, à première vue, semble n'être qu'une simple image du vaisseau perdu le Faucon Millenium.
+Après avoir quitté Endor, vous pénétrez dans les recoins secrets de la dernière base des services secrets. Dans ce sanctuaire caché, une transmission clandestine a été interceptée, émanant du fils redouté de Valkorion, Arkann. Le message, énigmatique et porteur d'un défi contient une photographie qui, à première vue, semble n'être qu'une simple image du vaisseau perdu le Faucon Millenium.
 
 Mais sous ses pixels se dissimule une énigme bien plus profonde. En laissant la Force guider votre intuition, vous vous devez de déchiffrez ces indices cachés. 
 
@@ -81,9 +81,9 @@ Après avoir retrouvé le vaisseau d’Arkann, une étrange inquiétude s’empa
 
 Mais la Force est avec vous. Concentrant votre énergie, vous percevez les subtils échos des enchantements protégeant l’entrée. D’un geste sûr, vous utilisez vos pouvoirs pour déverrouiller la porte, qui s’ouvre alors dans un léger murmure, révélant l’intérieur silencieux du cockpit.
 
-L’obscurité règne, seulement troublée par le scintillement d’un écran de bord. Là, sur le tableau de bord, un code mystérieux semble attendre d’être activé. Vous comprenez rapidement que ce secret ne peut être dévoilé que par un savant mélange de technologie et de maîtrise de la Force.
+Il y'a écrit sur l'écran verifier votre idendité. Vous comprenez rapidement que ce secret ne peut être dévoilé que par un savant mélange de technologie et de maîtrise de la Force.
 
-Agissant avec détermination, vous injectez un fichier PHP au cœur du système, lançant un reverse shell pour prendre le contrôle des protocoles informatiques du vaisseau. Votre perspicacité vous guide vers un dossier dissimulé dans les entrailles du vaisseau : /secret/flag.txt. Le contenu de ce fichier, une série de caractères cryptés, détient la clé pour activer le vaisseau.
+Agissant avec détermination, vous injectez un code permettant de prendre le controle du cockpit. Votre perspicacité vous guide vers un dossier dissimulé dans les entrailles du vaisseau. 
 
 ** Après avoir trouvé le flag : 
 
@@ -98,22 +98,28 @@ Votre vaisseau traverse l'hyperespace pour atterrir sur la planète glaciale de 
 
 En foulant les couloirs silencieux du temple, vous ressentez la présence de la Force guidant chacun de vos pas. Au centre d'une vaste salle, sur un piédestal de pierre, repose un holocron légendaire, un artefact sacré censé renfermer le savoir des anciens maîtres de la Force.
 
-D'un geste assuré, vous vous mettez à l'œuvre pour déverrouiller ce précieux héritage. Alliant votre maîtrise de la Force et vos compétences technologiques, vous lancez un brutefore sur la base de données protégeant l’holocron. Peu à peu, les couches de protection se dissolvent, et un mail s’affiche, dévoilant une sombre prophétie.
-
-Le texte révèle qu’un danger sans précédent se profile : "l’Empereur a commandé la création d’une armée de clones destinée à écraser toute résistance. Plus surprenant encore, l’holocron mentionne un contact énigmatique — Jango Fett, identifié comme le clone originel — dont l’adresse mail est inscrite comme clef d’identification pour accéder à d’autres secrets. Enfin, le message vous indique le lieu névralgique où se prépare cette sinistre armée : Kamino, le berceau de la génétique clonale."
-
+D'un geste assuré, vous vous mettez à l'œuvre pour déverrouiller ce précieux héritage. Avec la force vous trouverez le code protégeant l’holocron. 
 
 ** Après avoir trouvé le flag : 
 
-Alors que vous quittez le temple, vous retournez à votre vaisseau pour constater avec stupeur que le système d’auto-pilote a disparu. Sans assistance, vous êtes désormais maître de votre destin. Il ne vous reste plus qu’une seule option : mettre le cap sur Kamino afin de stopper, une bonne fois pour toutes, la création de cette armée qui menace la galaxie.
+Peu à peu, les couches de protection se dissolvent, et un mail s’affiche, dévoilant une sombre prophétie.
 
-Ancien texte : 
+Le texte révèle qu’un danger sans précédent se profile : 
 
-Sur cette nouvelle planète glaciale le vaisseau se pose devant un temple.  
+""
 
-Tu n'es pas là par hasard et tu te dois de rentrer dans ce temple. En rentrant dans ce temple au milieu tu vois un holocron, en tant que maitre de le force tu essaye d'ouvrir cet holocron (Bruteforce la base de donné, un holocron c'es un artefact dans star war qui peut contenir tout). Dans cet holocron il y'a un texte annoncant un grand danger l'empereur aurait commandé une armée de clone. Et jsp comment mais met que il a envoyé cet homme (Jango fett)   pour etre le clone originel et met son mail dedans. Il y'a aussi le lieu qui est kamino. (Mail comme j'ai pu t'expliqué hésite pas a m'appeler si il le faut) 
+Jango,
 
-Quand tu rentres dans ton vaisseau tu vois qu'il n'y a plus d'auto pilot et tu as donc pour prochain objectif de te rendre sur cette planete pour arreter la lancée de la construction de cette armée. 
+Pour remporter cette guerre, une armée de clones m'est indispensable. Tu dois être l’ADN originel, le modèle parfait à partir duquel naîtront mes soldats d’élite. Pars immédiatement pour Kamino et exécute ta mission sans la moindre hésitation. Sache que ton engagement ne passera pas inaperçu : tes compétences seront récompensées grassement et ta loyauté te vaudra une compensation à la hauteur de l’enjeu.
+
+N’oublie pas ton adresse secrète, c’est la clé pour sceller ton ADN sur Kamino et garantir le succès de notre entreprise.
+
+— Valkorion
+
+""
+
+Alors que vous quittez le temple, vous retournez à votre vaisseau pour constater avec stupeur que le système d’auto-pilote a disparu. Sans assistance, vous êtes désormais maître de votre destin. Il ne vous reste plus qu’une seule option : mettre le cap sur Kamino afin de stopper, une bonne fois pour toutes, la création de cette armée qui pourrait annoncer la fin de cette galaxie que vous aimez tant. 
+ 
 
 *********************************************************************
 
@@ -121,29 +127,37 @@ Quand tu rentres dans ton vaisseau tu vois qu'il n'y a plus d'auto pilot et tu a
 
 ------------  Image d'arrivé sur kamino +  image de la salle d'adn ------------------
 
-Tu te retrouves sur Kamino, où les Kaminoans t'attendaient, annonçant l'arrivée d'un certain Arkann. Réputée pour ses prouesses en clonage, cette planète abrite les esprits derrière la création de l'armée de clones de l'Empereur Éternel. Dès ton arrivée, les Kaminoans t'informent que l'Empereur a mandaté leur expertise pour fabriquer une armée de clones, basée sur l'exemple d'un chasseur de primes légendaire. Le problème est d'une gravité extrême : même sans cette armée, l'Empire Éternel est à deux doigts de dominer la galaxie, et avec elle, il imposera son contrôle sur l'univers en toute impunité.
+Vous atterrissez sur Kamino, la planète réputée pour ses prouesses en clonage. Dans les couloirs high-tech de la station, les Kaminoans, discrets et méthodiques, vous attendent. Ils vous informent qu'ils attendaient certain Arkann, un nom qui résonne comme une ombre menaçante dans l'Empire. Tu comprends donc qu'il faut te faire passer pour ce certain Arkann pour ne pas eveiller quelconque soupcon. Ici, au cœur de ces laboratoires ultramodernes, se trame le sinistre dessein de l'Empereur Éternel : forger une armée de clones, basée sur l'ADN d'un chasseur de primes légendaire Jango Fett.
 
-Ta mission consiste à localiser la salle contenant l'ADN des clones, véritable noyau de l'opération. Dans cette salle, un ordinateur central gère toutes les données ADN. Tu devras d'abord te connecter pour analyser les requêtes, puis réinitialiser le mot de passe. Lors de cette réinitialisation, il te faudra modifier l'URL en renseignant les champs indiqués par XXX pour contourner les mesures de sécurité.
+Le danger est imminent. Même en l'absence de cette armée, l'Empire Éternel est à deux doigts de plonger la galaxie dans un joug autoritaire impitoyable. Votre mission, aussi périlleuse qu'essentielle, consiste à pénétrer dans la salle secrète abritant l'ADN des clones, véritable noyau de l'opération. Là, un ordinateur central contrôle toutes les données génétiques. Vous devez vous connecter, analyser minutieusement les requêtes, et ensuite réinitialiser le mot de passe de sécurité. Pour y parvenir, il vous faudra modifier l'URL en renseignant les champs marqués par XXX, contournant ainsi les dispositifs de sécurité élaborés.
 
-Après avoir réinitialisé le mot de passe et infiltré le système, tu parviens à détruire les données essentielles. Tu t'enfuis discrètement, sans éveiller le moindre soupçon.
+** Après avoir trouvé le flag : 
 
-Après cela tu te donnes pour objectif de retrouvé Jango fett, tu sais que sa planète de prédilection est tatooine. Tu dois donc te diriger vers tatooine. 
+Grâce à votre habileté, vous parvenez à détruire les données essentielles, sabotant ainsi les plans génétiques ennemis. Discrètement, vous quittez les installations, laissant derrière vous un système déstabilisé et un chaos silencieux.
+
+Mais la lutte ne fait que commencer. Alors que l'ombre de l'Empire éternel s'étend Jango Fett, le modèle originel à l'origine de cette armée que vous venez de détruire, pourrait avoir un contact direct avec l'Empereur. Il pourrait peut-être connaitre des informations déterminantes sur l'Empereur. 
+
+Sa planète de prédilection, Tatooine, devient dès lors votre prochaine destination. Vous devez impérativement retrouver Jango Fett pour obtenir ces renseignements vitaux et déjouer les plans sinistres de l'Empire.
+
+Sans perdre une seconde, vous ajustez le cap en direction de Tatooine, déterminé à percer les mystères de ce message impérial et à empêcher l'avènement d'une armée qui pourrait sceller le destin de la galaxie.
 
 *********************************************************************
 
-*** Level 6 Transversale avec un fichier log telecharger (planete tatooine) ***
+*** Level 6 Transversale avec un fichier log telecharger (Planete Tatooine : https://starwars.fandom.com/fr/wiki/Tatooine) ***
 
-Arrivée sur tatooine tu arrives en utilisant la force a savoir ou loge le chasseur de prime Jango Fett. 
+Après avoir atterri sur Tatooine, la chaleur implacable et les sables infinis de cette planète vous rappellent que le destin de la galaxie se joue dans les lieux les plus inhospitaliers. Utilisant la Force, vous percevez des échos de présence dans l'obscurité des ruelles et des repaires cachés. Rapidement, vous localisez le célèbre chasseur de primes, Jango Fett.
 
-Tu vas le rencontrer et tu le menaces pour en savoir plus, il ne sait rien de plus sur les agissements de l'empereur, mais il sait que une prime à été donné pour libérer la fille de Valkorion d'une prison.  
+Sans détour, vous le confrontez. Sous la pression de vos menaces et l'éclat déterminé dans vos yeux, Jango comprend qu'il ne peut plus se dérober à votre quête. Bien qu'il ne possède pas d'informations détaillées sur les plans de l'Empereur, il révèle une nouvelle capitale : une prime a été lancée pour libérer Vaylin, la fille de Valkorion, détenue dans une prison ultra-sécurisée.
 
-Il te donne les plans de la prison qu'il a réussi a recevoir d'une certaine manière. Ton objectif est de trouver dans quelle salle de la prison est prisonnière Vaylin la fille de Valkorion. 
+Grâce à ses contacts, Jango a mis la main sur les plans de cette prison qui se situe sur la planète Nathema, dissimulés dans plusieurs images numériques. Chaque image représente une partie des installations, mais une faille technique vous offre l’accès à une information cruciale. En effet, une simple modification de l’URL (GET) de l'image permet de télécharger directement un fichier contenant les logs du vaisseau de la prison. En remplaçant l’URL par secret/logs.txt, le fichier se télécharge dans votre navigateur, révélant le flag indispensable à votre mission.
 
-Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent différents plans. Il y a une faille car c'est directement en clair dans l'URL (GET), et en modifiant cela, on peut récupérer les logs du vaisseau et récupérer le fichier logs.txt. Il faut modifier l'URL de l'image par secret/logs.txt et il sera téléchargé dans le navigateur.
 
-Il y aura le flag dans les logs à récupérer.
+** Après avoir trouvé le flag : 
 
-Tu trouves ou est la salle ou est emprisoné Vaylin. Tu te dois d'aller la sauver
+En analysant minutieusement ces logs, vous identifiez la salle secrète où Vaylin est emprisonnée. Le temps presse : libérer la fille de Valkorion pourrait bien renverser le cours de la guerre contre l'Empire éternel.
+
+Armé de cette nouvelle information, vous vous préparez à infiltrer la prison. Votre objectif est clair : retrouver la cellule où Vaylin est détenue et la libérer, afin de dévoiler les véritables intentions de l'Empereur et préserver l'espoir pour la galaxie.
+
 
 *********************************************************************
 
@@ -175,7 +189,7 @@ Cela  apour but de lui evnoyer un XSS via la messagerie.
 
 Voici le payload SQL.
 
-PAYLOAD = ' UNION SELECT NULL, nom, secret, NULL FROM livres #
+PAYLOAD = ' UNION SELECT NULL, username, password, NULL, NULL FROM users #
 
 recupere le hash de Llywi Minllegui alleer sur kali et faire un force avec hashcat par ex.
 avoir un fichier hash.txt qui comprend le hash recupere
