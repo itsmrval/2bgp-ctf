@@ -178,17 +178,11 @@ Résolu à unir vos destins contre l'Empire, vous vous apprêtez dès maintenant
 
 *** 8 Level Injection SQL (Planète Rodia :https://starwars.fandom.com/wiki/Rodia ) ***
 
+Pendant votre périple vers Rodia, Vaylin vous confie un nouvel indice crucial. Dans un souffle empreint de nostalgie, elle se remémore les doux jours de son enfance sur Rodia, lorsqu’elle se réfugiait dans la bibliothèque de sa maison d'enfance. Dans cette bibliothèque reposait un ouvrage précieux – un livre dont les pages recelaient non seulement des secrets anciens mais aussi le code qui avait scellé son destin. Ce livre, témoin silencieux de ses espoirs et de ses rêves, avait inspiré la création de son mot de passe, un sésame perdu au fil des années.
 
-Pendant ton trajet Vaylin t'as donne plus d'indication sur comment retrouve son mot de passe. elle se rappelle de l'avoir cree grace a un livre qu'elle aimait tout particulièrement. 
+Votre mission s’annonce aussi périlleuse qu’essentielle : dénicher ce livre oublié et en extraire le mot de passe dissimulé entre ses lignes. 
 
-Cela  apour but de lui evnoyer un XSS via la messagerie.
-
-Voici le payload SQL.
-
-PAYLOAD = ' UNION SELECT NULL, username, password, NULL, NULL FROM users #
-
-recupere le hash de Llywi Minllegui alleer sur kali et faire un force avec hashcat par ex.
-avoir un fichier hash.txt qui comprend le hash recupere
+PAYLOAD = ' UNION SELECT NULL, livre, secret, NULL, NULL FROM users #
 
 hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 
@@ -204,26 +198,84 @@ hash.txt : Fichier contenant le hash MD5.
 Le flag = password que tu trouves. 
 
 
-Aller au prochain niveau se connected avec ce password recupere et realiser la prochaine etape.
+** Après avoir trouvé le flag : 
+
+Le résultat de votre persévérance révéla enfin le mot de passe tant convoité. Cette clé ouvre la voie à une communication directe avec l’Empereur Valkorion.
+
+Grâce à cela,  Vaylin met en œuvre un plan audacieux pour infiltrer la flotte Éternelle. Elle compte contacter son père afin de négocier le passage de votre vaisseau à travers le blocus qui entoure la planète Zakel. Une fois le blocus franchi et votre vaisseau arrivé sur Zakel, Vaylin et ses alliés lanceront une attaque surprise contre la flotte Éternelle, pendant que vous vous préparerez à affronter l’Empereur Valkorion lui-même.
+
 
 *********************************************************************
 
 
 *** 9 Level Attaque XSS (Flotte Eternelle : https://starwars.fandom.com/fr/wiki/Flotte_%C3%89ternelle )  ***
 
-Grace au vaisseau récupérer 
-Ainsi, maintenant qu'on a le compte de notre chef qui communique avec le chef ennemi pour se mettre d'accord, il faut pouvoir communiquer avce le chef ennemi et se connecter a son compte pour envoyer un message a ses soldats afin de leur dire de me relacher !!!!
-Pour cela, lorsque le chef ennemi se connecte on recupere le cookie avec une XSS et on se levnoie sur un serveur web et on se connect a lurl chat.php du chef afin de mettre le cookie dans les datas et on est connecte au chef ennemi.
+Vous vous tenez devant la flotte Éternelle, alors que votre vaisseau oscille dans l’ombre menaçante de cette armada interstellaire. Sur une planète lointaine, Vaylin a réussi à établir une connexion avec votre système, vous permettant d’écouter en direct sa conversation tendue avec son terrible père. La communication se déroule ainsi :
+
+Vaylin :
+Père… J’aimerais te voir. Nous devons parler.
+
+Empereur :
+Parler ? Comme si toutes ces années d’emprisonnement n’avaient jamais existé ? Comme si je pouvais simplement oublier pourquoi je t’ai enfermée ?
+
+Vaylin :
+J’ai changé. Je ne suis plus celle que tu as enfermée.
+
+Empereur :
+Ce ne sont pas tes paroles qui me convaincront. Si tu veux me voir, il te faudra prouver que tu as ta place ici.
+
+Vaylin :
+Que veux-tu dire ?
+
+Empereur :
+La Flotte Éternelle t’interdit l’accès. Elle obéit à moi, et à moi seul. Mais si tu arrives à passer, alors peut-être que nous aurons une conversation.
+
+Vaylin :
+Je ne peux pas passer sans ton autorisation… Ton compte est le seul à pouvoir lever la restriction.
+
+Empereur :
+Alors trouve un moyen de te connecter.
+
+Vaylin :
+C’est impossible…
+
+Empereur :
+Impossible ? Tu étais autrefois la plus brillante de toutes. Une enfant capable de briser des codes, de manipuler la matière et l’énergie. Si tu n’es pas capable d’accéder à mon compte, alors tu ne mérites pas de me revoir.
+
+Vaylin :
+Tu me testes ?
+
+Empereur :
+Je t’offre une opportunité. Si tu réussis, je t’accueillerai comme ma fille. Si tu échoues… alors tu resteras ce que tu es devenue : une ombre du passé.
+
+Vaylin :
+Et si je tente de forcer le passage ?
+
+Empereur :
+Tu seras détruite avant même d’atteindre la première barrière.
+
+Vaylin :
+…
+
+Empereur :
+Tu veux revenir, Vaylin ? Montre-moi que tu es digne de ce retour.
 
 
+Face à cette épreuve, vous comprenez qu'il vous faut récupérer  le compte de l'Empereur pour pouvoir passer le blocus imposé par la Flotte Éternelle. Sans y parvenir, vous vous exposeriez aux tirs meurtriers de l’armada, compromettant ainsi le plan audacieux qui pourrait bien être votre ultime chance de sauver la galaxie.
 
-*** Avant dernieer niveau Level Attaque XSS (a voire quand mettre cette faille)  ***
+** Après avoir trouvé le flag : 
 
+Vous arrivez donc a passer le blocus et votre prochain objectif est de battre l'Empereur Valkorion. 
 
 
 *********************************************************************
 
-*** 10 Level Attaque  ( Planète Zekel : https://starwars.fandom.com/fr/wiki/Zakel )  ***
+*** 10 Level Attaque  ( Planète Zakel : https://starwars.fandom.com/fr/wiki/Zakel )  ***
+
+Fin on arrive sur Zakel et on affronte l'Empereur et on arrive a le vaincre et on sauve la galacie 
+
+
+*********************************************************************
 
 
 
