@@ -10,6 +10,17 @@ Choix du groupe (camp ? Sith / Jedi)
 
 Niveaux: (planètes)
 
+Lien des personnages qu'on utilise : 
+
+Le méchant de l'histoire Empereur Valkorion : https://starwars.fandom.com/fr/wiki/Valkorion
+
+Le fils de l'empereur de Valkorion Arcann : https://starwars.fandom.com/fr/wiki/Arcann
+
+La fille de l'empereur Valkorion  Vaylin : https://starwars.fandom.com/fr/wiki/Vaylin
+
+Jango Fett le chasseur de primes qui se fait prendre l'ADN pour se faire cloner sur Kamino : https://starwars.fandom.com/fr/wiki/Jango_Fett
+
+
 *** INTRO ***
 
 Dans une époque lointaine et oubliée, alors que l’équilibre de la Force chancelle, la galaxie sombre dans une obscurité implacable. Le tyrannique empereur Valkorion ourdit un sinistre dessein : envahir et asservir chaque monde, imposant sa volonté de fer sur l’univers tout entier. Soutenu par l’Empire éternel de Zakel, une force impitoyable et sans répit, il ne recule devant rien pour étendre son règne de terreur. Pour triompher de Valkorion, vous devrez d’abord vaincre ses enfants, héritiers de son sombre héritage, et briser la muraille de vaisseaux qui protège leurs planètes, la flotte éternelle.
