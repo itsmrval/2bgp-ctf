@@ -121,10 +121,20 @@ Il y'a un problème la porte qui emprisone Vaylin est bloqué ( selon l'attaque 
 
 On la sauve et elle nous explique qu'elle a ressenti dans la force la perte de son frere qui à du etre tué par son père l'empereur Valkorion. Vos objectifs deviennent commun pour elle c'est vengé son frere et nous c'est vengé la mort de notre maitre et sauver la galaxie. 
 
-Tu as donc pour objectif de te rendre sur Zakel mais pour cela 
+Tu as donc pour objectif de te rendre sur Zakel mais pour cela Vaylin a besoin de retrouver son mot de passe pour pouvoir utiliser les systeme de communication de l'empire eternel integre a notre vaisseau. 
+
+Vaylin etant en prison depuis fort longtemps elle te donne pour objectif d'aller sur sa planete natale pour récupérer son password. 
+
+Vaylin a elle des cvoses a faire pour preparer son attaque sur la flotte eternel.
+
+Tu dois donc aller sur la planete natale de Vaylin pour retrouver son mot de passe. 
 
 
 *** 8 Level Injection SQL (a voire quand mettre cette faille) ***
+
+
+Pendant ton trajet Vaylin t'as donne plus d'indication sur comment retrouve son mot de passe. elle se rappelle de l'avoir cree grace a un livre qu'elle aimait tout particulièrement. 
+
 
 Pour récupéré le mot de passe Récupéré le compte de notre maitre qui est Llywi Minllegui (cest un exemple donne par LIA). Il faut recuper son hash et ensuite force le hash avec un kali. Son password est password ce qui est cense etre simple.
 Cela a pour but de pouvoir se connecter a son compte et discuter avec le chef ennemi (qui est MAS TYMAR). Cela  apour but de lui evnoyer un XSS via la messagerie.
