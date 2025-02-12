@@ -469,6 +469,7 @@ async function main() {
                 await addUserToTeam(localStorage.getItem('id'), team._id);
                 window.location.href = '/';
             } catch (error) {
+                alert('Team already exist');
                 console.error('Error creating team:', error);
             }
         });
@@ -519,6 +520,7 @@ async function main() {
     // Scoreboard page
     if (window.location.pathname === '/scoreboard') {
         await updateScoreboard();
+        displayContent();
     }
 
     // Level page
