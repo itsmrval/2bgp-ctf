@@ -96,7 +96,7 @@ body {
   left: 60%;
   max-width: 60%;
   padding: 15px;
-  background: #b2f4ff;
+  background: #b2f3ff94;
   color: #000;
   border-radius: 10px;
   font-size: 18px;
@@ -113,7 +113,7 @@ body {
   left: -20px;
   border-width: 10px 20px 10px 0;
   border-style: solid;
-  border-color: transparent #b2f4ff transparent transparent;
+  border-color: transparent #b2f3ff94 transparent transparent;
 }
 
 
