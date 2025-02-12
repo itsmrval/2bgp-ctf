@@ -33,7 +33,8 @@ session_start();
     <!-- Bulle de texte -->
     <div class="bubble">
       <div class="message-content">
-        Mon cher Padawan,
+        
+      
         <br><br>
         Mes troupes et moi-même sommes actuellement submergés par l'assaut de l'Empire éternel.
       </div>

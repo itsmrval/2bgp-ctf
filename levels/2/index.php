@@ -30,14 +30,17 @@ session_start();
                 </div>
 
                 <div class="news-text">
-                    <h2>galactic new report : lost starship - coords needed !</h2>
+                    <h2>Communication de Arkann</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officia quo pariatur cumque voluptatibus
-                         necessitatibus exercitationem dignissimos, sit doloremque iure voluptatum explicabo veniam nostrum. Ea vero aliquam necessitatibus consequatur in!
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officia quo pariatur cumque voluptatibus
-                         necessitatibus exercitationem dignissimos, sit doloremque iure voluptatum explicabo veniam nostrum. Ea vero aliquam necessitatibus consequatur in!
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit officia quo pariatur cumque voluptatibus
-                         necessitatibus exercitationem dignissimos, sit doloremque iure voluptatum explicabo veniam nostrum. Ea vero aliquam necessitatibus consequatur in!
+                    Je suis Arkann, fils de Valkorion, l'Empereur Immortel.
+
+                    Je pressens que mes jours sont comptés, car mon père commence à se douter de mes véritables intentions.
+                    Au cas où quelque chose tournerait mal, j'ai dissimulé mon vaisseau quelque part dans la galaxie.
+
+                    Je vous confie la mission de retrouver ses coordonnées, car il recèle des informations cruciales pour l'avenir de la galaxie.
+
+                    Que la Force soit avec vous.
+
                     </p>
                 </div>
             </div>
