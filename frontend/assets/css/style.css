@@ -133,7 +133,7 @@ h1 {
 .navbar {
 
   top: 0;
-  gap: 140px;
+  gap: 8rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -144,7 +144,7 @@ h1 {
 
 .nav-links {
   display: flex;
-  gap: 150px;
+  gap: 140px;
 }
 
 .nav-item {
