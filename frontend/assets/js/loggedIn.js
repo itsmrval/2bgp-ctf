@@ -362,6 +362,12 @@ function loadNavbar() {
         });
 }
 
+async function displayContent() {
+    setTimeout(() => {
+        const content = document.getElementById('loadingContainer');
+        content.style.display = 'none';
+    }, 1);
+}
 
 
 async function main() {
@@ -455,7 +461,9 @@ async function main() {
         
 
         let levels = await getLevels();
-        displayPlanets(levels, planetPositions);
+        await displayPlanets(levels, planetPositions);
+        displayContent();
+
     }
 
     // Intro page
