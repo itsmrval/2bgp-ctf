@@ -244,8 +244,6 @@ function displayPlanets(levels, planetPositions) {
 }
 
 
-
-
 async function goToPlanet(id) {
     localStorage.setItem('levelId', id);
     window.location.href = '/level';
