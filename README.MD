@@ -206,8 +206,10 @@ Le flag = password que tu trouves.
 
 Aller au prochain niveau se connected avec ce password recupere et realiser la prochaine etape.
 
+*********************************************************************
 
-*** 9 Level Attaque XSS (a voire quand mettre cette faille)  ***
+
+*** 9 Level Attaque XSS (Flotte Eternelle : https://starwars.fandom.com/fr/wiki/Flotte_%C3%89ternelle )  ***
 
 Grace au vaisseau récupérer 
 Ainsi, maintenant qu'on a le compte de notre chef qui communique avec le chef ennemi pour se mettre d'accord, il faut pouvoir communiquer avce le chef ennemi et se connecter a son compte pour envoyer un message a ses soldats afin de leur dire de me relacher !!!!
@@ -216,6 +218,16 @@ Pour cela, lorsque le chef ennemi se connecte on recupere le cookie avec une XSS
 
 
 *** Avant dernieer niveau Level Attaque XSS (a voire quand mettre cette faille)  ***
+
+
+
+*********************************************************************
+
+*** 10 Level Attaque  ( Planète Zekel : https://starwars.fandom.com/fr/wiki/Zakel )  ***
+
+
+
+
 
 
 *** Exemple dattaque a faire :   ***
