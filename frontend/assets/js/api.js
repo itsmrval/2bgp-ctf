@@ -1,4 +1,6 @@
-const API_URL = 'http://localhost:3001';
+const API_URL = window.location.hostname === 'localhost' 
+    ? 'http://localhost:3001' // Dev. URL
+    : 'http://localhost:3000'; // Production URL
 
 // Login user and return token
 async function login(username, password) {
