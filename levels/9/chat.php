@@ -41,7 +41,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discussion - LevelX</title>
+    <title>Level 9</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -60,7 +60,6 @@ $conn->close();
         </div>
     </nav>
     <div class="content-wrapper">
-    <h1 class="title-discussion">Discussion - Level 1</h1>
         <?php 
         if ($_SESSION['username'] == 'Mas Tymar') {
             echo "<p style=color:red;>FLAG : {XXXXXX}</p>";

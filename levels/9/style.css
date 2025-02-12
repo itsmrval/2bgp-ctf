@@ -21,6 +21,7 @@ color: white;
 font-family: Arial, sans-serif;
 position: relative;
 padding-bottom: 60px; 
+overflow: hidden;
 }
 
 
@@ -80,9 +81,8 @@ color: white;
 
 .content-wrapper {
   position: relative;
-  margin-top: 100px;
   padding: 20px;
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 40%);
   display: flex;
   justify-content: center;
   align-items: flex-start;
