@@ -175,7 +175,7 @@ Cela  apour but de lui evnoyer un XSS via la messagerie.
 
 Voici le payload SQL.
 
-PAYLOAD = ' UNION SELECT NULL, name, secret, NULL, NULL FROM livres #
+PAYLOAD = ' UNION SELECT NULL, nom, secret, NULL FROM livres #
 
 recupere le hash de Llywi Minllegui alleer sur kali et faire un force avec hashcat par ex.
 avoir un fichier hash.txt qui comprend le hash recupere
