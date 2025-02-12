@@ -1,0 +1,7 @@
+CREATE TABLE livres (
+    livre_id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_du_livre VARCHAR(255) NOT NULL,
+    date_publication DATE,
+    auteur VARCHAR(255),
+    secret TEXT
+);

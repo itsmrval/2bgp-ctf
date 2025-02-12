@@ -42,4 +42,7 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'ValkorionEmpereu
     </main>
 
 </body>
+<footer class="footer">
+    <p>&copy; 2025 Star Wars - 2BGP-CTF. Tous droits réservés.</p>
+</footer>
 </html>

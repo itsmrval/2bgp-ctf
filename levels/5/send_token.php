@@ -126,4 +126,7 @@
         ?>
     </div>
 </body>
+<footer class="footer">
+    <p>&copy; 2025 Star Wars - 2BGP-CTF. Tous droits réservés.</p>
+</footer>
 </html>
