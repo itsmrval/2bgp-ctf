@@ -23,7 +23,7 @@ body {
   height: 100vh;
   background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
   overflow: auto;
-  font-family: 'Orbitron', sans-serif;
+
   display:flex;
   justify-content: center;
   align-items: center;
@@ -134,6 +134,7 @@ h1 {
   top: 0;
   width: 100%;
   display: flex;
+  font-family: 'Orbitron', sans-serif;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
