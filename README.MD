@@ -100,15 +100,14 @@ Il te donne les plans de la prison qu'il a réussi a recevoir d'une certaine man
 
 Tu te rends sur la planète ou il y'a dans la prison 
 
+
 *** LEVEL X ?? URL  GET ***
 
 Dans ce niveau, l'utilisateur peut choisir plusieurs images qui affichent différents plans. Il y a une faille car c'est directement en clair dans l'URL (GET), et en modifiant cela, on peut récupérer les logs du vaisseau et récupérer le fichier logs.txt. Il faut modifier l'URL de l'image par secret/logs.txt et il sera téléchargé dans le navigateur.
 
 Il y aura le flag dans les logs à récupérer.
 
-** LEVEL Bruteforce  ***
 
-Soeur dans la prison bruteforce 
 
 
 *** 8 Level Injection SQL (a voire quand mettre cette faille) ***
