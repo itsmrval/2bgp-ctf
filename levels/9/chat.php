@@ -56,7 +56,9 @@ $conn->close();
         <div class="profile">
             <i class="fa-solid fa-user"></i>
             <span class="user-name"><?= htmlspecialchars($_SESSION['username']) ?></span>
-
+            <form method="POST" action="logout.php" style="display:inline;">
+            <button type="submit" name="logout" class="logout-button">Deconnexion</button>
+            </form>
         </div>
     </nav>
     <div class="content-wrapper">

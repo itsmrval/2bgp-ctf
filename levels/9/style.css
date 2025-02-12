@@ -65,19 +65,23 @@ color: white;
   margin: 0 1rem;
 }
 
-.disconnect-btn {
-  background-color: #ff4444;
-  color: white;
+.logout-button {
+  background-color: #e74c3c; /* Red color */
+  color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: 10px 15px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  text-decoration: none;
+  margin-left: 10px; /* Space from the username */
 }
 
-.disconnect-btn:hover {
-  background-color: #ff0000;
+.logout-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+  color: #fff;
 }
+
 
 .content-wrapper {
   position: relative;
