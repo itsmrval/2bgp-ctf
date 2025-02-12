@@ -131,9 +131,7 @@ h1 {
 
 /* Navigation and Logo */
 .navbar {
-
   top: 0;
-  gap: 8rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -144,7 +142,7 @@ h1 {
 
 .nav-links {
   display: flex;
-  gap: 140px;
+  gap: 100px;
 }
 
 .nav-item {
