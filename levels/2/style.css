@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Starjedi';
+  src: url('fonts/Starjedi.ttf') format('truetype');
+}
+
+html,body{
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background: url('logo/bg_level2.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+  padding-bottom: 100px; /* Add padding for footer */
+}
+
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+.content-wrapper {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 15%);
+  width: 100%;
+  padding: 20px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.news-section {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 10px;
+  padding-bottom: 150px;
+  margin: 0 auto;
+  pointer-events: auto;
+}
+
+
+.news-image {
+  flex: 0 0 auto;
+  width: 300px;
+  display: flex;           
+  align-items: center;    
+}
+
+.news-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.news-text {
+  flex: 1;
+  color: white;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+/* Custom scrollbar for news-text */
+.news-text::-webkit-scrollbar {
+  width: 8px;
+}
+
+.news-text::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.news-text::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.news-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.news-text h2 {
+  margin-bottom: 20px;
+  font-family: 'Starjedi', sans-serif;
+  font-size: 24px;
+}
+
+.news-text p {
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.coords-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  width: auto;
+  align-items: flex-end;  
+}
+
+.coords-container form {
+  display: flex;
+  gap: 20px;
+  align-items: flex-end;
+}
+
+.inputbox {
+  position: relative;
+  width: 200px;
+  margin-bottom: 0;
+}
+
+.inputbox input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.inputbox label {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  pointer-events: none;
+  transition: 0.5s;
+  font-size: 12px;
+}
+
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label {
+  color: #03a9f4;
+}
+
+.submit-btn .btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.submit-btn .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-5px);
+}
+
+.submit-btn .btn:active {
+  transform: translateY(0px);
+}
+
+
+/* Update just the container styles */
+.container {
+  width: 80%;
+
+  max-width: 800px;
+  margin: 20px 0; 
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10%;
+}
+
+/* Update the text-box styles */
+.text-box {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Added: centers the text inside */
+}
+
+.text-box p {
+  color: white;
+  margin: 0;
+  line-height: 1.6;
+}

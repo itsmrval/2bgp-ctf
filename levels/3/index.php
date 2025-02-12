@@ -19,7 +19,7 @@
     </nav>
 
     <div class="container">
-    <p class="title">please send your id card.</p>
+    <p class="title">send your ID card and <br>start the ship</p>
 
     <!-- Formulaire de téléchargement de fichier -->
     <form action="upload.php" method="post" enctype="multipart/form-data">
