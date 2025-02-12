@@ -11,19 +11,8 @@
 </head>
 
 <body class="body-mission">
+    <nav class="navbar-mission"></nav>
     <div class="spacemission-background"></div>
-    <nav class="navbar-mission">
-        <div class="logo">
-            <a href="#">
-                <img src="../assets/logo/starwars.png" alt="Star Wars Logo">
-            </a>
-        </div>
-        <div class="profile">
-            <i class="fa-solid fa-user"></i>
-            <span id="profileUsername" class="user-name">Loading</span>
-            <button class="disconnect-btn" id="logout">Déconnexion</button>
-        </div>
-    </nav>
 
     <div class="container-mission">
         <div class="mission-card">
@@ -53,8 +42,8 @@
 
             <div class="flag-submission">
                 <h2>Récupérer la récompense</h2>
-                <form class="flag-form">
-                    <input class="input-mission" type="text" placeholder="Entrer le flag ici.." title="Flag here">
+                <form id="flagForm" class="flag-form">
+                    <input id="flagInput" class="input-mission" type="text" placeholder="Entrer le flag ici.." title="Flag here">
                     <button class="button-mission" type="submit">
                         <i class="fas fa-flag"></i>
                         Vérifier

@@ -1,4 +1,4 @@
-import { getUserTeam, addUserToTeam, getTeams, createTeam, getLevels, getScoreboard, getLevel } from './api.js'; 
+import { getUserTeam, addUserToTeam, getTeams, createTeam, getLevels, getScoreboard, getLevel, awardUserPoints } from './api.js'; 
 
 //
 // LOGIN LOGIC
@@ -276,21 +276,33 @@ async function calculateCompletionPercentage(points) {
 // MAIN
 //
 
+// Function to load the navbar from a file
+function loadNavbar() {
+    fetch('/structure/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            const navbarContainer = document.querySelector('.navbar') || document.querySelector('.navbar-mission') || document.querySelector('.navbar-s');
+            navbarContainer.innerHTML = data;
+
+            document.getElementById('profileUsername').textContent = localStorage.getItem('username');
+            document.getElementById('logout').addEventListener('click', logout);
+
+        })
+        .catch(error => {
+            console.error('Error loading navbar:', error);
+        });
+}
+
+
+
 async function main() {
 
     // Check if user is logged in
     if (!await isLoggedIn()) {
         logout();
     }
-    // Handle logout button
-    $('#logout').click(async function () {
-        await logout();
-    });
-
+    loadNavbar();
     const isUserMemberOfTeam = await isMemberOfTeam();
-
-    // Display username
-    $('#profileUsername').text(localStorage.getItem('username'));
 
     // Check if user is member of a team
     if (!isUserMemberOfTeam && (window.location.pathname !== '/teamSelection' && window.location.pathname !== '/teamCreation' && window.location.pathname !== '/intro')) {
@@ -407,9 +419,9 @@ async function main() {
             window.location.href = '/';
         }
 
-        $('#levelName').text(level.name);
-        $('#levelDescription').text(level.description);
-        $('#levelPoints').text(level.points);
+        document.getElementById('levelName').innerText = level.name;
+        document.getElementById('levelDescription').innerText = level.description;
+        document.getElementById('levelPoints').innerText = level.points;
 
 
         $('#startButton').click(() => {
@@ -418,6 +430,23 @@ async function main() {
         $('#backButton').click(() => {
             window.location.href = '/';
         });
+        $('#flagForm').submit(async function (event) {
+            event.preventDefault();
+            const flag = $('#flagInput').val();
+            if (!flag) {
+                alert('Please enter a flag');
+                return;
+            }
+            try {
+                await awardUserPoints(localStorage.getItem('id'), level._id);
+                alert('Flag submitted successfully');
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Error submitting flag:', error);
+                alert('Error submitting flag');
+            }
+        });
+            
     }
     
 }
