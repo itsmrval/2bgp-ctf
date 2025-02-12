@@ -143,39 +143,108 @@ async function displayTeamChoice(selectedTeam) {
 function displayPlanets(levels, planetPositions) {
     const planetsContainer = document.querySelector('.planets-container');
     
-    // Clear existing planets
+    // S'assurer que le conteneur est en position relative
+    planetsContainer.style.position = 'relative';
+    
+    // Vider le conteneur
     planetsContainer.innerHTML = '';
     
-    // Create and append planets
+    // Récupérer les dimensions du conteneur
+    const containerRect = planetsContainer.getBoundingClientRect();
+    
+    // Calculer les positions en pixels pour chaque planète
+    const computedPositions = planetPositions.map(pos => ({
+        x: parseFloat(pos.left) / 100 * containerRect.width,
+        y: parseFloat(pos.top) / 100 * containerRect.height
+    }));
+    
+    // Déterminer les coordonnées minimales et maximales
+    const allX = computedPositions.map(p => p.x);
+    const allY = computedPositions.map(p => p.y);
+    const minX = Math.min(...allX);
+    const maxX = Math.max(...allX);
+    const minY = Math.min(...allY);
+    const maxY = Math.max(...allY);
+    
+    // Calculer la largeur et la hauteur nécessaires pour le SVG
+    const svgWidth = maxX - minX;
+    const svgHeight = maxY - minY;
+    
+    // Créer l'élément SVG qui servira à tracer les lignes
+    const svgNS = "http://www.w3.org/2000/svg";
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("class", "planet-lines");
+    svg.style.position = "absolute";
+    // Positionner le SVG pour couvrir la zone englobante de toutes les planètes, même celles avec des positions négatives
+    svg.style.left = `${minX}px`;
+    svg.style.top = `${minY}px`;
+    svg.setAttribute("width", svgWidth);
+    svg.setAttribute("height", svgHeight);
+    svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+    svg.style.pointerEvents = "none"; // Pour ne pas interférer avec les clics sur les planètes
+    
+    // Ajouter le SVG en premier pour qu'il soit derrière les planètes
+    planetsContainer.appendChild(svg);
+    
+    // Créer et ajouter les planètes, et tracer les lignes entre elles
     levels.forEach((level, index) => {
-        // Create planet div
+        // Créer la div pour la planète
         const planetDiv = document.createElement('div');
-        planetDiv.className = `planet`;
+        planetDiv.className = 'planet';
+        planetDiv.style.position = 'absolute';
         
-        // Apply position from our positions array
-        const position = planetPositions[index];
-        planetDiv.style.top = position.top;
-        planetDiv.style.left = position.left;
+        // Position d'après le tableau (en pourcentages)
+        const pos = planetPositions[index];
+        planetDiv.style.top = pos.top;
+        planetDiv.style.left = pos.left;
         
-        // Add click handler
+        // Ajout du gestionnaire de clic
         planetDiv.onclick = () => goToPlanet(level._id);
         
-        // Create planet image
+        // Créer l'image de la planète
         const img = document.createElement('img');
         img.src = `../assets/logo/levels/${level.hid}.png`;
         img.alt = level.name;
         
-        // Create planet name div
+        // Créer la div pour le nom de la planète
         const nameDiv = document.createElement('div');
         nameDiv.className = 'planet-name';
         nameDiv.textContent = level.name;
         
-        // Append elements
+        // Assembler et ajouter la planète au conteneur
         planetDiv.appendChild(img);
         planetDiv.appendChild(nameDiv);
         planetsContainer.appendChild(planetDiv);
+        
+        // Tracer une ligne reliant la planète précédente (sauf pour la première)
+        if (index > 0) {
+            const prevPos = computedPositions[index - 1];
+            const currPos = computedPositions[index];
+            
+            // Ajuster les coordonnées pour le SVG en soustrayant minX et minY
+            const x1 = prevPos.x - minX;
+            const y1 = prevPos.y - minY;
+            const x2 = currPos.x - minX;
+            const y2 = currPos.y - minY;
+            
+            // Créer l'élément ligne SVG
+            const line = document.createElementNS(svgNS, "line");
+            line.setAttribute("x1", x1);
+            line.setAttribute("y1", y1);
+            line.setAttribute("x2", x2);
+            line.setAttribute("y2", y2);
+            line.setAttribute("stroke", "#808080"); // Couleu grise
+            line.setAttribute("stroke-width", "2");
+            // Ajout d'un effet de pointillé
+            line.setAttribute("stroke-dasharray", "5,5");
+            
+            svg.appendChild(line);
+        }
     });
 }
+
+
+
 
 async function goToPlanet(id) {
     localStorage.setItem('levelId', id);
@@ -369,18 +438,21 @@ async function main() {
     // Home page
     if (window.location.pathname === '/') {
         
+
+
         const planetPositions = [
-            { top: '30%', left: '-70%' },
-            { top: '80%', left: '-80%' },
-            { top: '50%', left: '-10%' },
-            { top: '70%', left: '15%' },
-            { top: '20%', left: '-30%' },
-            { top: '60%', left: '-40%' },
-            { top: '35%', left: '45%' },
-            { top: '78%', left: '75%' },
+            { top: '30%', left: '-85%' },
+            { top: '80%', left: '-70%' },
+            { top: '50%', left: '-50%' },
+            { top: '70%', left: '-15%' },
+            { top: '20%', left: '0%' },
+            { top: '60%', left: '35%' },
+            { top: '30%', left: '55%' },
+            { top: '78%', left: '65%' },
             { top: '50%', left: '85%' },
             { top: '90%', left: '95%' }
         ];
+        
 
         let levels = await getLevels();
         displayPlanets(levels, planetPositions);
