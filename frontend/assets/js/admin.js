@@ -222,11 +222,12 @@ document.addEventListener('DOMContentLoaded', () => {
             hid: document.getElementById('hid').value,
             flag: document.getElementById('flag').value,
             points: parseInt(document.getElementById('points').value),
-            url: document.getElementById('url').value
+            url: document.getElementById('url').value,
+            description: document.getElementById('description').value
         };
 
         try {
-            await createLevel(levelData.name, levelData.hid, levelData.points, levelData.flag, levelData.url);
+            await createLevel(levelData.name, levelData.hid, levelData.points, levelData.flag, levelData.url, levelData.description);
             hideModal('levelModal');
             loadLevels();
         } catch (error) {
