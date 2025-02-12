@@ -23,6 +23,7 @@ body {
   height: 100vh;
   background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
   overflow: auto;
+  font-family: 'Orbitron', sans-serif;
   display:flex;
   justify-content: center;
   align-items: center;
@@ -165,6 +166,7 @@ h1 {
 .profile {
   margin-left: auto; /* Pushes the profile section to the right */
   display: flex;
+  cursor: pointer;
   align-items: center;
   gap: 1rem;
   background: rgba(255, 255, 255, 0.1);
