@@ -50,11 +50,15 @@ router.post('/:team_id/:user_id', authenticate, async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-
     // Check if user is already a member of any team
     if (await Team.findOne({ members: req.params._id })) {
       return res.status(400).json({ error: 'User is already a member of a team' });
     }
+
+    if (team.members.length >= 4) {
+      return res.status(400).json({ error: 'Team is full' });
+    }
+
     team.members.push(user._id);
     await team.save();
     res.status(200).json("Team joined successfully");

@@ -91,7 +91,7 @@ async function displayTeamChoice(selectedTeam) {
             // Members count
             const membersSpan = document.createElement('span');
             membersSpan.className = 'members';
-            membersSpan.textContent = `${team.members.length}/${team.maxMembers || 4}`; // Assuming max 4 members
+            membersSpan.textContent = `${team.members.length}/4`;
             li.appendChild(membersSpan);
             
             // Join button
@@ -99,10 +99,10 @@ async function displayTeamChoice(selectedTeam) {
             joinButton.className = 'btn';
             
             // Check if team is full
-            const isFull = team.currentMembers >= (team.maxMembers || 4);
-            if (isFull) {
+            if (team?.members.length >= 4) {
                 joinButton.textContent = 'Full';
-                joinButton.disabled = true;
+                joinButton.style = true;
+
             } else {
                 joinButton.textContent = 'Join';
                 joinButton.addEventListener('click', async () => {
@@ -532,6 +532,22 @@ async function main() {
         document.getElementById('levelName').innerText = level.name;
         document.getElementById('levelDescription').innerText = level.description;
         document.getElementById('levelPoints').innerText = level.points;
+        const nextLevel = await getTeamNextLevel();
+        if (level.hid < nextLevel) {
+            
+            // Status
+            document.getElementById('flagContainer').style.display = 'none';
+            document.getElementById('levelStatus').textContent = 'Completed';
+            document.getElementById('levelStatus').classList.remove('status-pending');
+            document.getElementById('levelStatus').classList.add('status-success');
+            // Button
+            document.getElementById('startIcon').classList.remove('fa-rocket');
+            document.getElementById('startButton').classList.remove('launch-button');
+            document.getElementById('startButton').classList.add('launch-button-done');
+            document.getElementById('startIcon').classList.add('fa-circle-check');
+            document.getElementById('startText').textContent = 'Done';
+            document.getElementById('startButton').disabled = true;
+        }
 
         displayContent();
         $('#startButton').click(() => {

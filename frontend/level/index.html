@@ -20,7 +20,7 @@
         <div class="mission-card">
             <div class="mission-header">
                 <h1 id="levelName" class="mission-title">loading</h1>
-                <span class="mission-status status-pending">En cours</span>
+                <span id="levelStatus" class="mission-status status-pending">A réaliser</span>
                 
             </div>
 
@@ -42,7 +42,7 @@
                     loading
             </div>
 
-            <div class="flag-submission">
+            <div id="flagContainer" class="flag-submission">
                 <h2>Récupérer la récompense</h2>
                 <form id="flagForm" class="flag-form">
                     <input id="flagInput" class="input-mission" type="text" placeholder="Entrer le flag ici.." title="Flag here">
@@ -59,8 +59,8 @@
                     Retour à l'accueil
                 </button>
                 <button id="startButton" class="launch-button">
-                    <i class="fas fa-rocket"></i>
-                    Lancer la mission
+                    <i id="startIcon" class="fas fa-rocket"></i>
+                    <a id="startText">Lancer la mission</a>
                 </button>
             </div>
         </div>
