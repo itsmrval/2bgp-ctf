@@ -51,6 +51,31 @@ body {
   align-items: center;
 }
 
+/* Conteneur du titre avec position relative */
+.title-container {
+  position: relative;
+  /* Pour éviter que le texte du h2 ne soit masqué par l'image, on ajoute un padding à droite */
+  padding-right: 170px; /* Ajustez cette valeur selon la largeur de votre image */
+}
+
+/* Style du h2 dans le conteneur */
+.title-container h2 {
+  margin: 0;
+  font-family: 'Starjedi', sans-serif;
+  font-size: 24px;
+}
+
+/* Image positionnée en absolu à droite du h2 */
+.title-image {
+  position: absolute;
+  top: -90%;
+  right: 20%; /* Ajustez la position horizontale */  
+  width: 200px; /* Ajustez la largeur souhaitée */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .news-section {
   position: relative;
   display: flex;
