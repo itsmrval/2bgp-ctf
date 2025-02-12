@@ -60,27 +60,54 @@ Notre personnage doit donc aller sur Endor pour en savoir plus
 *********************************************************************
 
 
-*** Level 2 - Photo métadonné (planete Endor) ***
+*** Level 2 - Photo métadonné (Planete Endor : https://starwars.fandom.com/fr/wiki/Endor/L%C3%A9gendes) ***
 
-Notre personnage se rend à la dernière base des services secrets qui se trouvent sur Endor, où une transmission directe du fils de Valkorion, Arkann, a été interceptée. Cette communication renferme une photographie du vaisseau perdu. Mais ne vous y méprenez pas : l'image semble dissimuler bien plus qu'une simple illustration. Des indices subtils, minutieusement intégrés, laissent entrevoir un secret crucial pour localiser le vaisseau. C'est en décodant ces détails cachés que vous pourrez reconstituer les coordonnées tant recherchées et réussir ce que n'a pas réussi les services secrets.
+Après avoir quitté Endor, vous pénétrez dans les recoins secrets de la dernière base des services spéciaux. Dans ce sanctuaire caché, une transmission clandestine a été interceptée, émanant du fils redouté de Valkorion, Arkann. Le message, énigmatique et porteur d'un défi contient une photographie qui, à première vue, semble n'être qu'une simple image du vaisseau perdu le Faucon Millenium.
 
-Notre personnage met les coordonnées dans son vaisseau et cela lui indique une nouvelle planète, la planète ... ( a trouver) 
+Mais sous ses pixels se dissimule une énigme bien plus profonde. En laissant la Force guider votre intuition, vous vous devez de déchiffrez ces indices cachés. 
 
-L'utiliateur est amené sur la vue des planètes et clique sur la prochaine destination
+** Après avoir trouvé le flag : 
 
-*********************************************************************
+Notre personnage met les coordonnées dans son vaisseau et cela lui indique une nouvelle planète : votre prochaine destination est désormais établie. La planète Naboo se profile à l’horizon, recelant le secret du Faucon Millenium, la clé potentielle pour inverser le cours de la guerre contre l'Empire éternel.
 
-*** Level 3  FILE INJECTION = Reverse Shell (planète Naboo)  ***
+Préparez-vous, jeune Padawan, car ce nouvel indice vous entraîne dans les méandres d’un destin encore plus obscur et captivant...
 
-Tu as retrouve le vaisseau de Arkann mais Arkann n'est pas présent aux alentours ce que tu trouves étranges (l'aurait t'il abandonné en faisant exprès ici ) mais celui ci est verouillle totalment de partout... Heureusement tu maitrises la force pour ouvrir la porte du vaisseau. 
-
-Tu entres dans le cockpit et tout est éteint et tu voies que sur le tableua de bord il y'a un code. Pour cela, il faut mettre un fichier PHP dedans afin de faire un reverse shell et donc de controler l'accès au code. Il trouve le code grace au reverse shell dans un dossier /secret/flag.txt.  
-
-Lorsque il active le code le vaisseau s'allume tout seul et s'envole vers une nouvelle planete. 
 
 *********************************************************************
 
-*** Level 4  Bruteforce DB (planète Hoth)  ***
+*** Level 3  FILE INJECTION = Reverse Shell (planète Naboo : https://starwars.fandom.com/fr/wiki/Naboo)  ***
+
+Après avoir retrouvé le vaisseau d’Arkann, une étrange inquiétude s’empare de vous : Arkann n’est nulle part en vue. Aurait-il délibérément abandonné son vaisseau pour vous mettre à l’épreuve ? Pourtant, ce dernier est hermétiquement verrouillé.
+
+Mais la Force est avec vous. Concentrant votre énergie, vous percevez les subtils échos des enchantements protégeant l’entrée. D’un geste sûr, vous utilisez vos pouvoirs pour déverrouiller la porte, qui s’ouvre alors dans un léger murmure, révélant l’intérieur silencieux du cockpit.
+
+L’obscurité règne, seulement troublée par le scintillement d’un écran de bord. Là, sur le tableau de bord, un code mystérieux semble attendre d’être activé. Vous comprenez rapidement que ce secret ne peut être dévoilé que par un savant mélange de technologie et de maîtrise de la Force.
+
+Agissant avec détermination, vous injectez un fichier PHP au cœur du système, lançant un reverse shell pour prendre le contrôle des protocoles informatiques du vaisseau. Votre perspicacité vous guide vers un dossier dissimulé dans les entrailles du vaisseau : /secret/flag.txt. Le contenu de ce fichier, une série de caractères cryptés, détient la clé pour activer le vaisseau.
+
+** Après avoir trouvé le flag : 
+
+Au moment où vous lancez le code, une réaction spectaculaire se produit : le vaisseau s’illumine et ses moteurs grondent. Comme s’il avait été éveillé d’un long sommeil, il se met en marche, prêt à vous transporter vers de nouvelles contrées. Sans intervention supplémentaire, il s’élève et s’envole, traçant sa trajectoire vers une planète inconnu. 
+
+
+*********************************************************************
+
+*** Level 4  Bruteforce DB (Planète Hoth : https://starwars.fandom.com/fr/wiki/Hoth)  ***
+
+Votre vaisseau traverse l'hyperespace pour atterrir sur la planète glaciale de Hoth, où, au cœur d’un paysage balayé par des vents hurlants, se dresse un ancien temple enveloppé de glace. Ici, le destin vous a conduit : cet édifice oublié n’est pas le fruit du hasard, mais bien un sanctuaire recelant des secrets capables de changer le cours de la guerre.
+
+En foulant les couloirs silencieux du temple, vous ressentez la présence de la Force guidant chacun de vos pas. Au centre d'une vaste salle, sur un piédestal de pierre, repose un holocron légendaire, un artefact sacré censé renfermer le savoir des anciens maîtres de la Force.
+
+D'un geste assuré, vous vous mettez à l'œuvre pour déverrouiller ce précieux héritage. Alliant votre maîtrise de la Force et vos compétences technologiques, vous lancez un brutefore sur la base de données protégeant l’holocron. Peu à peu, les couches de protection se dissolvent, et un mail s’affiche, dévoilant une sombre prophétie.
+
+Le texte révèle qu’un danger sans précédent se profile : "l’Empereur a commandé la création d’une armée de clones destinée à écraser toute résistance. Plus surprenant encore, l’holocron mentionne un contact énigmatique — Jango Fett, identifié comme le clone originel — dont l’adresse mail est inscrite comme clef d’identification pour accéder à d’autres secrets. Enfin, le message vous indique le lieu névralgique où se prépare cette sinistre armée : Kamino, le berceau de la génétique clonale."
+
+
+** Après avoir trouvé le flag : 
+
+Alors que vous quittez le temple, vous retournez à votre vaisseau pour constater avec stupeur que le système d’auto-pilote a disparu. Sans assistance, vous êtes désormais maître de votre destin. Il ne vous reste plus qu’une seule option : mettre le cap sur Kamino afin de stopper, une bonne fois pour toutes, la création de cette armée qui menace la galaxie.
+
+Ancien texte : 
 
 Sur cette nouvelle planète glaciale le vaisseau se pose devant un temple.  
 
@@ -90,7 +117,7 @@ Quand tu rentres dans ton vaisseau tu vois qu'il n'y a plus d'auto pilot et tu a
 
 *********************************************************************
 
-*** Level 5 Faille reset password (a faire planète Kamino ) ***
+*** Level 5 Faille reset password (Planète Kamino: https://starwars.fandom.com/fr/wiki/Kamino) ***
 
 ------------  Image d'arrivé sur kamino +  image de la salle d'adn ------------------
 
