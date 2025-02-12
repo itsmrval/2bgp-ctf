@@ -170,13 +170,13 @@ Dès que la porte cède, Vaylin émerge de l'ombre, son regard brûlant d'une fu
 
 Ce douloureux événement a éveillé en elle une détermination implacable, résonnant avec votre propre quête pour honorer la mémoire de votre maître et renverser l'Empire Éternel. Cependant, pour mener à bien cette riposte, un nouvel obstacle se dresse devant vous. Vaylin vous confie la mission de récupérer son mot de passe, indispensable pour accéder aux systèmes de communication intégrés à votre vaisseau. Captive depuis trop longtemps, elle en a perdu le souvenir, mais ce code crucial, dissimulé sur sa planète natale, représente la clé lui permettant de joindre son père, l'Empereur Valkorion. Une fois en possession de ce mot de passe, Vaylin pourra vous transmettre les directives nécessaires pour infiltrer la flotte éternelle, pendant que Vaylin se prépare à rallier d’anciens alliés en vue d’une attaque décisive sur la Flotte Eternel.
 
-Résolu à unir vos destins contre l'Empire, vous vous apprêtez dès maintenant à prendre le cap pour [nom de la planète natale]. 
+Résolu à unir vos destins contre l'Empire, vous vous apprêtez dès maintenant à prendre le cap pour Rodia. 
 
 
 *********************************************************************
 
 
-*** 8 Level Injection SQL (planète ) ***
+*** 8 Level Injection SQL (Planète Rodia :https://starwars.fandom.com/wiki/Rodia ) ***
 
 
 Pendant ton trajet Vaylin t'as donne plus d'indication sur comment retrouve son mot de passe. elle se rappelle de l'avoir cree grace a un livre qu'elle aimait tout particulièrement. 
