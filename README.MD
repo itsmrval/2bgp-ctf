@@ -10,7 +10,8 @@ Choix du groupe (camp ? Sith / Jedi)
 
 Niveaux: (planètes)
 
-Lien des personnages qu'on utilise : 
+
+*** Lien des personnages qu'on utilise  ***
 
 Le méchant de l'histoire Empereur Valkorion : https://starwars.fandom.com/fr/wiki/Valkorion
 
