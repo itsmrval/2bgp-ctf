@@ -9,7 +9,7 @@ if (!isset($_SESSION['flag'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +28,8 @@ if (!isset($_SESSION['flag'])) {
     <div class="container">
         <div class="text-box">
             <p>
-                Well done! <br>
-                You found the coordinates of the planet Naboo! You will be able to go there immediately and continue your mission....<br>
+                Bien joué ! <br>
+                Tu as trouvé les coordonnées de la planète Naboo! Tu peux t'y rendre et continuer rapidement ta mission....<br>
                 <strong>FLAG={XXXX}</strong>
 
             </p>

@@ -9,11 +9,11 @@ if (!isset($_SESSION['flag'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 4</title>
+    <title>Niveau 4</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -28,19 +28,19 @@ if (!isset($_SESSION['flag'])) {
     </nav>
 
     <div class="container">
-    <p class="title">email storage</p>
+    <p class="title">Stockage d'email</p>
 
     <!-- Faux email -->
     <div class="email-container">
         <div class="email-header">
-            <p><strong>From:</strong> ValkorionEmpereur@2bgp-ctf.com</p>
-            <p><strong>To:</strong> JangoFett1977@2bgp-ctf.com</p>
-            <p><strong>Subject:</strong> DNA Center </p>
+            <p><strong>De :</strong> ValkorionEmpereur@2bgp-ctf.com</p>
+            <p><strong>A :</strong> JangoFett1977@2bgp-ctf.com</p>
+            <p><strong>Sujet:</strong> Centre ADN </p>
         </div>
         <div class="email-body">
             <p>Jango,</p>
-            <p>Please, go to planet Kamino and create clones, it's urgent...  A piece of advice, remember my name and email.</p>
-            <p>See you soon, GL</p>
+            <p>S'il te plait, va sur la planete Kamino et créer des clones, c'est urgent...  Important : souviens toi de mon email.</p>
+            <p>A bientot, GL</p>
             <p>- Valkorion</p>
             <p><strong>PS:</strong> FLAG={XXXX}</p>
         </div>

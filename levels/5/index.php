@@ -22,18 +22,18 @@ session_start();
     </nav>
 
     <div class="container">
-        <p class="title">the dna room</p>
+        <p class="title">Le centre d'ADN </p>
 
         <!-- Formulaire de réinitialisation de mot de passe -->
         <form method="POST" action="">
             <label for="username">username :</label>
             <input type="text" id="username" name="username" required>
             <br>
-            <label for="password">password :</label>
+            <label for="password">mot de passe :</label>
             <input type="password" id="password" name="password" required>
             <br>
-            <input type="submit" name="submit" value="submit">
-            <a href="send_token.php" class="forgot-password">forgot your password ?</a>
+            <input type="submit" name="submit" value="Envoyer">
+            <a href="send_token.php" class="forgot-password">mdp oublié ?</a>
         </form>
 
         <?php

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 4</title>
+    <title>Niveau 5 </title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -19,7 +19,7 @@
     </nav>
 
     <div class="container">
-        <p class="title">reset password</p>
+        <p class="title">Envoyer token</p>
 
         <!-- Formulaire de réinitialisation de mot de passe -->
         <form method="POST" action="">
@@ -29,7 +29,7 @@
             <label for="email">e-mail :</label>
             <input type="email" id="email" name="email" required>
             <br>
-            <input type="submit" name="reset_password" value="Reset Password">
+            <input type="submit" name="reset_password" value="Reinitialiser">
         </form>
 
         <?php
@@ -109,18 +109,18 @@
                     $mail->isHTML(true);
                     $mail->Subject = 'Password Reset Token';
                     $host= $_SERVER['HTTP_HOST'];
-                    $mail->Body = "Hello Jango Fett,
-                    <br>Please follow this link to reset your password: <a href='http://$host/reset.php?token=$token'>Reset Password</a><br>";
+                    $mail->Body = "Bonjour Jango Fett,
+                    <br>Suis ce lien afin de reinitialiser ton mot de passe : <a href='http://$host/reset.php?token=$token'>Reinitialiser Mot de passe</a><br>";
                     // Envoyer l'email
                     $mail->send();
-                    echo "<div class='message success'>A password reset token has been sent to your email address.</div>";
+                    echo "<div class='message success'>Le token pour reinitialiser le mdp a été envoyé.</div>";
                     header("Refresh: 1; url=index.php");
                     exit(); 
                 } catch (Exception $e) {
-                    echo "<div class='message error'>Error: Unable to send the token. Mailer Error: {$mail->ErrorInfo}</div>";
+                    echo "<div class='message error'>Erreur : Envoi impossible : {$mail->ErrorInfo}</div>";
                 }
             } else {
-                echo "<div class='message error'>Error: Incorrect email or username</div>";
+                echo "<div class='message error'>Error: Email ou username incorrect.</div>";
             }
         }
         ?>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 3</title>
+    <title>Niveau 3</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -19,22 +19,22 @@
     </nav>
 
     <div class="container">
-    <p class="title">send your ID card and <br>start the ship</p>
+    <p class="title">Envoyer votre carte d'identité<br>démarrer le vaisseau</p>
 
     <!-- Formulaire de téléchargement de fichier -->
     <form action="upload.php" method="post" enctype="multipart/form-data">
     
         <input class="file-input" type="file" name="file" id="file">
         <br><br>
-        <input type="submit" value="upload">
+        <input type="submit" value="Envoyer">
     </form>
     <!-- Affichage des messages -->
     <?php
         if (isset($_GET['message'])) {
             if ($_GET['message'] === 'success') {
-                echo '<div class="message success">File uploaded : ID card is not valid.</div>';
+                echo '<div class="message success">Fichier envoyé : Carte non valide.</div>';
             } elseif ($_GET['message'] === 'error') {
-                echo '<div class="message error">Error while uploading your ID card.</div>';
+                echo '<div class="message error">Erreur, carte non envoyée.</div>';
             }
         }
     ?>

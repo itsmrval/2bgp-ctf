@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reset Password</title>
+    <title>Level 5</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -19,7 +19,7 @@
     </nav>
 
     <div class="container">
-        <p class="title">Reset Password</p>
+        <p class="title">Réinitialisater mot de passe</p>
 
         <?php
         $host = 'localhost';
@@ -68,7 +68,7 @@
                         $update_stmt->execute();
 
                         if ($update_stmt->affected_rows > 0) {
-                            echo "<p style='color: green;'>Password updated successfully.</p>";
+                            echo "<p style='color: green;'>Mot de passe mis à jour.</p>";
                             
                             header("Refresh: 1; url=index.php");
                             exit(); 
@@ -78,29 +78,29 @@
                             $delete_stmt->bind_param("s", $token);
                             $delete_stmt->execute();
                         } else {
-                            echo "<p style='color: red;'>Failed to update password.</p>";
+                            echo "<p style='color: red;'>Erreur durant le changement.</p>";
                         }
                     } else {
-                        echo "<p style='color: red;'>Passwords do not match.</p>";
+                        echo "<p style='color: red;'>Les mots de passe ne correpondent pas.</p>";
                     }
                 }
 
                 // Afficher le formulaire de réinitialisation de mot de passe
                 echo '
                 <form method="POST" action="">
-                    <label for="new_password">New Password:</label>
+                    <label for="new_password">Nouveau mot de passe:</label>
                     <input type="password" id="new_password" name="new_password" required>
                     <br>
-                    <label for="confirm_password">Confirm Password:</label>
+                    <label for="confirm_password">Confirme mot de passe:</label>
                     <input type="password" id="confirm_password" name="confirm_password" required>
                     <br>
-                    <button type="submit">Reset Password</button>
+                    <button type="submit">Reinitialiser</button>
                 </form>';
             } else {
-                echo "<p style='color: red;'>Invalid or expired token.</p>";
+                echo "<p style='color: red;'>Token invalide ou expiré.</p>";
             }
         } else {
-            echo "<p style='color: red;'>No token provided.</p>";
+            echo "<p style='color: red;'>Pas de token reçu.</p>";
         }
         ?>
     </div>
