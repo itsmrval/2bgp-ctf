@@ -156,26 +156,21 @@ Grâce à ses contacts, Jango a mis la main sur les plans de cette prison qui se
 
 En analysant minutieusement ces logs, vous identifiez la salle secrète où Vaylin est emprisonnée. Le temps presse : libérer la fille de Valkorion pourrait bien renverser le cours de la guerre contre l'Empire éternel.
 
-Armé de cette nouvelle information, vous vous préparez à infiltrer la prison. Votre objectif est clair : retrouver la cellule où Vaylin est détenue et la libérer, afin de dévoiler les véritables intentions de l'Empereur et préserver l'espoir pour la galaxie.
+Armé de cette nouvelle information, vous vous préparez à infiltrer la prison. Votre objectif est clair : Aller sur la planète Nathema et retrouver la cellule où Vaylin est détenue et la libérer, pour le meilleur ou pour le pire, vous n'avez plus le choix la galaxie à besoin de vous maintenant. 
 
 
 *********************************************************************
 
-*** Level 7 (planete Nathema) ***
+*** Level 7 (Planete Nathema :  https://starwars.fandom.com/fr/wiki/Nathema) ***
 
-Arrivé sur la planète Nathema tu arrives a te faufiler dans la prison pour aller la libérer. 
+Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive. Toutefois, le mécanisme de verrouillage, fragilisé par une attaque récente, vous offre une ouverture. Grâce à la Force et à votre perspicacité, vous identifiez la faille dans le système et parvenez à forcer l'ouverture.
 
-Il y'a un problème la porte qui emprisone Vaylin est bloqué ( selon l'attaque faut trouver) 
+Dès que la porte cède, Vaylin émerge de l'ombre, son regard brûlant d'une fureur contenue et d'une douleur profonde. Dans un souffle haletant, elle vous dévoile l'amertume de son passé. Dès son plus jeune âge, elle manifesta une affinité extraordinaire avec la Force, défiant les limites que son destin avait tracées. Se remémorant ses entraînements solitaires dans les vastes forêts royales de Zakel, où elle apprenait à canaliser l'énergie qui l'habitait, Vaylin confie combien le destin cruel l'a séparée de sa famille. Le pire fut lorsque, pendant sa longue captivité, son père, l'impitoyable Empereur Valkorion, vint lui annoncer, avec un cynisme glaçant, la récente mort de son frère Arkann. Ce message cruel, destiné à la narguer, enflamma sa colère et renforça son désir de vengeance.
 
-On la sauve et elle nous explique qu'elle a ressenti dans la force la perte de son frere qui à du etre tué par son père l'empereur Valkorion. Vos objectifs deviennent commun pour elle c'est vengé son frere et nous c'est vengé la mort de notre maitre et sauver la galaxie. 
+Ce douloureux événement a forgé en elle une détermination implacable, qui rejoint votre propre quête pour honorer la mémoire de votre maître et renverser l'Empire Éternel. Mais pour mener à bien cette riposte, un nouvel obstacle se dresse devant vous. Vaylin doit absolument récupérer son mot de passe, nécessaire pour accéder aux systèmes de communication intégrés à votre vaisseau et orchestrer l'assaut sur la flotte ennemie. Retenue en captivité depuis trop longtemps, elle a fini par oublier ce code crucial. Pourtant, ce mot de passe, dissimulé sur sa planète natale, est la clé qui lui permettra de communiquer avec son père, l'Empereur Valkorion, et de mettre en marche la riposte contre l'oppresseur.
 
-Tu as donc pour objectif de te rendre sur Zakel mais pour cela Vaylin a besoin de retrouver son mot de passe pour pouvoir utiliser les systeme de communication de l'empire eternel integre a notre vaisseau. 
+Résolu à unir vos destins contre l'Empire, vous vous préparez dès maintenant à prendre le cap pour ... . L'avenir de la galaxie repose sur cette mission, et chaque seconde vous rapproche d'une confrontation décisive. 
 
-Vaylin etant en prison depuis fort longtemps elle te donne pour objectif d'aller sur sa planete natale pour récupérer son password. 
-
-Vaylin a elle des cvoses a faire pour preparer son attaque sur la flotte eternel.
-
-Tu dois donc aller sur la planete natale de Vaylin pour retrouver son mot de passe. 
 
 *********************************************************************
 
