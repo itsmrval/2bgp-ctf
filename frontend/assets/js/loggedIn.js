@@ -1,4 +1,4 @@
-import { getUserTeam, addUserToTeam, getTeams, createTeam, getLevels, getScoreboard, getLevel, awardUserPoints } from './api.js'; 
+import { getUserTeam, addUserToTeam, getTeams, createTeam, getLevels, getScoreboard, getLevel, awardUserPoints, getUser } from './api.js'; 
 
 //
 // LOGIN LOGIC
@@ -63,11 +63,11 @@ async function isMemberOfTeam() {
 //
 
 async function selectTeam(team) {
-    document.getElementById('main-container').style.display = 'none';
-    document.getElementById('team-container').style.display = 'block';
     document.getElementById('team-title').innerText = `Selected Team : ${team}`;
     localStorage.setItem('createTeamType', team);
     await displayTeamChoice(team);
+    document.getElementById('main-container').style.display = 'none';
+    document.getElementById('team-container').style.display = 'block';
   }
 
 async function displayTeamChoice(selectedTeam) {
@@ -140,25 +140,53 @@ async function displayTeamChoice(selectedTeam) {
 // HOMEPAGE
 //
 
-async function displayPlanets(levels, planetPositions) {
+async function getNextUserNextLevel(id) {
+    try {
+        const levels = await getLevels();
+        const user = await getUser(id);
+        let currentLevel = 0;
+        for await (const achieved of user?.achieved) {
+            const level = await levels.find(l => l._id === achieved.level_id)
+            if (parseInt(level?.hid) > currentLevel)
+                currentLevel = parseInt(level?.hid);
+        }
+        return currentLevel + 1;
+    } catch (error) {
+        console.error('Error getting next level:', error);
+        return null;
+    }
+}
+
+async function getTeamNextLevel() {
+    try {
+        const team = await getUserTeam(localStorage.getItem('id'));
+        const teamMembers = team.members;
+        let currentLevel = 0;
+        for await (const member of teamMembers) {
+            const level = await getNextUserNextLevel(member._id);
+            if (level > currentLevel)
+                currentLevel = level;
+        }
+        return currentLevel;
+    } catch (error) {
+        console.error('Error getting team next level:', error);
+        return null;
+    }
+}async function displayPlanets(levels, planetPositions) {
+    let nextLevel = await getTeamNextLevel();
+    console.log(nextLevel);
+
     const planetsContainer = document.querySelector('.planets-container');
-    
-    // Ensure container is relatively positioned
     planetsContainer.style.position = 'relative';
-    
-    // Clear container
     planetsContainer.innerHTML = '';
     
-    // Get container dimensions
     const containerRect = planetsContainer.getBoundingClientRect();
     
-    // Calculate pixel positions for each planet
     const computedPositions = planetPositions.map(pos => ({
         x: parseFloat(pos.left) / 100 * containerRect.width,
         y: parseFloat(pos.top) / 100 * containerRect.height
     }));
     
-    // Determine min/max coordinates
     const allX = computedPositions.map(p => p.x);
     const allY = computedPositions.map(p => p.y);
     const minX = Math.min(...allX);
@@ -166,7 +194,6 @@ async function displayPlanets(levels, planetPositions) {
     const minY = Math.min(...allY);
     const maxY = Math.max(...allY);
     
-    // Calculate SVG dimensions
     const svgWidth = maxX - minX;
     const svgHeight = maxY - minY;
     
@@ -182,28 +209,27 @@ async function displayPlanets(levels, planetPositions) {
     svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
     svg.style.pointerEvents = "none";
     
-    // Add SVG first so it's behind planets
     planetsContainer.appendChild(svg);
     
-    // Array to track image load promises
     const imageLoadPromises = [];
     
-    // Create and add planets, draw lines between them
     levels.forEach((level, index) => {
-        // Create planet div
         const planetDiv = document.createElement('div');
         planetDiv.className = 'planet';
         planetDiv.style.position = 'absolute';
         
-        // Set position from array (percentages)
         const pos = planetPositions[index];
         planetDiv.style.top = pos.top;
         planetDiv.style.left = pos.left;
         
-        // Add click handler
-        planetDiv.onclick = () => goToPlanet(level._id);
+        // Only add click handler if the level is accessible
+        if (level.hid <= nextLevel) {
+            planetDiv.onclick = () => goToPlanet(level._id);
+            planetDiv.style.cursor = 'pointer';
+        } else {
+            planetDiv.style.cursor = 'not-allowed';
+        }
         
-        // Create planet image with load tracking
         const img = document.createElement('img');
         const imageLoadPromise = new Promise((resolve, reject) => {
             img.onload = () => resolve();
@@ -214,28 +240,28 @@ async function displayPlanets(levels, planetPositions) {
         img.src = `../assets/logo/levels/${level.hid}.png`;
         img.alt = level.name;
         
-        // Create planet name div
         const nameDiv = document.createElement('div');
         nameDiv.className = 'planet-name';
         nameDiv.textContent = level.name;
         
-        // Assemble and add planet to container
+        if (level.hid > nextLevel) {
+            planetDiv.style.opacity = '0.5';
+            img.style.filter = 'grayscale(100%)';
+        }
+        
         planetDiv.appendChild(img);
         planetDiv.appendChild(nameDiv);
         planetsContainer.appendChild(planetDiv);
         
-        // Draw line connecting to previous planet (except for first)
-        if (index > 0) {
+        if (index > 0 && level.hid <= nextLevel) {
             const prevPos = computedPositions[index - 1];
             const currPos = computedPositions[index];
             
-            // Adjust coordinates for SVG by subtracting minX and minY
             const x1 = prevPos.x - minX;
             const y1 = prevPos.y - minY;
             const x2 = currPos.x - minX;
             const y2 = currPos.y - minY;
             
-            // Create SVG line element
             const line = document.createElementNS(svgNS, "line");
             line.setAttribute("x1", x1);
             line.setAttribute("y1", y1);
@@ -249,8 +275,6 @@ async function displayPlanets(levels, planetPositions) {
         }
     });
 }
-
-
 async function goToPlanet(id) {
     localStorage.setItem('levelId', id);
     window.location.href = '/level';
@@ -396,10 +420,13 @@ async function main() {
 
         $('#jediSelector').click(async function () {
             await selectTeam('jedi');
+            displayContent();        
         });
     
         $('#sithSelector').click(async function () {
             await selectTeam('sith');
+            displayContent();
+
         });
         $('#createTeamButton').click(async function () {
             if (localStorage.getItem('createTeamType')) {
@@ -410,6 +437,7 @@ async function main() {
         });
 
         await displayTeamChoice();
+        displayContent();
     }
 
     // Team creation page
@@ -422,6 +450,7 @@ async function main() {
             window.location.href = '/teamSelection';
         }
 
+        displayContent();
         $('#backToTeamList').click(async function () {
             window.location.href = '/teamSelection';
         });
@@ -484,6 +513,7 @@ async function main() {
             titleContent.style.animationPlayState = 'running';
           }
         }, { threshold: 0.5 }).observe(startButton);
+        displayContent();
     }
 
     // Scoreboard page

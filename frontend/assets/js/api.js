@@ -289,7 +289,21 @@ async function getLevel(id) {
     }
 }
 
+async function getUser(id) {
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/users/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        return await response.json();
+    }
+    catch (error) {
+        throw new Error('Error getting user');
+    }
+}
 
-export { login, register, getUserTeam, getUsers, deleteUser,
+export { login, register, getUserTeam, getUsers, deleteUser, getUser,
     getTeams, createTeam, deleteTeam, addUserToTeam, removeUserFromTeam,
     getLevels, createLevel, deleteLevel, getScoreboard, awardUserPoints, getLevel };
