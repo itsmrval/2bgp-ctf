@@ -23,7 +23,7 @@ body {
   height: 100vh;
   background: radial-gradient(ellipse at bottom, #1c2837 0%, #050608 100%);
   overflow: auto;
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
 }
@@ -129,17 +129,16 @@ h1 {
 }
 
 /* Navigation and Logo */
-.navbar-s {
+.navbar {
+
   top: 0;
+  gap: 140px;
   width: 100%;
-  gap: 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px solid rgba(255, 232, 31, 0.3);
+  z-index: 1000;
 }
 
 .nav-links {
@@ -157,6 +156,7 @@ h1 {
 .nav-item:hover {
   color: rgba(255, 232, 31, 1);
 }
+
 
 .logo {
   position: relative;
