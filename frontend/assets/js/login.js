@@ -6,6 +6,11 @@ $(document).ready(function () {
         window.location.href = '/';
     }
 
+    setTimeout(() => {
+        const content = document.getElementById('loadingContainer');
+        content.style.display = 'none';
+    }, 200);
+        
     $('#loginForm').submit(async function (event) {
         event.preventDefault();
 
