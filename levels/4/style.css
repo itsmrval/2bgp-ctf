@@ -11,26 +11,15 @@
 
 body {
   height: 100vh;
-  background: url('logo/kamino_adn.png') no-repeat center center fixed;
-  background-size: cover;
-  overflow: hidden;
+  background: url('logo/bg_level4_2.png') no-repeat center center/cover;
+  overflow: hidden; /* Désactive le défilement */
   color: white;
   font-family: Arial, sans-serif;
-  position: relative;
 }
 
-.space-background {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden;
-}
 
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   display: flex;
@@ -45,93 +34,173 @@ body {
   height: auto;
 }
 
-.container {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem; /* Added gap between elements */
-}
-
 .title {
   font-family: 'Starjedi', sans-serif;
-  color: black;
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: white;
   text-align: center;
-  margin-top: 5%; /* Adjust based on your background image height */
+  font-size: 2.5rem;
+  margin-top: 5%;
 }
 
+/* Styles for the main container */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center;
+  min-height: calc(85vh - 350px);/* Ensure the container fills the viewport */
+  padding: 20px; /* Internal spacing */
+}
+
+/* Styles pour le formulaire */
 form {
-  background: rgba(0, 0, 0, 0.5); /* Added slight background for better visibility */
-  padding: 1rem;
-  border-radius: 4px;
+  background: rgba(45, 45, 45, 0.8); /* Fond gris semi-transparent */
+  padding: 2rem;
+  border-radius: 8px;
   text-align: center;
-  width: min(90%, 300px);
-  margin-top: 2rem; /* Space between title and form */
+  width: 100%;
+  max-width: 400px;
+  margin-top: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre pour un effet 3D */
+}
+
+#codeForm label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #cccccc; /* Texte gris clair */
+}
+
+#codeForm input {
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 15px;
+  border: 1px solid #555555; /* Bordure grise */
+  border-radius: 5px;
+  background-color: #444444; /* Fond gris */
+  color: #ffffff; /* Texte blanc */
+}
+
+#codeForm input:focus {
+  outline: none;
+  border-color: #777777; /* Bordure grise claire au focus */
+}
+
+#codeForm button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #555555; /* Gris moyen */
+  color: #ffffff; /* Texte blanc */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#codeForm button:hover {
+  background-color: #777777; /* Gris clair au survol */
 }
 
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    background: transparent;
-    color: white;
-    font-size: 14px;
-    margin-bottom: 0.5rem;
+
+/* Ajoute une media query pour les écrans plus petits */
+@media (max-width: 768px) {
+  .title {
+    margin-top: 80px; /* Réduit la marge supérieure pour les petits écrans */
+    font-size: 2rem; /* Réduit la taille de la police pour les petits écrans */
+  }
+
+  .navbar {
+    padding: 0.5rem 1rem; /* Réduit l'espacement de la navbar pour les petits écrans */
+  }
+
+  .logo img {
+    width: 100px; /* Réduit la taille du logo pour les petits écrans */
+  }
+
+  .container {
+    margin-top: 10px; /* Réduit la marge supérieure du conteneur */
+  }
+
+  .plan {
+    margin-top: 50px; /* Réduit la marge supérieure du texte "Plan Sélectionné" */
+  }
 }
 
-input[type="submit"] {
-    width: 100%;
-    background-color: #ff4444;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
+/* Styles pour les écrans très petits (mobile) */
+@media (max-width: 480px) {
+  .title {
+    margin-top: 60px; /* Réduit encore la marge supérieure pour les très petits écrans */
+    font-size: 1.5rem; /* Réduit davantage la taille de la police */
+  }
+
+  .navbar {
+    padding: 0.5rem; /* Réduit encore l'espacement de la navbar */
+  }
+
+  .logo img {
+    width: 80px; /* Réduit encore la taille du logo */
+  }
+
+  .container {
+    margin-top: 5px; /* Réduit encore la marge supérieure du conteneur */
+  }
+
 }
 
 .message {
-  position: fixed;
-  bottom: 40px; /* Augmentation de l'espace en bas */
-  left: 50%;
-  transform: translateX(-50%);
-  width: max-content;
-  padding: 10px 15px; /* Augmentation du padding pour plus de lisibilité */
-  border-radius: 6px;
-  text-align: center;
-  font-size: 1.5rem; /* Texte plus grand */
-  font-weight: bold; /* Texte en gras */
-  color: white; /* Texte blanc pour un bon contraste */
-  background-color: #ff4444; /* Fond rouge */
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    margin-top: 25px
+}
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 
-@media (max-width: 768px) {
-  .container {
-      padding-top: 60px;
-  }
-  
-  .title {
-      margin-bottom: 1.5rem;
-  }
+
+
+/* Styles pour le conteneur de l'email */
+.email-container {
+  background: rgba(45, 45, 45, 0.8); /* Fond gris semi-transparent */
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre pour un effet 3D */
+  color: #ffffff; /* Texte blanc */
 }
 
-@media (min-height: 800px) {
-  .container {
-      justify-content: flex-start;
-      padding-top: 15vh;
-  }
+/* Styles pour l'en-tête de l'email */
+.email-header {
+  border-bottom: 1px solid #555555; /* Ligne de séparation grise */
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-.forgot-password{
-  position: relative;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  margin-top: 15px;
+.email-header p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #cccccc; /* Texte gris clair */
+}
+
+/* Styles pour le corps de l'email */
+.email-body {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #ffffff; /* Texte blanc */
+}
+
+.email-body p {
+  margin: 10px 0;
 }

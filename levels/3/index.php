@@ -23,7 +23,7 @@
 
     <!-- Formulaire de téléchargement de fichier -->
     <form action="upload.php" method="post" enctype="multipart/form-data">
-        <label for="file">Choose a file :</label>
+    
         <input class="file-input" type="file" name="file" id="file">
         <br><br>
         <input type="submit" value="upload">
