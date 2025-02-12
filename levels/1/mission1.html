@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mission Padawan</title>
+  <title>Mission 1</title>
   <!-- Inclusion de Font Awesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Inclusion de la feuille de style -->
@@ -26,18 +26,60 @@
 
   <!-- Section de la photo avec la bulle de texte -->
   <div class="container">
-    <!-- Remplacez l'URL de l'image par celle de votre choix -->
+    <!-- Bulle de texte -->
     <div class="bubble">
+      <div class="message-content">
         Mon cher Padawan,
-
+        <br><br>
         Mes troupes et moi-même sommes actuellement submergés par l'assaut de l'Empire éternel.
-        
+        <br><br>
         Ce qui reste de nos services secrets, désormais réduits à leurs derniers moyens, nous a transmis une ultime communication cryptée, rédigée dans une langue étrangère. Ce message recèle peut-être la clé pour renverser le cours de cette guerre.
-        
+        <br><br>
         En t'envoyant dans cette mission suicide, je sais pertinemment que tu risques ta vie, mais c'est un sacrifice nécessaire pour sauver notre galaxie. Hélas, malgré tous nos efforts, nous n'avons pas réussi à déchiffrer ce message, et je n'ai plus le temps de le faire. Cela sera peut-être notre dernière communication ensemble...
-        
+        <br><br>
         Que la Force soit avec toi.
+      </div>
+      <button class="next-bubble">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
     </div>
   </div>
+
+  <!-- Script JavaScript pour changer de message -->
+  <script>
+    // Tableau contenant les différents messages
+    const messages = [
+`Mon cher Padawan,
+
+Mes troupes et moi-même sommes actuellement submergés par l'assaut de l'Empire éternel.
+
+Ce qui reste de nos services secrets, désormais réduits à leurs derniers moyens, nous a transmis une ultime communication cryptée, rédigée dans une langue étrangère. Ce message recèle peut-être la clé pour renverser le cours de cette guerre.
+
+En t'envoyant dans cette mission suicide, je sais pertinemment que tu risques ta vie, mais c'est un sacrifice nécessaire pour sauver notre galaxie. Hélas, malgré tous nos efforts, nous n'avons pas réussi à déchiffrer ce message, et je n'ai plus le temps de le faire. Cela sera peut-être notre dernière communication ensemble...
+
+Que la Force soit avec toi.`,
+`Padawan, voici le second message.
+  
+La situation se complique, mais nous avons espoir. Continue à te battre pour la justice et pour la liberté.
+
+Que la Force guide tes pas.`,
+`Dernier message :
+  
+Le destin de la galaxie repose sur tes épaules. Ne doute jamais de ta force intérieure. 
+
+Que la Force soit toujours avec toi.`
+    ];
+    
+    let currentMessage = 0;
+    
+    const messageContent = document.querySelector('.message-content');
+    const nextBubble = document.querySelector('.next-bubble');
+    
+    // Au clic, on passe au message suivant (en boucle)
+    nextBubble.addEventListener('click', () => {
+      currentMessage = (currentMessage + 1) % messages.length;
+      messageContent.innerText = messages[currentMessage];
+    });
+  </script>
 </body>
 </html>
