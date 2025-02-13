@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="team-selection-body" id="team-selection-body" style="display: block;">
+<body class="team-selection-body" id="team-selection-body" style="display: block; min-height: 100vh; height: auto; overflow:visible;">
 
   <nav class="navbar"></nav>
 
@@ -29,7 +29,7 @@
         </a>
       </div>
     </div>
-    <div class="container-for-list" id="team-container" style="display: none; width: 800px; height: 600px; margin-top: 90px;">
+    <div class="container-for-list" id="team-container" style="display: none; width: 800px; height: 570px; position: relative; bottom: 8%;">
       <h1 id="team-title"></h1>
       <div class="inputboxSelect" style="display: flex;">
         <input type="search" id="search" placeholder="">
@@ -43,9 +43,10 @@
         <ul class="team-list" id="team-list">
         </ul>
       </div>
-      <div class="team-buttons">
+      <div class="team-buttons" style="display: flex;position: relative; bottom: 3%;">
         <button class="btn" onclick="goBack()">Retour</button>
-        <button id="createTeamButton" class="btn" style="margin: 0; margin-left: 70%; width: 200px;">Create Team</button>
+        <button id="createTeamButton" class="btn" style="margin: 0; margin-left: 70%; width: 200px; ">
+          Create Team</button>
       </div>
     </div>
   </div>  
