@@ -62,7 +62,7 @@ Notre personnage doit donc aller sur Endor pour en savoir plus
 
 *** Level 2 - Photo métadonné (Planete Endor : https://starwars.fandom.com/fr/wiki/Endor/L%C3%A9gendes) ***
 
-Après avoir quitté Endor, vous pénétrez dans les recoins secrets de la dernière base des services secrets. Dans ce sanctuaire caché, une transmission clandestine a été interceptée, émanant du fils redouté de Valkorion, Arkann. Le message, énigmatique et porteur d'un défi contient une photographie qui, à première vue, semble n'être qu'une simple image du vaisseau perdu le Faucon Millenium.
+Vous pénétrez dans les recoins secrets de la dernière base des services secrets. Dans ce sanctuaire caché, une transmission clandestine a été interceptée, émanant du fils redouté de Valkorion, Arkann. Le message, énigmatique et porteur d'un défi contient une photographie qui, à première vue, semble n'être qu'une simple image du vaisseau perdu le Faucon Millenium.
 
 Mais sous ses pixels se dissimule une énigme bien plus profonde. En laissant la Force guider votre intuition, vous vous devez de déchiffrez ces indices cachés. 
 
