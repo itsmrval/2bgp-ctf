@@ -38,14 +38,14 @@ if [[ "$response" == "[]" ]]; then
 
     Il est écrit sur l'écran : \"Vérifier votre identité\". Vous comprenez rapidement que ce secret ne peut être dévoilé que par un savant mélange de technologie et de maîtrise de la Force.
 
-    Agissant avec détermination, vous injectez un code permettant de prendre le contrôle du cockpit. Votre perspicacité vous guide vers un dossier dissimulé dans les entrailles du vaisseau." "reusable-bacon-cabbie" "https://target3.2bgp-ctf.vpws.eu" 150
+    Agissant avec détermination, vous injectez un code permettant de prendre le contrôle du shell du cockpit. Votre script pourrait vous guider vers un dossier dissimulé dans les entrailles du vaisseau." "reusable-bacon-cabbie" "https://target3.2bgp-ctf.vpws.eu" 150
 
     # Request 4: Hoth
     send_request "Hoth" 4 "Votre vaisseau traverse l'hyperespace pour atterrir sur la planète glaciale de Hoth, où, au cœur d’un paysage balayé par des vents hurlants, se dresse un ancien temple enveloppé de glace. Ce n’est pas un hasard si vous vous trouvez ici : cet édifice oublié est un sanctuaire renfermant des secrets capables de changer le cours de la guerre.
 
     En fouillant les couloirs silencieux du temple, vous ressentez la présence de la Force guidant chacun de vos pas. Au centre d'une vaste salle, sur un piédestal de pierre, repose un holocron légendaire, un artefact sacré censé renfermer le savoir des anciens maîtres de la Force.
 
-    D’un geste assuré, vous vous attardez à déverrouiller ce précieux héritage. Avec la Force, vous trouverez le code protégeant l’holocron." "perky-snowfall-unease" "https://target4.2bgp-ctf.vpws.eu" 200
+    D’un geste assuré, vous vous attardez à déverrouiller ce précieux héritage. Vous voyez qu'avec votre force mentale vous avez du mal à ouvrir cet holocron, peut etre que la force brute pourrait vous aidez à trouver le code protégeant l’holocron." "perky-snowfall-unease" "https://target4.2bgp-ctf.vpws.eu" 200
 
     # Request 5: Kamino
     send_request "Kamino" 5 "Vous atterrissez sur Kamino, la planète réputée pour ses prouesses en clonage. Dans les couloirs high-tech de la station, les Kaminoans, discrets et méthodiques, vous attendent. Ils vous informent qu’ils attendaient un certain Arkann, un nom qui résonne comme une ombre menaçante dans l'Empire. Vous comprenez alors qu'il vous faut vous faire passer pour ce fameux Arkann afin de ne susciter aucun soupçon. Ici, au cœur de ces laboratoires ultramodernes, se trame le sinistre dessein de l'Empereur Éternel : forger une armée de clones, basée sur l'ADN du chasseur de primes légendaire Jango Fett.
@@ -63,9 +63,7 @@ if [[ "$response" == "[]" ]]; then
     send_request "Nathema" 7 "Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive. Les gardes ont un réseau spécifique pour ouvrir la cellule (172.16.0.0/24)" "unsliced-unleveled-parrot" "https://target7.2bgp-ctf.vpws.eu" 250
 
     # Request 8: Rodia
-    send_request "Rodia" 8 "Pendant votre périple vers Rodia, Vaylin vous confie un nouvel indice crucial. Dans un souffle empreint de nostalgie, elle se remémore les doux jours de son enfance sur Rodia, lorsqu’elle se réfugiait dans la bibliothèque de sa maison d’enfance. Dans cette bibliothèque reposait un ouvrage précieux : un livre dont les pages recelaient non seulement des secrets anciens, mais aussi le code qui avait scellé son destin. Ce livre, témoin silencieux de ses espoirs et de ses rêves, avait inspiré la création de son mot de passe, un sésame perdu au fil des années.
-
-    Votre mission s’annonce aussi périlleuse qu’essentielle : dénicher ce livre oublié et en extraire le mot de passe dissimulé entre ses lignes." "password" "https://target8.2bgp-ctf.vpws.eu" 250
+    send_request "Rodia" 8 "Pendant votre périple vers Rodia, Vaylin vous confie un nouvel indice crucial. Dans un souffle empreint de nostalgie, elle se remémore les doux jours de son enfance sur Rodia, lorsqu’elle se réfugiait dans la bibliothèque de sa maison d’enfance. Dans cette bibliothèque reposait une collection de dix ouvrages précieux : 'Lune Eternelle', 'Soleil Noir', 'Feu Sacré', 'Brume d'Or', 'Aube Perdue', 'Etoile Morte', 'Ombre d'Argent', 'Voile Sombre', 'Vague Infinie' et 'Senya Tirall'. Votre mission s’annonce aussi périlleuse qu’essentielle : dénicher cet ouvrage oublié et en extraire le mot de passe dissimulé entre ses lignes." "password" "https://target8.2bgp-ctf.vpws.eu" 250
 
     # Request 9: Flotte Eternelle
     send_request "Flotte Eternelle" 9 "Vous vous tenez devant la flotte Éternelle, alors que votre vaisseau oscille dans l’ombre menaçante de cette armada interstellaire. Sur une planète lointaine, Vaylin a réussi à établir une connexion avec votre système, vous permettant d’écouter en direct sa conversation tendue avec son père redoutable." "cactus-hula-most" "https://target9.2bgp-ctf.vpws.eu" 250
