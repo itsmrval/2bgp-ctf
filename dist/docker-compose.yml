@@ -49,17 +49,40 @@ services:
 
 
 ### Levels
+
+# Level 1
+  level1:
+    image: 2bgp-ctf_level1
+    container_name: level1
+    depends_on:
+      backend:
+        condition: service_healthy   
+
 # Level 2
   level2:
     image: 2bgp-ctf_level2
     container_name: level2
+    depends_on:
+      backend:
+        condition: service_healthy
 
 # Level 3
   level3:
     image: 2bgp-ctf_level3
     container_name: level3
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# Level 4
+  level4:
+    image: 2bgp-ctf_level4
+    container_name: level4
+    depends_on:
+      backend:
+        condition: service_healthy
     ports:
-      - "81:80"
+      - "81:80" 
     
 
 volumes:
