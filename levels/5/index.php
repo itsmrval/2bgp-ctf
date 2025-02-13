@@ -39,19 +39,28 @@ session_start();
         </form>
 
         <?php
-        
+
         $host = 'localhost';
         $dbname = 'attackresetpwd';
         $user = 'root';
         $password = '';
-        
+
         // Connexion à la base de données
         $mysqli = new mysqli($host, $user, $password, $dbname);
-        
+
         // Vérifier la connexion
         if ($mysqli->connect_error) {
             die("Erreur de connexion à la base de données : " . $mysqli->connect_error);
         }
+
+        // Créer la table `users` si elle n'existe pas
+        $createTableQuery = "CREATE TABLE IF NOT EXISTS users (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(50) NOT NULL UNIQUE,
+            email VARCHAR(100) NOT NULL UNIQUE,
+            password VARCHAR(255) NOT NULL
+        )";
+        $mysqli->query($createTableQuery);
 
         // Vérifier si la table `users` est vide
         $query = "SELECT COUNT(*) AS count FROM users";

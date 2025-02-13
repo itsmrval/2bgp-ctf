@@ -9,15 +9,15 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 try:
     # Ouvrir la page de connexion
-    driver.get("http://localhost/2bgp-ctf/levels/1/index.php")  # Remplacez par l'URL de votre site
+    driver.get("http://localhost/2bgp-ctf/levels/9/index.php")  # Remplacez par l'URL de votre site
     time.sleep(2)  # Attendre que la page se charge
 
     # Remplir le formulaire de connexion
     username_input = driver.find_element(By.NAME, "username")
     password_input = driver.find_element(By.NAME, "password")
 
-    username_input.send_keys("Mas Tymar")  # Remplacez par le nom d'utilisateur
-    password_input.send_keys("-8p4h+b4E9N$YQe")  # Remplacez par le mot de passe
+    username_input.send_keys("Valkorion")  # Remplacez par le nom d'utilisateur
+    password_input.send_keys("-ObiWk2%wQ6zNp:!")  # Remplacez par le mot de passe
 
     # Soumettre le formulaire
     login_button = driver.find_element(By.NAME, "connect")

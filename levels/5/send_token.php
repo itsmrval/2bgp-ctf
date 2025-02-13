@@ -35,19 +35,29 @@
         </form>
 
         <?php
-        
+
         $host = 'localhost';
         $dbname = 'attackresetpwd';
         $user = 'root';
         $password = '';
-        
+
         // Connexion à la base de données
         $mysqli = new mysqli($host, $user, $password, $dbname);
-        
+
         // Vérifier la connexion
         if ($mysqli->connect_error) {
             die("Erreur de connexion à la base de données : " . $mysqli->connect_error);
         }
+
+        // Créer la table `password_reset_tokens` si elle n'existe pas
+        $createTableQuery = "CREATE TABLE IF NOT EXISTS password_reset_tokens (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(50) NOT NULL,
+            email VARCHAR(100) NOT NULL UNIQUE,
+            token VARCHAR(255) NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )";
+        $mysqli->query($createTableQuery);
 
         use PHPMailer\PHPMailer\PHPMailer;
         use PHPMailer\PHPMailer\Exception;
@@ -63,9 +73,9 @@
             if ($username === $valid_user && $email === $valid_email) {
                 // Générer un token de réinitialisation
                 $token = bin2hex(random_bytes(16));
-            
+
                 // Insérer ou mettre à jour le token dans la base de données
-            
+
                 // Vérifier si un token existe déjà pour cet utilisateur
                 $query = "SELECT id, token FROM password_reset_tokens WHERE email = ?";
                 $stmt = $mysqli->prepare($query);
@@ -73,7 +83,7 @@
                 $stmt->execute();
                 $result = $stmt->get_result();
                 $existingToken = $result->fetch_assoc();
-            
+
                 if ($existingToken) {
                     // Mettre à jour le token existant
                     $query = "UPDATE password_reset_tokens SET token = ? WHERE email = ?";
@@ -87,7 +97,7 @@
                     $stmt->bind_param('sss', $username, $email, $token);
                     $stmt->execute();
                 }
-            
+
                 // Charger PHPMailer
                 require 'vendor/autoload.php'; // Chemin vers l'autoload de Composer
 
@@ -110,13 +120,13 @@
                     // Contenu de l'email
                     $mail->isHTML(true);
                     $mail->Subject = 'Password Reset Token';
-                    $host= $_SERVER['HTTP_HOST'];
+                    $host = $_SERVER['HTTP_HOST'];
                     $mail->Body = "Bonjour Jango Fett,
                     <br>Suis ce lien afin de reinitialiser ton mot de passe : <a href='http://$host/reset.php?token=$token'>Reinitialiser Mot de passe</a><br><br>Equipe 2BGP-CTF<br>BERSIN Mathieu / BONNEAU Corentin / GOYALONGO Francois / PUCCETTI Valentin";
                     // Envoyer l'email
                     $mail->send();
                     echo "<div class='message success'>Le token pour reinitialiser le mdp a été envoyé.<br>Trouve le mail sur https://yopmail.com/fr/ avec comme email 2bgp-ctf@yopmail.com</div>";
-    
+
                 } catch (Exception $e) {
                     echo "<div class='message error'>Erreur : Envoi impossible : {$mail->ErrorInfo}</div>";
                 }
