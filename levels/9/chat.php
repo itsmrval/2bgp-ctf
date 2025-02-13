@@ -69,9 +69,11 @@
                     messagesArea.innerHTML = newMessages;
                 });
 
+            // Reset discussions if PHPSESSID is found
             fetch('reset_discussions.php')
                 .then(response => response.text())
                 .then(data => {
+                    // Handle success or failure of reset
                     console.log(data);
                 });
         }, 6000);
