@@ -1,5 +1,73 @@
+<?php
+session_start();
+$host = 'mysql';
+$dbname = 'level5';
+$user = 'level5user';
+$password = 'mKeq8%6ez$IBh0';
+
+// Connexion à la base de données
+$mysqli = new mysqli($host, $user, $password, $dbname);
+
+// Vérifier la connexion
+if ($mysqli->connect_error) {
+    die("Erreur de connexion à la base de données : " . $mysqli->connect_error);
+}
+
+// Récupérer le token depuis l'URL
+$token = isset($_GET['token']) ? $_GET['token'] : null;
+
+if ($token) {
+    // Vérifier si le token existe dans la base de données
+    $stmt = $mysqli->prepare("SELECT username, email FROM password_reset_tokens WHERE token = ?");
+    $stmt->bind_param("s", $token);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $username = $row['username'];
+        $email = $row['email'];
+        
+        // Vérifier si le formulaire a été soumis
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $new_password = $_POST['new_password'];
+            $confirm_password = $_POST['confirm_password'];
+
+            // Vérifier que les mots de passe correspondent
+            if ($new_password === $confirm_password) {
+                // Hasher le nouveau mot de passe
+                $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+                // Mettre à jour le mot de passe dans la table users
+                $update_stmt = $mysqli->prepare("UPDATE users SET password = ? WHERE username = ? AND email = ?");
+                $update_stmt->bind_param("sss", $hashed_password, $username, $email);
+                $update_stmt->execute();
+
+                if ($update_stmt->affected_rows > 0) {
+                    // Supprimer le token utilisé
+                    $delete_stmt = $mysqli->prepare("DELETE FROM password_reset_tokens WHERE token = ?");
+                    $delete_stmt->bind_param("s", $token);
+                    $delete_stmt->execute();
+                    
+                    $_SESSION['password_reset_success'] = true;
+                    header("Location: index.php");
+                    exit();
+                } else {
+                    $error_message = "Erreur durant le changement.";
+                }
+            } else {
+                $error_message = "Les mots de passe ne correpondent pas.";
+            }
+        }
+    } else {
+        $error_message = "Token invalide ou expiré.";
+    }
+} else {
+    $error_message = "Pas de token reçu.";
+}
+?>
 <!DOCTYPE html>
-<html lang="fr">
+ <html lang="fr">
 <head>
     <link rel="icon" href="/logo/b2gp.png" type="image/x-icon">
     <link rel="shortcut icon" href="/logo/b2gp.png" type="image/x-icon">
