@@ -30,9 +30,10 @@ if (!isset($_SESSION['sucess'])) {
     <div class="container">
         <div class="text-box">
             <p>
-                Bien joué ! <br>
-                Tu as trouvé le nom de la planète ou tu dois aller<br>
-                <strong>FLAG={diabolic-atop-compress}</strong>
+            Vous devez allez sur Endor pour rencontrer les services secrets. Votre objectif est de découvrir où se situe ce légendaire vaisseau.
+                
+            <br><br>
+            <strong>FLAG={diabolic-atop-compress}</strong>
 
             </p>
         </div>
