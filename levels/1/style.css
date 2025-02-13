@@ -288,7 +288,9 @@ body {
 
 .planet-container .inputbox input:focus ~ label,
 .planet-container .inputbox input:valid ~ label {
-  color: #03a9f4;
+  color: #ffffff;
+  font-family: 'Starjedi', sans-serif;
+
 }
 
 .planet-container .submit-btn .btn {

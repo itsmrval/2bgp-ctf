@@ -6,6 +6,8 @@ session_start();
 <html lang="fr">
 
 <head>
+  <link rel="icon" href="/logo/b2gp.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/logo/b2gp.png" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Niveau 1</title>
@@ -364,7 +366,7 @@ session_start();
       <div class="planet-container">
   <form action="" method="post">
     <div class="inputbox">
-      <input type="text" name="planet" id="planet" required placeholder=" ">
+      <input type="text" name="planet" id="planet">
       <label for="planet">Nom de la planète</label>
     </div>
     <?php
@@ -372,7 +374,7 @@ session_start();
         // Par exemple, on vérifie si la planète saisie est "Tatooine"
         if (strtolower(trim($_POST['planet'])) === 'endor') {
           $_SESSION['flag'] = "XXXXX";
-          header("Location: sucess.php");
+          header("sucess.php");
           exit();
         } else {
           echo '<div class="message error">Planète incorrecte. Réessayez.</div>';

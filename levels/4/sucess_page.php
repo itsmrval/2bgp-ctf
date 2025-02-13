@@ -11,6 +11,8 @@ if (!isset($_SESSION['flag'])) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" href="/logo/b2gp.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/logo/b2gp.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niveau 4</title>

@@ -1,7 +1,7 @@
 const express = require('express');
 const Level = require('../models/Level');
 const crypto = require('crypto');
-const { authenticate, isAdmin } = require('../middleware/auth');
+const { authenticate, isAdmin, isAdminSystemToken } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -28,15 +28,17 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', authenticate, isAdmin, async (req, res) => {
   try {
-    if (!req.body.name || !req.body.hid || !req.body.flag || !req.body.points || !req.body.url) {
+    if (!req.body.name || !req.body.hid || !req.body.flag || !req.body.points || !req.body.url || !req.body.description) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
     if (req.body.flag) {
       req.body.flag = crypto.createHash('sha256').update(req.body.flag).digest('hex');
     }
+
     const level = new Level(req.body);
     await level.save();
+
     res.status(201).json(level);
   } catch (error) {
     res.status(400).json({ error: error.message });

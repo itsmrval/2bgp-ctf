@@ -62,7 +62,7 @@ Notre personnage doit donc aller sur Endor pour en savoir plus
 
 *** Level 2 - Photo métadonné (Planete Endor : https://starwars.fandom.com/fr/wiki/Endor/L%C3%A9gendes) ***
 
-Après avoir quitté Endor, vous pénétrez dans les recoins secrets de la dernière base des services secrets. Dans ce sanctuaire caché, une transmission clandestine a été interceptée, émanant du fils redouté de Valkorion, Arkann. Le message, énigmatique et porteur d'un défi contient une photographie qui, à première vue, semble n'être qu'une simple image du vaisseau perdu le Faucon Millenium.
+Vous pénétrez dans les recoins secrets de la dernière base des services secrets. Dans ce sanctuaire caché, une transmission clandestine a été interceptée, émanant du fils redouté de Valkorion, Arkann. Le message, énigmatique et porteur d'un défi contient une photographie qui, à première vue, semble n'être qu'une simple image du vaisseau perdu le Faucon Millenium.
 
 Mais sous ses pixels se dissimule une énigme bien plus profonde. En laissant la Force guider votre intuition, vous vous devez de déchiffrez ces indices cachés. 
 
@@ -162,7 +162,13 @@ Armé de cette nouvelle information, vous vous préparez à infiltrer la prison.
 
 *** Level 7 (Planete Nathema :  https://starwars.fandom.com/fr/wiki/Nathema) ***
 
-Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive.  ( Attaque à voir ) 
+Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive.  Les gardes ont un réseau spécifique pour ouvrir la cellule ( Attaque à voir ) 
+
+Solution : 
+Laccess à la prison est basée sur l'IP des gardes. Ainsi, il faut aller dans brup, intercepter le message et rajoute l'entete X-Forwarded-For: X.X.X.X avec la plage d'ip des gardes et faire das intruder une attaque epour tester toutes les solutions.
+
+Sinon faire un script python mais ce nest pas forcement la solution desiree sachant que un script python a deja pu etre utilise lors du brute force de l'holocron. 
+=> L'utilisateur peut faire comme il le souhaite il est un pentester et donc toutes les solutions valides s'offrent a lui.
 
 ** Après avoir trouvé le flag : 
 

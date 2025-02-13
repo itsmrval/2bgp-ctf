@@ -217,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Level form
     document.getElementById('levelForm').addEventListener('submit', async (e) => {
         e.preventDefault();
+        console.log(document.getElementById('description').value);
         const levelData = {
             name: document.getElementById('levelName').value,
             hid: document.getElementById('hid').value,
@@ -225,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
             url: document.getElementById('url').value,
             description: document.getElementById('description').value
         };
+        console.log(levelData);
 
         try {
             await createLevel(levelData.name, levelData.hid, levelData.points, levelData.flag, levelData.url, levelData.description);
