@@ -164,6 +164,12 @@ Armé de cette nouvelle information, vous vous préparez à infiltrer la prison.
 
 Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive.  Les gardes ont un réseau spécifique pour ouvrir la cellule ( Attaque à voir ) 
 
+Solution : 
+Laccess à la prison est basée sur l'IP des gardes. Ainsi, il faut aller dans brup, intercepter le message et rajoute l'entete X-Forwarded-For: X.X.X.X avec la plage d'ip des gardes et faire das intruder une attaque epour tester toutes les solutions.
+
+Sinon faire un script python mais ce nest pas forcement la solution desiree sachant que un script python a deja pu etre utilise lors du brute force de l'holocron. 
+=> L'utilisateur peut faire comme il le souhaite il est un pentester et donc toutes les solutions valides s'offrent a lui.
+
 ** Après avoir trouvé le flag : 
 
 Dès que la porte cède, Vaylin émerge de l'ombre, son regard brûlant d'une fureur contenue et d'une douleur profonde. Dans un souffle haletant, elle vous dévoile l'amertume de son passé. Dès son plus jeune âge, elle manifesta une affinité extraordinaire avec la Force, défiant les limites que son destin avait tracées. Se remémorant ses entraînements solitaires dans les vastes forêts royales de Zakel, où elle apprenait à canaliser l'énergie qui l'habitait, Vaylin confie combien le destin cruel l'a séparée de sa famille. Le pire fut lorsque, pendant sa longue captivité, son père, l'impitoyable Empereur Valkorion, vint lui annoncer, avec un cynisme glaçant, la récente mort de son frère Arkann. Ce message cruel, destiné à la narguer, enflamma sa colère et renforça son désir de vengeance.
