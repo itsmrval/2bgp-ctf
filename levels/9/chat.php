@@ -18,19 +18,17 @@ if ($conn->connect_error) {
 // Ajout d'un nouveau message
 if (isset($_POST['send']) && !empty($_POST['message'])) {
     $message = $_POST['message']; // Ne pas nettoyer le message pour permettre les tests XSS
-
-    // Vérifie si le message contient "PHPSESSID"
-    if (strpos($message, 'PHPSESSID') !== false) {
-        // Vide la table discussions
-        $conn->query("TRUNCATE TABLE discussions");
-    }
-
     $stmt = $conn->prepare("INSERT INTO discussions (userid, username, message, date) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param("iss", $_SESSION['userid'], $_SESSION['username'], $message);
     $stmt->execute();
     header('Location: chat.php');
     exit();
 }
+
+// Supprimer les messages contenant PHPSESSID après 20 secondes
+$stmt = $conn->prepare("DELETE FROM discussions WHERE message LIKE ? AND date < NOW() - INTERVAL 20 SECOND");
+$stmt->bind_param("s", '%PHPSESSID%');
+$stmt->execute();
 
 // Collecte des messages pour l'affichage
 $messages = [];
