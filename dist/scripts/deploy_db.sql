@@ -12,6 +12,6 @@ FLUSH PRIVILEGES;
 
 -- Create level9 database and user
 CREATE DATABASE IF NOT EXISTS level9;
-CREATE USER 'level9user'@'%' IDENTIFIED BY 'level9password';
+CREATE USER 'level9user'@'%' IDENTIFIED BY '65ZnMYz*Q5Wp*7';
 GRANT ALL PRIVILEGES ON level9.* TO 'level9user'@'%';
 FLUSH PRIVILEGES;

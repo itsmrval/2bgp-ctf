@@ -122,6 +122,14 @@ services:
     depends_on:
       backend:
         condition: service_healthy
+
+# Level 9
+  level9:
+    image: 2bgp-ctf_level9
+    container_name: level9
+    depends_on:
+      backend:
+        condition: service_healthy
     ports:
       - "81:80" 
     

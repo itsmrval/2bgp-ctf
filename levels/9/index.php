@@ -13,7 +13,7 @@ if (isset($_SESSION['userid'])) {
 $error_msg = "";
 
 // Connexion à la base de données
-$conn = new mysqli("localhost", "root", "", "attackXSS");
+$conn = new mysqli("mysql", "level9user", "65ZnMYz*Q5Wp*7", "level9");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
