@@ -8,7 +8,13 @@ function checkAuth() {
     const role = localStorage.getItem('role');
 
     if (!token || !username || !role || (expiration && Date.now() > parseInt(expiration))) {
-        window.location.href = '/login.html';
+        window.location.href = '/login';
+        return false;
+    }
+
+    if (role !== 'admin') {
+        alert('You do not have permission to view this page');
+        window.location.href = '/';
         return false;
     }
 
