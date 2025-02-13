@@ -165,7 +165,11 @@ Armé de cette nouvelle information, vous vous préparez à infiltrer la prison.
 Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive.  Les gardes ont un réseau spécifique pour ouvrir la cellule ( Attaque à voir ) 
 
 Solution : 
-Laccess à la prison est basée sur l'IP des gardes. Ainsi, il faut aller dans brup, intercepter le message et rajoute l'entete X-Forwarded-For: X.X.X.X avec la plage d'ip des gardes et faire das intruder une attaque epour tester toutes les solutions.
+Laccess à la prison est basée sur l'IP des gardes. Ainsi, il faut aller dans brup, intercepter le message et rajoute l'entete :
+
+X-Forwarded-For: X.X.X.X
+
+Avec la plage d'ip des gardes et faire das intruder une attaque epour tester toutes les solutions.
 
 Sinon faire un script python mais ce nest pas forcement la solution desiree sachant que un script python a deja pu etre utilise lors du brute force de l'holocron. 
 => L'utilisateur peut faire comme il le souhaite il est un pentester et donc toutes les solutions valides s'offrent a lui.
