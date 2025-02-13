@@ -38,7 +38,7 @@ services:
 # Deploy scripts
   deploy:
     image: curlimages/curl
-    container_name: deploy-script
+    container_name: deploy
     volumes:
       - ./scripts/deploy_levels.sh:/scripts/deploy_levels.sh
       - ./config/backend.env:/scripts/config/backend.env
@@ -97,6 +97,14 @@ services:
   level5:
     image: 2bgp-ctf_level5
     container_name: level5
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# Level 6
+  level6:
+    image: 2bgp-ctf_level6
+    container_name: level6
     depends_on:
       backend:
         condition: service_healthy
