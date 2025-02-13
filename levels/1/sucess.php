@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if (!isset($_SESSION['flag'])) {
+if (!isset($_SESSION['sucess'])) {
     header("Location: index.php");
     exit();
 }

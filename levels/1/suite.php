@@ -1,7 +1,16 @@
 <?php
-session_start();
-?>
-
+  session_start();
+      if (isset($_POST['planet'])) {
+          // Par exemple, on vérifie si la planète saisie est "endor"
+          if (strtolower(trim($_POST['planet'])) === 'endor') {
+              $_SESSION['sucess'] = "okey";
+              header("Location: sucess.php");
+              exit();
+          } else {
+              echo '<div class="message error">Planète incorrecte. Réessayez.</div>';
+          }
+      }
+    ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -369,18 +378,6 @@ session_start();
       <input type="text" name="planet" id="planet">
       <label for="planet">Nom de la planète</label>
     </div>
-    <?php
-      if (isset($_POST['planet'])) {
-        // Par exemple, on vérifie si la planète saisie est "Tatooine"
-        if (strtolower(trim($_POST['planet'])) === 'endor') {
-          $_SESSION['flag'] = "XXXXX";
-          header("sucess.php");
-          exit();
-        } else {
-          echo '<div class="message error">Planète incorrecte. Réessayez.</div>';
-        }
-      }
-    ?>
     <div class="submit-btn">
       <button type="submit" class="btn">Envoyer</button>
     </div>
