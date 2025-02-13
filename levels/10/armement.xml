@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vaisseau>
+    <nom>Vaisseau de Valkroion l'Empereur</nom>
+    <empereur>Valkroion</empereur>
+    <description>Le vaisseau de Valkroion l'Empereur est un symbole de puissance et de domination dans la galaxie.</description>
+    <caracteristiques>
+        <longueur>1500 mètres</longueur>
+        <armement>
+            <canon>Canon à plasma</canon>
+            <laser>Laser à haute intensité</laser>
+            <bouclier>Bouclier déflecteur avancé</bouclier>
+        </armement>
+        <equipage>Non spécifié</equipage>
+    </caracteristiques>
+</vaisseau>

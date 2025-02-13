@@ -1,86 +1,45 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <link rel="icon" href="/logo/b2gp.png" type="image/x-icon">
-  <link rel="shortcut icon" href="/logo/b2gp.png" type="image/x-icon">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Niveau 2</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXE Challenge</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <nav class="navbar">
-    <div class="logo">
-      <a href="#">
-        <img src="logo/starwars.png" alt="Star Wars Logo">
-      </a>
+    <h1 class="title">Afficher les composants <br>du vaisseau de Valkorion</h1>
+    <div class="container">
+        <button id="show" onclick="sendXML()">Afficher</button>
     </div>
-  </nav>
+    <div id="result"></div>
 
-  <div class="content-wrapper">
-    <div class="news-section">
-      <div class="news-content">
-        <div class="news-image">
-          <img src="logo/falcon_ship.png" alt="Star Wars News Image">
-        </div>
+    <script>
+        function sendXML() {
+            // URL du fichier XML local sur le serveur
+            const fileURL = './sample.xml'; // Change le chemin pour le fichier sur le serveur
 
-        <!-- Section news-text avec image positionnée à droite du h2 -->
-        <div class="news-text">
-          <div class="title-container">
-            <h2>Communication de Arcann</h2>
-            <img src="logo/arcann.png" alt="Nouvelle image" class="title-image">
-          </div>
-          <p>
-            Je suis Arcann, fils de Valkorion, l'Empereur Immortel.
+            // Utiliser fetch pour récupérer le contenu du fichier XML
+            fetch(fileURL)
+                .then(response => response.text())  // Lire la réponse en tant que texte
+                .then(xmlContent => {
+                    // Envoi du contenu du fichier XML au serveur via POST
+                    fetch('process.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/xml'
+                        },
+                        body: xmlContent
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        // Afficher la réponse du serveur dans la page
+                        document.getElementById('result').innerHTML = `<pre>${data}</pre>`;
+                    })
+                    .catch(error => console.error('Error:', error));
+                })
+                .catch(error => console.error('Error fetching XML:', error));
+        }
+    </script>
 
-            Je pressens que mes jours sont comptés, car mon père commence à se douter de mes véritables intentions.
-            Au cas où quelque chose tournerait mal, j'ai dissimulé mon vaisseau quelque part dans la galaxie.
-
-            Je vous confie la mission de retrouver ses coordonnées, car il recèle des informations cruciales pour l'avenir de la galaxie.
-
-            Que la Force soit avec vous.
-          </p>
-        </div>
-      </div>
-      
-      <div class="coords-container">
-        <form action="" method="post">
-          <div class="inputbox">
-            <input type="coords" name="latitude" id="latitude" required>
-            <label for="latitude">Latitude (degrés)</label>
-          </div>
-          <div class="inputbox">
-            <input type="coords" name="longitude" id="longitude" required>
-            <label for="longitude">Longitude (degrés)</label>
-          </div>
-          <?php
-            if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
-              if ($_POST['latitude'] === '48' && $_POST['longitude'] === '2') {
-                header("Location: sucess.php");
-                $_SESSION['flag'] = "XXXXX";
-              } else {
-                echo '<div class="message error">Coordonnées invalides. Réessayer.</div>';
-              }
-            }
-          ?>
-          <div class="submit-btn">
-            <button type="submit" class="btn">Envoyer</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <p>&copy; 2025 Star Wars - 2BGP-CTF. Tous droits réservés.</p>
-  </footer>
 </body>
-
 </html>

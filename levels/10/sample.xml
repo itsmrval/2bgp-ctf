@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vaisseau>
+    <nom>Eclipse</nom>
+    <armes>
+        <arme>Canon à plasma</arme>
+        <arme>Laser à haute énergie</arme>
+        <arme>Torpedo à protons</arme>
+    </armes>
+    <equipements>
+        <equipement>Bouclier déflecteur</equipement>
+        <equipement>Système de camouflage</equipement>
+        <equipement>Hyperdrive</equipement>
+    </equipements>
+    <lieu>Orbite de la planète Dromund Kaas</lieu>
+</vaisseau>

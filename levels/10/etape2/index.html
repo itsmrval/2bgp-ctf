@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test SSRF</title>
+</head>
+<body>
+    <h1>Test SSRF avec fetch</h1>
+    <form action="fetch.php" method="get">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" placeholder="Entrez l'URL ici" required>
+        <button type="submit">Fetch</button>
+    </form>
+</body>
+</html>
