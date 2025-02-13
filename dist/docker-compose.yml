@@ -60,7 +60,6 @@ services:
       backend:
         condition: service_healthy
 
-# Auto login level 9
   auto_login:
     image: python:3.9-slim
     container_name: auto_login
@@ -68,8 +67,11 @@ services:
       - ./scripts/login_script.py:/app/login_script.py
       - ./scripts/login_run.sh:/app/run_loop.sh
     working_dir: /app
-    command: ["/bin/bash", "-c", "pip install requests beautifulsoup4 && chmod +x run_loop.sh && ./run_loop.sh"]
+    command: ["/bin/bash", "-c", "pip install requests beautifulsoup4 selenium webdriver-manager && chmod +x run_loop.sh && ./run_loop.sh"]
     restart: unless-stopped
+    environment:
+      - DISPLAY=:99
+
 
 ### Levels
 
