@@ -36,10 +36,10 @@
 
         <?php
 
-        $host = 'localhost';
-        $dbname = 'attackresetpwd';
-        $user = 'root';
-        $password = '';
+            $host = 'mysql';
+            $dbname = 'level5';
+            $user = 'level5user';
+            $password = 'mKeq8%6ez$IBh0';
 
         // Connexion à la base de données
         $mysqli = new mysqli($host, $user, $password, $dbname);

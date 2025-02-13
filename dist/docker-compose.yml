@@ -50,6 +50,17 @@ services:
 
 ### Levels
 
+# Database
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: manicure-handbrake-cadet # Useless
+    volumes:
+      - ./scripts/deploy_db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
 # Level 1
   level1:
     image: 2bgp-ctf_level1
@@ -78,6 +89,14 @@ services:
   level4:
     image: 2bgp-ctf_level4
     container_name: level4
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# Level 5
+  level5:
+    image: 2bgp-ctf_level5
+    container_name: level5
     depends_on:
       backend:
         condition: service_healthy

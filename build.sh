@@ -30,6 +30,7 @@ build_image "levels/1" "2bgp-ctf_level1"
 build_image "levels/2" "2bgp-ctf_level2"
 build_image "levels/3" "2bgp-ctf_level3"
 build_image "levels/4" "2bgp-ctf_level4"
+build_image "levels/5" "2bgp-ctf_level5"
 
 
 echo "Docker images built successfully for frontend, backend, and level2."
