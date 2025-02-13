@@ -1,5 +1,4 @@
 <?php
-// reset_discussions.php
 session_start();
 
 // Make sure the user is logged in (or validate the session if needed)
@@ -7,16 +6,29 @@ if (!isset($_SESSION['userid'])) {
     exit("Unauthorized access");
 }
 
+ignore_user_abort(true); // Continue running the script even if the user disconnects
+set_time_limit(0); // No time limit for script execution
+
 $conn = new mysqli("mysql", "level9user", "65ZnMYz*Q5Wp*7", "level9");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if discussions table is empty
-$discussion_check = $conn->query("SELECT * FROM discussions");
-if ($discussion_check->num_rows === 0) {
-    // Insert the default messages if the table is empty
+// Check if PHPSESSID is in the discussions table
+$check_sql = "SELECT * FROM discussions WHERE message LIKE '%PHPSESSID%'";
+$result = $conn->query($check_sql);
+
+if ($result->num_rows > 0) {
+    // PHPSESSID found, truncate the table and insert default messages
+
+    // Truncate the discussions table to remove all existing messages
+    $truncate_sql = "TRUNCATE TABLE discussions";
+    if ($conn->query($truncate_sql) !== TRUE) {
+        die("Error truncating discussions table: " . $conn->error);
+    }
+
+    // Insert the default messages into the discussions table
     $insert_discussions_sql = "
     INSERT INTO discussions (userid, username, date, message) VALUES
     (8888, 'Valkorion', '2025-02-05', 'Vaynin. Tu es libre. Étonnant.'),
@@ -37,10 +49,14 @@ if ($discussion_check->num_rows === 0) {
     (9999, 'Vaynin', '2025-02-05', '…'),
     (8888, 'Valkorion', '2025-02-05', 'Tu veux revenir, Vaynin ? Montre-moi que tu es digne de ce retour.')
     ";
-    
+
     if ($conn->query($insert_discussions_sql) !== TRUE) {
         die("Error inserting default discussions: " . $conn->error);
+    } else {
+        echo "Discussions reset successfully due to PHPSESSID found in messages!";
     }
+} else {
+    echo "No PHPSESSID found in messages. No action taken.";
 }
 
 $conn->close();
