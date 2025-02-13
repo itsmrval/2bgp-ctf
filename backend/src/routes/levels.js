@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', authenticate, isAdmin, async (req, res) => {
   try {
-    if (!req.body.name || !req.body.hid || !req.body.flag || !req.body.points || !req.body.url) {
+    if (!req.body.name || !req.body.hid || !req.body.flag || !req.body.points || !req.body.url || !req.body.description) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
