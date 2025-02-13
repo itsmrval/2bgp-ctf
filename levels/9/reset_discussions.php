@@ -1,10 +1,4 @@
 <?php
-session_start();
-
-// Make sure the user is logged in (or validate the session if needed)
-if (!isset($_SESSION['userid'])) {
-    exit("Unauthorized access");
-}
 
 $conn = new mysqli("mysql", "level9user", "65ZnMYz*Q5Wp*7", "level9");
 

@@ -70,3 +70,5 @@ if [[ "$response" == "[]" ]]; then
 else
     echo "Level already exists"
 fi
+
+sh /scripts/deploy_level9.sh
