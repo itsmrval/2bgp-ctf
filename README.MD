@@ -301,8 +301,11 @@ Vous arrivez donc a passer le blocus et votre prochain objectif est de battre l'
 
 *** 10 Level Attaque  ( Planète Zakel : https://starwars.fandom.com/fr/wiki/Zakel )  ***
 
-Fin on arrive sur Zakel et on affronte l'Empereur et on arrive a le vaincre et on sauve la galacie 
+En arrivant sur la planète Zakel vous avez qu'un seul objectif, celui de sauver la galaxie et de vaincre l'Empereur Eternel. 
 
+Pour cela votre objectif est de vous introduire dans sa forteresse qui est hautement sécurisé, pour défaire ces défenses vous devez retrouver a partir de la structure des informations XML de la forteresse ce qui vous permettra de trouver une url. Cette URL sera la dernière étape de votre plan qui est de faire surchauffer le réacteur qui donne de l'énergie a la forteresse.
+
+Cette surchauffe provoquera une explosion assez forte pour tuer l'Empereur Valkorion.  
 
 *********************************************************************
 
