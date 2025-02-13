@@ -82,7 +82,7 @@ p {
   margin-bottom: 10px;
 }
 
-.container {
+.button {
   background: #111; /* Fond sombre pour le conteneur */
   border: 2px solid #ffd700; /* Bordure jaune doré */
   border-radius: 10px;
@@ -93,16 +93,21 @@ p {
   text-align: center;
   margin-top: 5%;
 }
-.container .title {
+.button {
   color: #ffd700; /* Titre en jaune doré */
   font-size: 3em;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px #000; /* Ombre pour un effet 3D */
 }
-.container p {
+.button {
   font-size: 1.5em;
   color: #ffd700; /* Texte en jaune doré */
   margin: 10px 0;
+}
+
+.button:hover {
+  background-color: rgba(255, 215, 0, 0.2); /* Ajoute un léger fond doré au survol */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Ajoute une lueur dorée au survol */
 }
 
 .footer {

@@ -14,7 +14,7 @@ app.post('/attack', (req, res) => {
     const data = req.body.variable; // Récupérer la donnée envoyée dans le corps de la requête
 
     // Lire le contenu actuel d'index.html
-    fs.readFile('index.html', 'utf8', (err, content) => {
+    fs.readFile('log.txt', 'utf8', (err, content) => {
         if (err) {
             return res.status(500).send('Erreur lors de la lecture du fichier');
         }

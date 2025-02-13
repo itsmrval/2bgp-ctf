@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 class="title">Afficher les composants <br>du vaisseau de Valkorion</h1>
-    <div class="container">
-        <button id="show" onclick="sendXML()">Afficher</button>
-    </div>
+    <h1 class="title">afficher les composants <br>du vaisseau de valkorion</h1>
+        <button id="show" class="button" onclick="sendXML()">Afficher</button>
     <div id="result"></div>
 
     <script>
