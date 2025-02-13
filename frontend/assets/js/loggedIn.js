@@ -572,8 +572,9 @@ async function main() {
                 alert('Please enter a flag');
                 return;
             }
+            console.log('Flag:', flag);
             try {
-                await awardUserPoints(localStorage.getItem('id'), level._id);
+                await awardUserPoints(localStorage.getItem('id'), level._id, flag);
                 alert('Flag correct ! Niveau réussi');
                 window.location.href = '/';
             } catch (error) {

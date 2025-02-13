@@ -1,6 +1,6 @@
 const API_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:3001' // Dev. URL
-    : 'http://localhost:3000'; // Production URL
+    : 'https://api.2bgp-ctf.vpws.eu'; // Production URL
 
 // Login user and return token
 async function login(username, password) {
@@ -229,13 +229,14 @@ async function getScoreboard() {
 }
 
 // Award user points
-async function awardUserPoints(userId, levelId) {
+async function awardUserPoints(userId, levelId, flag = '') {
     const response = await fetch(`${API_URL}/points/${userId}/${levelId}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
+        }, 
+        body: JSON.stringify({ flag })
     });
 
     if (!response.ok) {
