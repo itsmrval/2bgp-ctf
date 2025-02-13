@@ -27,7 +27,8 @@ if (isset($_POST['send']) && !empty($_POST['message'])) {
 
 // Supprimer les messages contenant PHPSESSID après 20 secondes
 $stmt = $conn->prepare("DELETE FROM discussions WHERE message LIKE ? AND date < NOW() - INTERVAL 20 SECOND");
-$stmt->bind_param("s", '%PHPSESSID%');
+$param = '%PHPSESSID%';
+$stmt->bind_param("s", $param);
 $stmt->execute();
 
 // Collecte des messages pour l'affichage

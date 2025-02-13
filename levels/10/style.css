@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-  background: url('logo/bg_level2.png') no-repeat center center fixed;
+  background: url('logo/bg_level10.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
   font-family: Arial, sans-serif;
@@ -80,8 +80,13 @@ p {
 
 .characteristics div {
   margin-bottom: 10px;
-}
 
+}
+#result{
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
 .button {
   background: #111; /* Fond sombre pour le conteneur */
   border: 2px solid #ffd700; /* Bordure jaune doré */
