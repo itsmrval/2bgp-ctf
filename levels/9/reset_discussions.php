@@ -6,9 +6,6 @@ if (!isset($_SESSION['userid'])) {
     exit("Unauthorized access");
 }
 
-ignore_user_abort(true); // Continue running the script even if the user disconnects
-set_time_limit(0); // No time limit for script execution
-
 $conn = new mysqli("mysql", "level9user", "65ZnMYz*Q5Wp*7", "level9");
 
 if ($conn->connect_error) {

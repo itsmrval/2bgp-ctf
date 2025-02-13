@@ -47,17 +47,19 @@ services:
     ports:
       - "27017:27017"
 
-# Deploy scripts
+# Deploy
   deploy:
     image: curlimages/curl
     container_name: deploy
     volumes:
       - ./scripts/deploy_levels.sh:/scripts/deploy_levels.sh
+      - ./scripts/deploy_level9.sh:/scripts/deploy_level9.sh
       - ./config/backend.env:/scripts/config/backend.env
-    command: ["sh", "/scripts/deploy_levels.sh"]
+    command: ["sh", "-c", "/scripts/deploy_levels.sh && /scripts/deploy_level9.sh"]
     depends_on:
       backend:
         condition: service_healthy
+
 
 
 ### Levels
