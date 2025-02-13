@@ -1,48 +1,3 @@
-<?php
-ini_set('session.cookie_httponly', 0);
-ini_set('session.cookie_secure', 0);
-session_start(['cookie_lifetime' => 43200]);
-
-// Vérifie si le cookie PHPSESSID est défini
-if (!isset($_SESSION['userid'])) {
-    header('Location: index.php');
-    exit();
-}
-
-$conn = new mysqli("mysql", "level9user", "65ZnMYz*Q5Wp*7", "level9");
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Ajout d'un nouveau message
-if (isset($_POST['send']) && !empty($_POST['message'])) {
-    $message = $_POST['message']; // Ne pas nettoyer le message pour permettre les tests XSS
-    $stmt = $conn->prepare("INSERT INTO discussions (userid, username, message, date) VALUES (?, ?, ?, NOW())");
-    $stmt->bind_param("iss", $_SESSION['userid'], $_SESSION['username'], $message);
-    $stmt->execute();
-
-    // Vérifie si le message contient 'PHPSESSID'
-    if (strpos($message, 'PHPSESSID') !== false) {
-        // Vider la table après 20 secondes
-        sleep(20);
-        $conn->query("TRUNCATE TABLE discussions");
-    }
-
-    header('Location: chat.php');
-    exit();
-}
-
-// Collecte des messages pour l'affichage
-$messages = [];
-$result = $conn->query("SELECT * FROM discussions ORDER BY date ASC");
-while ($msg = $result->fetch_assoc()) {
-    $messages[] = $msg;
-}
-
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,6 +67,12 @@ $conn->close();
                     var doc = parser.parseFromString(html, 'text/html');
                     var newMessages = doc.getElementById('messages-area').innerHTML;
                     messagesArea.innerHTML = newMessages;
+                });
+
+            fetch('reset_discussions.php')
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
                 });
         }, 6000);
     </script>
