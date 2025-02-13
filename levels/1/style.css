@@ -52,7 +52,8 @@ body {
 }
 
 .news-section {
-  position: relative;
+  position: fixed;
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -260,6 +261,7 @@ body {
 
 .planet-container .inputbox {
   position: relative;
+  bottom: 25px;
   width: 300px;
   margin-bottom: 0;
 }
@@ -293,7 +295,11 @@ body {
 
 }
 
+
+
 .planet-container .submit-btn .btn {
+  position: relative;
+  bottom: 25px;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.2);
