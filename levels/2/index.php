@@ -1,7 +1,17 @@
 <?php
 session_start();
-?>
 
+// Process form submission before any HTML output
+if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
+  if ($_POST['latitude'] === '48' && $_POST['longitude'] === '2') {
+    $_SESSION['flag'] = "XXXXX";
+    header("Location: sucess.php");
+    exit(); // Make sure to exit after redirection
+  } else {
+    $error_message = '<div class="message error">Coordonnées invalides. Réessayer.</div>';
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -49,7 +59,7 @@ session_start();
           </p>
         </div>
       </div>
-      
+
       <div class="coords-container">
         <form action="" method="post">
           <div class="inputbox">
@@ -61,13 +71,8 @@ session_start();
             <label for="longitude">Longitude (degrés)</label>
           </div>
           <?php
-            if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
-              if ($_POST['latitude'] === '48' && $_POST['longitude'] === '2') {
-                header("Location: sucess.php");
-                $_SESSION['flag'] = "XXXXX";
-              } else {
-                echo '<div class="message error">Coordonnées invalides. Réessayer.</div>';
-              }
+            if (isset($error_message)) {
+              echo $error_message;
             }
           ?>
           <div class="submit-btn">

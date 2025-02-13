@@ -1,4 +1,7 @@
 services:
+
+# Level management
+
   backend:
     image: 2bgp-ctf_backend
     container_name: backend
@@ -12,17 +15,6 @@ services:
       timeout: 1s
       retries: 3
       start_period: 3s
-
-  deploy:
-    image: curlimages/curl
-    container_name: deploy-script
-    volumes:
-      - ./deploy_levels.sh:/scripts/deploy_levels.sh
-      - ./config/backend.env:/scripts/config/backend.env
-    command: ["sh", "/scripts/deploy_levels.sh"]
-    depends_on:
-      backend:
-        condition: service_healthy
 
   frontend:
     image: 2bgp-ctf_frontend
@@ -40,6 +32,27 @@ services:
       - mongodata:/data/db
     env_file:
       - config/mongodb.env
+
+  deploy:
+    image: curlimages/curl
+    container_name: deploy-script
+    volumes:
+      - ./scripts/deploy_levels.sh:/scripts/deploy_levels.sh
+      - ./config/backend.env:/scripts/config/backend.env
+    command: ["sh", "/scripts/deploy_levels.sh"]
+    depends_on:
+      backend:
+        condition: service_healthy
+
+
+# Levels
+
+  level2:
+    image: 2bgp-ctf_level2
+    container_name: level2
+    ports:
+      - "81:80"
+    
 
 volumes:
   mongodata:
