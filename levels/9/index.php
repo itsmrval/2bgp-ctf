@@ -64,21 +64,21 @@ if ($discussion_check->num_rows === 0) {
     INSERT INTO discussions (userid, username, date, message) VALUES
     (8888, 'Valkorion', '2025-02-05', 'Vaynin. Tu es libre. Étonnant.'),
     (9999, 'Vaynin', '2025-02-06', 'Père… J’aimerais te voir. Nous devons parler.'),
-    (8888, 'Valkorion', '2025-02-07', 'Parler ? Comme si toutes ces années d’emprisonnement n’avaient jamais existé ? Comme si je pouvais simplement oublier pourquoi je t’ai enfermée ?'),
+    (8888, 'Valkorion', '2025-02-05', 'Parler ? Comme si toutes ces années d’emprisonnement n’avaient jamais existé ? Comme si je pouvais simplement oublier pourquoi je t’ai enfermée ?'),
     (9999, 'Vaynin', '2025-02-08', 'J’ai changé. Je ne suis plus celle que tu as enfermée.'),
-    (8888, 'Valkorion', '2025-02-09', 'Ce ne sont pas tes paroles qui me convaincront. Si tu veux me voir, il te faudra prouver que tu as ta place ici.'),
-    (9999, 'Vaynin', '2025-02-10', 'Que veux-tu dire ?'),
-    (8888, 'Valkorion', '2025-02-11', 'La Flotte Éternelle t’interdit l’accès. Elle obéit à moi, et à moi seul. Mais si tu arrives à passer, alors peut-être que nous aurons une conversation.'),
-    (9999, 'Vaynin', '2025-02-12', 'Je ne peux pas passer sans ton autorisation… Ton compte est le seul à pouvoir lever la restriction.'),
-    (8888, 'Valkorion', '2025-02-13', 'Alors trouve un moyen de te connecter.'),
-    (9999, 'Vaynin', '2025-02-14', 'C’est impossible…'),
-    (8888, 'Valkorion', '2025-02-15', 'Impossible ? Tu étais autrefois la plus brillante de toutes. Une enfant capable de briser des codes, de manipuler la matière et l’énergie. Si tu n’es pas capable d’accéder à mon compte, alors tu ne mérites pas de me revoir.'),
-    (9999, 'Vaynin', '2025-02-16', 'Tu me testes ?'),
-    (8888, 'Valkorion', '2025-02-17', 'Je t’offre une opportunité. Si tu réussis, je t’accueillerai comme ma fille. Si tu échoues… alors tu resteras ce que tu es devenue : une ombre du passé.'),
-    (9999, 'Vaynin', '2025-02-18', 'Et si je tente de forcer le passage ?'),
-    (8888, 'Valkorion', '2025-02-19', 'Tu seras détruite avant même d’atteindre la première barrière.'),
-    (9999, 'Vaynin', '2025-02-20', '…'),
-    (8888, 'Valkorion', '2025-02-21', 'Tu veux revenir, Vaynin ? Montre-moi que tu es digne de ce retour.')
+    (8888, 'Valkorion', '2025-02-05', 'Ce ne sont pas tes paroles qui me convaincront. Si tu veux me voir, il te faudra prouver que tu as ta place ici.'),
+    (9999, 'Vaynin', '2025-02-05', 'Que veux-tu dire ?'),
+    (8888, 'Valkorion', '2025-02-05', 'La Flotte Éternelle t’interdit l’accès. Elle obéit à moi, et à moi seul. Mais si tu arrives à passer, alors peut-être que nous aurons une conversation.'),
+    (9999, 'Vaynin', '2025-02-05', 'Je ne peux pas passer sans ton autorisation… Ton compte est le seul à pouvoir lever la restriction.'),
+    (8888, 'Valkorion', '2025-02-05', 'Alors trouve un moyen de te connecter.'),
+    (9999, 'Vaynin', '2025-02-05', 'C’est impossible…'),
+    (8888, 'Valkorion', '2025-02-05', 'Impossible ? Tu étais autrefois la plus brillante de toutes. Une enfant capable de briser des codes, de manipuler la matière et l’énergie. Si tu n’es pas capable d’accéder à mon compte, alors tu ne mérites pas de me revoir.'),
+    (9999, 'Vaynin', '2025-02-05', 'Tu me testes ?'),
+    (8888, 'Valkorion', '2025-02-05', 'Je t’offre une opportunité. Si tu réussis, je t’accueillerai comme ma fille. Si tu échoues… alors tu resteras ce que tu es devenue : une ombre du passé.'),
+    (9999, 'Vaynin', '2025-02-05', 'Et si je tente de forcer le passage ?'),
+    (8888, 'Valkorion', '2025-02-05', 'Tu seras détruite avant même d’atteindre la première barrière.'),
+    (9999, 'Vaynin', '2025-02-05', '…'),
+    (8888, 'Valkorion', '2025-02-05', 'Tu veux revenir, Vaynin ? Montre-moi que tu es digne de ce retour.')
     ";
     if ($conn->query($insert_discussions_sql) !== TRUE) {
         die("Error inserting default discussions: " . $conn->error);
