@@ -574,11 +574,11 @@ async function main() {
             }
             try {
                 await awardUserPoints(localStorage.getItem('id'), level._id);
-                alert('Flag submitted successfully');
+                alert('Flag correct ! Niveau réussi');
                 window.location.href = '/';
             } catch (error) {
                 console.error('Error submitting flag:', error);
-                alert('Error submitting flag');
+                alert('Flag incorrect');
             }
         });
     }
