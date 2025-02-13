@@ -19,11 +19,31 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Créer les tables si elles n'existent pas
+$create_users_table = "
+CREATE TABLE IF NOT EXISTS users (
+    userid INT PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255)
+)";
+
+$create_discussions_table = "
+CREATE TABLE IF NOT EXISTS discussions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userid INT,
+    username VARCHAR(255),
+    date DATE,
+    message TEXT
+)";
+
+if (!$conn->query($create_users_table) || !$conn->query($create_discussions_table)) {
+    die("Error creating tables: " . $conn->error);
+}
+
 // Vérification et insertion des utilisateurs par défaut
 $user_check = $conn->query("SELECT * FROM users");
 if ($user_check->num_rows === 0) {
 
-    
     $hashed_password_1 = password_hash('password', PASSWORD_DEFAULT);
     $hashed_password_2 = password_hash('-ObiWk2%wQ6zNp:!', PASSWORD_DEFAULT);
 
