@@ -45,10 +45,14 @@ async function register(username, password) {
 
             return { token, role, username, id };
         } else {
-            throw new Error('Registration failed');
+            const data = await response.json();
+            console.log("0=:" + JSON.stringify(data.error));
+            if (JSON.stringify(data.error).includes("already"))
+                throw new Error("Username already exists");
+            throw new Error("Error during registration");
         }
     } catch (error) {
-        throw new Error('Error during registration');
+        throw error;
     }
 }
 

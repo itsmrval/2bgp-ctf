@@ -3,14 +3,6 @@
 # Enable error handling
 set -e
 
-# Function to remove all existing Docker images
-remove_all_images() {
-  echo "Removing all existing Docker images..."
-  docker rmi $(docker images -q) || echo "No images to remove."
-}
-
-# Remove existing Docker images
-remove_all_images
 
 # Function to build Docker images
 build_image() {

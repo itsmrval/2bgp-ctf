@@ -48,6 +48,7 @@ $(document).ready(function () {
         } catch (error) {
             console.error('Error registering in:', error);
             $('#alertBox').show();
+            $('#alertBox').text(error);
         }
     });
 });
