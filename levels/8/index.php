@@ -1,7 +1,7 @@
 <?php
 
 // Connexion à la base de données
-$conn = new mysqli("localhost", "root", "", "attacksql");
+$conn = new mysqli("mysql", "level8user", "AvJl&r%0sk6^tw", "level8");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

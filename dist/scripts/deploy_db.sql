@@ -6,7 +6,7 @@ FLUSH PRIVILEGES;
 
 -- Create level8 database and user
 CREATE DATABASE IF NOT EXISTS level8;
-CREATE USER 'level8user'@'%' IDENTIFIED BY 'level8password';
+CREATE USER 'level8user'@'%' IDENTIFIED BY 'AvJl&r%0sk6^tw';
 GRANT ALL PRIVILEGES ON level8.* TO 'level8user'@'%';
 FLUSH PRIVILEGES;
 

@@ -58,8 +58,6 @@ services:
       MYSQL_ROOT_PASSWORD: manicure-handbrake-cadet # Useless
     volumes:
       - ./scripts/deploy_db.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "3306:3306"
 
 # Level 1
   level1:
@@ -113,6 +111,14 @@ services:
   level7:
     image: 2bgp-ctf_level7
     container_name: level7
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# Level 8
+  level8:
+    image: 2bgp-ctf_level8
+    container_name: level8
     depends_on:
       backend:
         condition: service_healthy
