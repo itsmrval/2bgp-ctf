@@ -65,7 +65,7 @@ if [[ "$response" == "[]" ]]; then
     # Request 8: Rodia
     send_request "Rodia" 8 "Pendant votre périple vers Rodia, Vaylin vous confie un nouvel indice crucial. Dans un souffle empreint de nostalgie, elle se remémore les doux jours de son enfance sur Rodia, lorsqu’elle se réfugiait dans la bibliothèque de sa maison d’enfance. Dans cette bibliothèque reposait un ouvrage précieux : un livre dont les pages recelaient non seulement des secrets anciens, mais aussi le code qui avait scellé son destin. Ce livre, témoin silencieux de ses espoirs et de ses rêves, avait inspiré la création de son mot de passe, un sésame perdu au fil des années.
 
-    Votre mission s’annonce aussi périlleuse qu’essentielle : dénicher ce livre oublié et en extraire le mot de passe dissimulé entre ses lignes." "talon-scorpion-tightwad" "https://target8.2bgp-ctf.vpws.eu" 250
+    Votre mission s’annonce aussi périlleuse qu’essentielle : dénicher ce livre oublié et en extraire le mot de passe dissimulé entre ses lignes." "password" "https://target8.2bgp-ctf.vpws.eu" 250
 
     # Request 9: Flotte Eternelle
     send_request "Flotte Eternelle" 9 "Vous vous tenez devant la flotte Éternelle, alors que votre vaisseau oscille dans l’ombre menaçante de cette armada interstellaire. Sur une planète lointaine, Vaylin a réussi à établir une connexion avec votre système, vous permettant d’écouter en direct sa conversation tendue avec son père redoutable." "cactus-hula-most" "https://target9.2bgp-ctf.vpws.eu" 250
