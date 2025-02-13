@@ -19,7 +19,7 @@ if (!isset($_SESSION['userid'])) {
     <link rel="shortcut icon" href="/logo/b2gp.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 9</title>
+    <title>Niveau 9</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
