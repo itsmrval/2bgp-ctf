@@ -162,7 +162,7 @@ Armé de cette nouvelle information, vous vous préparez à infiltrer la prison.
 
 *** Level 7 (Planete Nathema :  https://starwars.fandom.com/fr/wiki/Nathema) ***
 
-Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive.  ( Attaque à voir ) 
+Arrivé sur la planète Nathema, vous vous faufilez dans les sombres corridors de la prison, votre objectif ultime étant de libérer Vaylin. Dans ce labyrinthe de couloirs glacials, une lourde porte retient la captive.  Les gardes ont un réseau spécifique pour ouvrir la cellule ( Attaque à voir ) 
 
 ** Après avoir trouvé le flag : 
 
