@@ -3,15 +3,35 @@ services:
     image: 2bgp-ctf_backend
     container_name: backend
     ports:
-      - "3000:3000" 
+      - "3000:3000"
     env_file:
       - config/backend.env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/levels"]
+      interval: 2s
+      timeout: 1s
+      retries: 3
+      start_period: 3s
+
+  deploy:
+    image: curlimages/curl
+    container_name: deploy-script
+    volumes:
+      - ./deploy_levels.sh:/scripts/deploy_levels.sh
+      - ./config/backend.env:/scripts/config/backend.env
+    command: ["sh", "/scripts/deploy_levels.sh"]
+    depends_on:
+      backend:
+        condition: service_healthy
 
   frontend:
     image: 2bgp-ctf_frontend
     container_name: frontend
     ports:
-      - "80:80" 
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
 
   mongodb:
     image: mongo
