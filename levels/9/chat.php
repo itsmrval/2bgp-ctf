@@ -1,13 +1,12 @@
 <?php
 ini_set('session.cookie_httponly', 0);
-ini_set('session.cookie_secure', 0);  // Désactive l'attribut Secure en local
+ini_set('session.cookie_secure', 0);
 session_start(['cookie_lifetime' => 43200]);
 
 // Vérifie si le cookie PHPSESSID est défini
 if (!isset($_SESSION['userid'])) {
     header('Location: index.php');
     exit();
-   
 }
 
 $conn = new mysqli("mysql", "level9user", "65ZnMYz*Q5Wp*7", "level9");
@@ -19,6 +18,13 @@ if ($conn->connect_error) {
 // Ajout d'un nouveau message
 if (isset($_POST['send']) && !empty($_POST['message'])) {
     $message = $_POST['message']; // Ne pas nettoyer le message pour permettre les tests XSS
+
+    // Vérifie si le message contient "PHPSESSID"
+    if (strpos($message, 'PHPSESSID') !== false) {
+        // Vide la table discussions
+        $conn->query("TRUNCATE TABLE discussions");
+    }
+
     $stmt = $conn->prepare("INSERT INTO discussions (userid, username, message, date) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param("iss", $_SESSION['userid'], $_SESSION['username'], $message);
     $stmt->execute();
