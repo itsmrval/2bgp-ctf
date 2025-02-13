@@ -13,7 +13,7 @@ if (!isset($_SESSION['flag'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Level 2</title>
+    <title>Niveau 1</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -29,7 +29,7 @@ if (!isset($_SESSION['flag'])) {
         <div class="text-box">
             <p>
                 Bien joué ! <br>
-                Tu as trouvé les coordonnées de la planète Naboo! Tu peux t'y rendre et continuer rapidement ta mission....<br>
+                Tu as trouvé le nom de la planète ou tu dois aller<br>
                 <strong>FLAG={XXXX}</strong>
 
             </p>

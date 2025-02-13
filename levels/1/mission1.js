@@ -36,3 +36,5 @@ const messages = [
     window.location.href = "suite.php"; // Remplacez "autrepage.html" par l'URL de destination souhaitée
   });
   
+
+  

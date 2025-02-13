@@ -7,13 +7,13 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mission 1</title>
+  <title>Niveau 1</title>
   <!-- Inclusion de Font Awesome pour les icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Inclusion de la feuille de style -->
-  <link rel="stylesheet" href="mission1.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="hangarbody">
+<div class="body-intro">
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
@@ -21,17 +21,12 @@ session_start();
         <img src="logo/starwars.png" alt="Star Wars Logo">
       </a>
     </div>
-    <div class="profile">
-      <i class="fa-solid fa-user"></i>
-      <span class="user-name">John Doe</span>
-      <button class="disconnect-btn">Déconnexion</button>
-    </div>
   </nav>
 
   <!-- Section de la photo avec la bulle de texte -->
-  <div class="container">
+  <div class="container-intro">
     <!-- Bulle de texte -->
-    <div class="bubble">
+    <div class="bubble-intro">
       <div class="message-content">
         Mon cher Padawan,
         <br><br>
@@ -48,5 +43,9 @@ session_start();
 
   <!-- Inclusion du fichier JavaScript externe -->
   <script src="mission1.js"></script>
+
+  <footer class="footer">
+    <p>&copy; 2025 Star Wars - 2BGP-CTF. Tous droits réservés.</p>
+  </footer>
 </body>
 </html>
