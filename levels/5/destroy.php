@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Vérifier si la session est active et si l'utilisateur est celui attendu
-if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'ValkorionEmpereur') {
+if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'Valkorion') {
     header('Location: index.php');  // Redirection vers la page d'accueil si non connecté ou mauvais utilisateur
     exit;
 }
