@@ -1,7 +1,7 @@
 services:
 
-# Level management
-
+### Level management
+# Backend
   backend:
     image: 2bgp-ctf_backend
     container_name: backend
@@ -16,6 +16,7 @@ services:
       retries: 3
       start_period: 3s
 
+# Frontend
   frontend:
     image: 2bgp-ctf_frontend
     container_name: frontend
@@ -25,6 +26,7 @@ services:
       backend:
         condition: service_healthy
 
+# MongoDB Database
   mongodb:
     image: mongo
     container_name: mongodb
@@ -33,6 +35,7 @@ services:
     env_file:
       - config/mongodb.env
 
+# Deploy scripts
   deploy:
     image: curlimages/curl
     container_name: deploy-script
@@ -45,13 +48,41 @@ services:
         condition: service_healthy
 
 
-# Levels
+### Levels
 
+# Level 1
+  level1:
+    image: 2bgp-ctf_level1
+    container_name: level1
+    depends_on:
+      backend:
+        condition: service_healthy   
+
+# Level 2
   level2:
     image: 2bgp-ctf_level2
     container_name: level2
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# Level 3
+  level3:
+    image: 2bgp-ctf_level3
+    container_name: level3
+    depends_on:
+      backend:
+        condition: service_healthy
+
+# Level 4
+  level4:
+    image: 2bgp-ctf_level4
+    container_name: level4
+    depends_on:
+      backend:
+        condition: service_healthy
     ports:
-      - "81:80"
+      - "81:80" 
     
 
 volumes:

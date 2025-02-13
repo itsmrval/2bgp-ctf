@@ -1,35 +1,35 @@
 #!/bin/bash
 
-echo "Cleaning up existing Docker images if they exist..."
+# Enable error handling
+set -e
 
-if docker images -q 2bgp-ctf_frontend; then
-  echo "Removing existing frontend Docker image..."
-  docker rmi 2bgp-ctf_frontend
-fi
+# Function to remove all existing Docker images
+remove_all_images() {
+  echo "Removing all existing Docker images..."
+  docker rmi $(docker images -q) || echo "No images to remove."
+}
 
-if docker images -q 2bgp-ctf_backend; then
-  echo "Removing existing backend Docker image..."
-  docker rmi 2bgp-ctf_backend
-fi
+# Remove existing Docker images
+remove_all_images
 
-echo "Building Docker image for frontend..."
-cd frontend || { echo "Frontend directory not found! Exiting..."; exit 1; }
-docker build -t 2bgp-ctf_frontend .
-if [ $? -eq 0 ]; then
-  echo "Frontend Docker image built successfully."
-else
-  echo "Failed to build frontend Docker image."
-  exit 1
-fi
+# Function to build Docker images
+build_image() {
+  local dir=$1
+  local tag=$2
+  echo "Building Docker image for $tag..."
+  cd "$dir"
+  docker build -t "$tag" .
+  cd -  # Go back to the original directory
+}
 
-echo "Building Docker image for backend..."
-cd ../backend || { echo "Backend directory not found! Exiting..."; exit 1; }
-docker build -t 2bgp-ctf_backend .
-if [ $? -eq 0 ]; then
-  echo "Backend Docker image built successfully."
-else
-  echo "Failed to build backend Docker image."
-  exit 1
-fi
+# Build images with specific subdirectories
+build_image "frontend" "2bgp-ctf_frontend"
+build_image "backend" "2bgp-ctf_backend"
 
-echo "Docker images built successfully for frontend and backend."
+build_image "levels/1" "2bgp-ctf_level1"
+build_image "levels/2" "2bgp-ctf_level2"
+build_image "levels/3" "2bgp-ctf_level3"
+build_image "levels/4" "2bgp-ctf_level4"
+
+
+echo "Docker images built successfully for frontend, backend, and level2."

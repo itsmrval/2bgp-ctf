@@ -34,7 +34,7 @@
     <?php
         if (isset($_GET['message'])) {
             if ($_GET['message'] === 'success') {
-                echo '<div class="message success">Fichier envoyé : Carte non valide.</div>';
+                echo '<div class="message success">Fichier envoyé : Carte non valide. (sauvegardé dans /upload)</div>';
             } elseif ($_GET['message'] === 'error') {
                 echo '<div class="message error">Erreur, carte non envoyée.</div>';
             }

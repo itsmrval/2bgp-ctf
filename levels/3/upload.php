@@ -2,7 +2,7 @@
 // upload.php
 
 // Dossier où les fichiers seront stockés
-$target_dir = "./";
+$target_dir = "./upload/";
 $target_file = $target_dir . basename($_FILES["file"]["name"]);
 
 // Télécharger le fichier
