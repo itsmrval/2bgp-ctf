@@ -44,7 +44,7 @@ if (!isset($_SESSION['flag'])) {
             <p>S'il te plait, va sur la planete Kamino et créer des clones, c'est urgent...  Important : souviens toi de mon email.</p>
             <p>A bientot, GL</p>
             <p>- Valkorion</p>
-            <p><strong>PS:</strong> FLAG={XXXX}</p>
+            <p><strong>PS:</strong> FLAG={perky-snowfall-unease}</p>
         </div>
     </div>
 </div>

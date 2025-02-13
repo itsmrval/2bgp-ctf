@@ -38,7 +38,7 @@ if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'ValkorionEmpereu
         <?php
         if (isset($_POST['destroy-dna'])) {
 
-            echo "<div class='message flag'>flag={XXXX}</div>";
+            echo "<div class='message flag'>flag={storeroom-bonelike-dreamlike}</div>";
         }
         ?>
     </main>

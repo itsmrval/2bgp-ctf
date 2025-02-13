@@ -380,3 +380,55 @@ transform: translate(-50%, -50%);
   padding: 10px 0;
   z-index: 1000;
 }
+
+
+.star-wars-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #111;
+  color: #ffe81f; /* Star Wars yellow */
+  font-size: 20px;
+  font-family: 'Star Jedi', sans-serif; /* Ensure this font is available or use an alternative */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.star-wars-button:hover {
+  background-color: #ffe81f;
+  color: #111;
+  transform: scale(1.05);
+}
+
+.form-sucess {
+  display: inline;
+  z-index: 5000;
+}
+
+.container-sucess {
+  background: #111; /* Fond sombre pour le conteneur */
+  border: 2px solid #ffd700; /* Bordure jaune doré */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Ombre jaune */
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 15%;
+}
+.container-sucess .title {
+  color: #ffd700; /* Titre en jaune doré */
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000; /* Ombre pour un effet 3D */
+}
+.container-sucess p {
+  font-size: 1.5em;
+  color: #ffd700; /* Texte en jaune doré */
+  margin: 10px 0;
+}

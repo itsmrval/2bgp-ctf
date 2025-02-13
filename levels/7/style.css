@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Starjedi';
+  src: url('fonts/Starjedi.ttf') format('truetype');
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: url('logo/bg_level7.png') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+  padding-bottom: 60px; /* Espace pour le footer */
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+.title {
+  font-family: 'Starjedi', sans-serif;
+  color: white;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 2.5rem;
+}
+
+/* Styles pour le conteneur principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Aligner en haut pour éviter le décalage */
+  align-items: center;
+  min-height: calc(100vh - 200px); /* Hauteur minimale pour éviter les débordements */
+  padding: 20px; /* Espacement intérieur */
+  margin-top: 25px;
+}
+
+.container-sucess {
+  background: #111; /* Fond sombre pour le conteneur */
+  border: 2px solid #ffd700; /* Bordure jaune doré */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Ombre jaune */
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10%;
+}
+.container-sucess .title {
+  color: #ffd700; /* Titre en jaune doré */
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000; /* Ombre pour un effet 3D */
+}
+.container-sucess p {
+  font-size: 1.5em;
+  color: #ffd700; /* Texte en jaune doré */
+  margin: 10px 0;
+}
+.container-sucess .flag {
+  font-weight: bold;
+  color: #dc3545; /* Texte du flag en rouge pour attirer l'attention */
+}
+/* Styles pour le formulaire */
+form {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Styles pour le sélecteur */
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white; /* Texte blanc pour le sélecteur lui-même */
+  font-family: Arial, sans-serif;
+  appearance: none; /* Supprime l'apparence par défaut du navigateur */
+  -webkit-appearance: none; /* Pour les navigateurs WebKit */
+  -moz-appearance: none; /* Pour Firefox */
+}
+
+/* Styles pour les options du menu déroulant */
+select option {
+  background: white; /* Fond blanc pour les options */
+  color: black; /* Texte noir pour les options */
+  padding: 0.5rem; /* Espacement intérieur */
+}
+
+/* Styles pour le bouton de soumission */
+input[type="submit"] {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Starjedi', sans-serif;
+}
+
+input[type="submit"]:hover {
+  background-color: #ff0000;
+}
+
+/* Ajoute une media query pour les écrans plus petits */
+@media (max-width: 768px) {
+  .title {
+    margin-top: 80px; /* Réduit la marge supérieure pour les petits écrans */
+    font-size: 2rem; /* Réduit la taille de la police pour les petits écrans */
+  }
+
+  .navbar {
+    padding: 0.5rem 1rem; /* Réduit l'espacement de la navbar pour les petits écrans */
+  }
+
+  .logo img {
+    width: 100px; /* Réduit la taille du logo pour les petits écrans */
+  }
+
+  .container {
+    margin-top: 10px; /* Réduit la marge supérieure du conteneur */
+  }
+
+  .plan {
+    margin-top: 50px; /* Réduit la marge supérieure du texte "Plan Sélectionné" */
+  }
+}
+
+/* Styles pour les écrans très petits (mobile) */
+@media (max-width: 480px) {
+  .title {
+    margin-top: 60px; /* Réduit encore la marge supérieure pour les très petits écrans */
+    font-size: 1.5rem; /* Réduit davantage la taille de la police */
+  }
+
+  .navbar {
+    padding: 0.5rem; /* Réduit encore l'espacement de la navbar */
+  }
+
+  .logo img {
+    width: 80px; /* Réduit encore la taille du logo */
+  }
+
+  .container {
+    margin-top: 5px; /* Réduit encore la marge supérieure du conteneur */
+  }
+
+  .plan {
+    margin-top: 30px; /* Réduit encore la marge supérieure du texte "Plan Sélectionné" */
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+
+.error-message{
+  color: red;
+
+}

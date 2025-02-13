@@ -32,7 +32,7 @@ if (!isset($_SESSION['flag'])) {
             <p>
                 Bien joué ! <br>
                 Tu as trouvé les coordonnées de la planète Naboo! Tu peux t'y rendre et continuer rapidement ta mission....<br>
-                <strong>FLAG={XXXX}</strong>
+                <strong>FLAG={untagged-disabled-arguable}</strong>
 
             </p>
         </div>

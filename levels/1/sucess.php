@@ -32,7 +32,7 @@ if (!isset($_SESSION['flag'])) {
             <p>
                 Bien joué ! <br>
                 Tu as trouvé le nom de la planète ou tu dois aller<br>
-                <strong>FLAG={XXXX}</strong>
+                <strong>FLAG={diabolic-atop-compress}</strong>
 
             </p>
         </div>

@@ -64,12 +64,13 @@ $conn->close();
         </div>
     </nav>
     <div class="content-wrapper">
-        <?php 
-        if ($_SESSION['username'] == 'Mas Tymar') {
-            echo "<p style=color:red;>FLAG : {XXXXXX}</p>";
-        }
-        ?> 
+
         <div class="chat-container">
+        <?php
+            if ($_SESSION['username'] == 'Valkorion') {
+                echo '<button class="star-wars-button form-sucess" onclick="window.location.href=\'sucess.php\'">Laissez Passer</button>';
+            }
+        ?>
             <div class="messages-area" id="messages-area">
                 <?php foreach ($messages as $msg): ?>
                     <?php
