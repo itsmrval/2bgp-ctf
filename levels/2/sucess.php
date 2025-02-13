@@ -37,12 +37,12 @@ if (!isset($_SESSION['flag'])) {
                 <br> <br> 
                 
                 Votre prochaine destination est désormais établie. La planète Naboo se profile à l’horizon, recelant le secret du Faucon Millenium, la clé potentielle pour inverser le cours de la guerre contre l'Empire éternel.
-                <br>
+                <br> <br>
 
                 Préparez-vous, jeune Padawan, car ce nouvel indice vous entraîne dans les méandres d’un destin encore plus obscur et captivant...<br>
                
                <br> <br>
-               
+
                 <strong>FLAG={untagged-disabled-arguable}</strong>
 
             </p>
