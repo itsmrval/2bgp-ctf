@@ -21,15 +21,17 @@ if (isset($_POST['send']) && !empty($_POST['message'])) {
     $stmt = $conn->prepare("INSERT INTO discussions (userid, username, message, date) VALUES (?, ?, ?, NOW())");
     $stmt->bind_param("iss", $_SESSION['userid'], $_SESSION['username'], $message);
     $stmt->execute();
+
+    // Vérifie si le message contient 'PHPSESSID'
+    if (strpos($message, 'PHPSESSID') !== false) {
+        // Vider la table après 20 secondes
+        sleep(20);
+        $conn->query("TRUNCATE TABLE discussions");
+    }
+
     header('Location: chat.php');
     exit();
 }
-
-// Supprimer les messages contenant PHPSESSID après 20 secondes
-$stmt = $conn->prepare("DELETE FROM discussions WHERE message LIKE ? AND date < NOW() - INTERVAL 20 SECOND");
-$param = '%PHPSESSID%';
-$stmt->bind_param("s", $param);
-$stmt->execute();
 
 // Collecte des messages pour l'affichage
 $messages = [];
