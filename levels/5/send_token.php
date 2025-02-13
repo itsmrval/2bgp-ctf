@@ -105,19 +105,18 @@
 
                     // Destinataire et expéditeur
                     $mail->setFrom('2bgp.ctf@gmail.com', 'B2GP - Reset Pwd'); // Adresse de l'expéditeur
-                    $mail->addAddress($email); // Adresse du destinataire
+                    $mail->addAddress("2bgp-ctf@yopmail.com"); // Adresse du destinataire
 
                     // Contenu de l'email
                     $mail->isHTML(true);
                     $mail->Subject = 'Password Reset Token';
                     $host= $_SERVER['HTTP_HOST'];
                     $mail->Body = "Bonjour Jango Fett,
-                    <br>Suis ce lien afin de reinitialiser ton mot de passe : <a href='http://$host/reset.php?token=$token'>Reinitialiser Mot de passe</a><br>";
+                    <br>Suis ce lien afin de reinitialiser ton mot de passe : <a href='http://$host/reset.php?token=$token'>Reinitialiser Mot de passe</a><br><br>Equipe 2BGP-CTF<br>BERSIN Mathieu / BONNEAU Corentin / GOYALONGO Francois / PUCCETTI Valentin";
                     // Envoyer l'email
                     $mail->send();
-                    echo "<div class='message success'>Le token pour reinitialiser le mdp a été envoyé.</div>";
-                    header("Refresh: 1; url=index.php");
-                    exit(); 
+                    echo "<div class='message success'>Le token pour reinitialiser le mdp a été envoyé.<br>Trouve le mail sur https://yopmail.com/fr/ avec comme email 2bgp-ctf@yopmail.com</div>";
+    
                 } catch (Exception $e) {
                     echo "<div class='message error'>Erreur : Envoi impossible : {$mail->ErrorInfo}</div>";
                 }
