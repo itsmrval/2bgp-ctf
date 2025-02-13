@@ -366,7 +366,7 @@ session_start();
       <div class="planet-container">
   <form action="" method="post">
     <div class="inputbox">
-      <input type="text" name="planet" id="planet" required placeholder=" ">
+      <input type="text" name="planet" id="planet">
       <label for="planet">Nom de la planète</label>
     </div>
     <?php
@@ -374,7 +374,7 @@ session_start();
         // Par exemple, on vérifie si la planète saisie est "Tatooine"
         if (strtolower(trim($_POST['planet'])) === 'endor') {
           $_SESSION['flag'] = "XXXXX";
-          header("Location: sucess.php");
+          header("sucess.php");
           exit();
         } else {
           echo '<div class="message error">Planète incorrecte. Réessayez.</div>';
