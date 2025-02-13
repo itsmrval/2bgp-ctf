@@ -30,6 +30,9 @@ if (!isset($_SESSION['sucess'])) {
     <div class="container">
         <div class="text-box">
             <p>
+
+            Bien joué ! <br>
+            
             Vous devez allez sur Endor pour rencontrer les services secrets. Votre objectif est de découvrir où se situe ce légendaire vaisseau.
                 
             <br><br>

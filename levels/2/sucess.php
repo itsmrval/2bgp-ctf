@@ -31,7 +31,18 @@ if (!isset($_SESSION['flag'])) {
         <div class="text-box">
             <p>
                 Bien joué ! <br>
-                Tu as trouvé les coordonnées de la planète Naboo! Tu peux t'y rendre et continuer rapidement ta mission....<br>
+
+                Vous mettez les coordonnées dans le vaisseau de Arcann et cela vous indique une nouvelle planète.  
+                
+                <br> <br> 
+                
+                Votre prochaine destination est désormais établie. La planète Naboo se profile à l’horizon, recelant le secret du Faucon Millenium, la clé potentielle pour inverser le cours de la guerre contre l'Empire éternel.
+                <br>
+
+                Préparez-vous, jeune Padawan, car ce nouvel indice vous entraîne dans les méandres d’un destin encore plus obscur et captivant...<br>
+               
+               <br> <br>
+               
                 <strong>FLAG={untagged-disabled-arguable}</strong>
 
             </p>
