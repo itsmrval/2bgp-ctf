@@ -494,7 +494,7 @@ async function main() {
             { top: '60%', left: '35%' },
             { top: '30%', left: '55%' },
             { top: '78%', left: '55%' },
-            { top: '50%', left: '70' },
+            { top: '50%', left: '70%' },
             { top: '60%', left: '85%' },
         ];
 
