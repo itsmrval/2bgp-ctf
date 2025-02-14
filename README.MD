@@ -303,7 +303,7 @@ Vous arrivez donc a passer le blocus et votre prochain objectif est de battre l'
 
 En arrivant sur la planète Zakel vous avez qu'un seul objectif, celui de sauver la galaxie et de vaincre l'Empereur Eternel. 
 
-Pour cela votre objectif est de vous introduire dans sa forteresse qui est hautement sécurisé, pour défaire ces défenses vous devez retrouver a partir de la structure des informations XML de la forteresse ce qui vous permettra de trouver une url. Cette URL sera la dernière étape de votre plan qui est de faire surchauffer le réacteur qui donne de l'énergie a la forteresse.
+Pour cela votre objectif est de vous introduire dans sa forteresse qui est hautement sécurisé, pour défaire ces défenses vous devez retrouver a partir de la structure des informations XML de la forteresse ce qui vous permettra de trouver une url. Cette information se trouvera dans un fichier bombe.txt qui faut trouver a partir de la structure des données envoyées qui sont tres interessantes.... Cette URL sera la dernière étape de votre plan qui est de faire surchauffer le réacteur qui donne de l'énergie a la forteresse. Interroger les noms de domaine est toujours tres interessant....
 
 Cette surchauffe provoquera une explosion assez forte pour tuer l'Empereur Valkorion.  
 
