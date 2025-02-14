@@ -493,9 +493,9 @@ async function main() {
             { top: '20%', left: '0%' },
             { top: '60%', left: '35%' },
             { top: '30%', left: '55%' },
-            { top: '78%', left: '65%' },
-            { top: '50%', left: '85%' },
-            { top: '90%', left: '95%' }
+            { top: '78%', left: '55%' },
+            { top: '50%', left: '70' },
+            { top: '60%', left: '85%' },
         ];
 
         let levels = await getLevels();
