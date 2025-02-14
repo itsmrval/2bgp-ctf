@@ -166,7 +166,14 @@ services:
     depends_on:
       backend:
         condition: service_healthy
-    
+
+# Level 10
+  level10:
+    image: 2bgp-ctf_level10
+    container_name: level10
+    depends_on:
+      backend:
+        condition: service_healthy
 
 volumes:
   mongodata:
