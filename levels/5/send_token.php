@@ -122,7 +122,7 @@
                     $mail->Subject = 'Password Reset Token';
                     $host = $_SERVER['HTTP_HOST'];
                     $mail->Body = "Bonjour Jango Fett,
-                    <br>Suis ce lien afin de reinitialiser ton mot de passe : <a href='http://$host/reset.php?token=$token'>Reinitialiser Mot de passe</a><br><br>Equipe 2BGP-CTF<br>BERSIN Mathieu / BONNEAU Corentin / GOYALONGO Francois / PUCCETTI Valentin";
+                    <br>Suis ce lien afin de reinitialiser ton mot de passe : <a href='https://$host/reset.php?token=$token'>Reinitialiser Mot de passe</a><br><br>Equipe 2BGP-CTF<br>BERSIN Mathieu / BONNEAU Corentin / GOYALONGO Francois / PUCCETTI Valentin";
                     // Envoyer l'email
                     $mail->send();
                     echo "<div class='message success'>Le token pour reinitialiser le mdp a été envoyé.<br>Trouve le mail sur https://yopmail.com/fr/ avec comme email 2bgp-ctf@yopmail.com</div>";
