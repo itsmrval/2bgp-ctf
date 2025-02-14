@@ -67,6 +67,9 @@ if [[ "$response" == "[]" ]]; then
 
     # Request 9: Flotte Eternelle
     send_request "Flotte Eternelle" 9 "Vous vous tenez devant la flotte Éternelle, alors que votre vaisseau oscille dans l’ombre menaçante de cette armada interstellaire. Sur une planète lointaine, Vaylin a réussi à établir une connexion avec votre système, vous permettant d’écouter en direct sa conversation tendue avec son père redoutable." "cactus-hula-most" "https://target9.2bgp-ctf.vpws.eu" 250
+
+    # Request 10: Zakel
+    send_request "Zakel" 10 "En arrivant sur la planète Zakel vous avez qu'un seul objectif, celui de sauver la galaxie et de vaincre l'Empereur Eternel. Pour cela votre objectif est de vous introduire dans sa forteresse qui est hautement sécurisé, pour défaire ces défenses vous devez retrouver a partir de la structure des informations XML de la forteresse ce qui vous permettra de trouver une url. Cette information se trouvera dans un fichier bombe.txt qui faut trouver a partir de la structure des données envoyées qui sont tres interessantes.... Cette URL sera la dernière étape de votre plan qui est de faire surchauffer le réacteur qui donne de l'énergie a la forteresse. Interroger les noms de domaine est toujours tres interessant.... Cette surchauffe provoquera une explosion assez forte pour tuer l'Empereur Valkorion." "hamper-emergency-enlisted" "https://target10.2bgp-ctf.vpws.eu" 300
 else
     echo "Level already exists"
 fi
