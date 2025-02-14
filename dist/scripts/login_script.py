@@ -1,63 +1,83 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-# Configuration for Selenium WebDriver
-options = Options()
-options.headless = True  # Headless mode so it doesn't open the browser GUI
+def setup_driver():
+    options = Options()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    
+    capabilities = {
+        "browserName": "chrome",
+        "platformName": "LINUX"
+    }
+    
+    try:
+        driver = webdriver.Remote(
+            command_executor='http://selenium_chrome:4444/wd/hub',
+            options=options
+        )
+        return driver
+    except Exception as e:
+        print(f"Failed to connect to Selenium Grid: {e}")
+        return None
 
-# Set up the WebDriver (ChromeDriver)
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+def login(driver, url):
+    try:
+        # Navigate to the login page
+        driver.get(url)
+        
+        # Wait for login form elements to be present
+        wait = WebDriverWait(driver, 10)
+        username_field = wait.until(EC.presence_of_element_located((By.NAME, "username")))
+        password_field = wait.until(EC.presence_of_element_located((By.NAME, "password")))
+        
+        # Input credentials
+        username_field.send_keys("Valkorion")
+        password_field.send_keys("-ObiWk2%wQ6zNp:!")
+        password_field.send_keys(Keys.RETURN)
+        
+        # Wait for redirect or success indicator
+        time.sleep(2)  # Brief wait for redirect
+        
+        # Check current URL for successful login
+        if "chat.php" in driver.current_url:
+            print("Login successful!")
+            return True
+        else:
+            print("Login failed - couldn't verify success")
+            return False
+            
+    except Exception as e:
+        print(f"Error during login: {e}")
+        return False
 
-# Define the login URL
-login_url = "http://level9/"
-action_url = "http://level9/action_page"  # Adjust as needed for post-login action page
+def main():
+    driver = setup_driver()
+    if not driver:
+        return
+    
+    try:
+        login_successful = login(driver, "http://level9/")
+        
+        if login_successful:
+            # Navigate to action page
+            driver.get("http://level9/action_page")
+            print(f"Current page title: {driver.title}")
+            
+            # Execute any JavaScript if needed
+            driver.execute_script('console.log("Action completed")')
+            
+    except Exception as e:
+        print(f"Error in main execution: {e}")
+    
+    finally:
+        driver.quit()
 
-# Open the login page
-driver.get(login_url)
-
-# Wait for the page to load
-time.sleep(2)
-
-# Find the login form elements
-username_field = driver.find_element(By.NAME, "username")
-password_field = driver.find_element(By.NAME, "password")
-
-# Input credentials
-username_field.send_keys("Valkorion")
-password_field.send_keys("-ObiWk2%wQ6zNp:!")
-password_field.send_keys(Keys.RETURN)  # Press Enter to submit the form
-
-# Wait for the login response (adjust if necessary)
-time.sleep(5)  # You can replace this with WebDriverWait for better performance
-
-# Check if login is successful by searching for an element on the page
-try:
-    # Assuming "chat.php" is part of the URL after successful login
-    driver.find_element(By.LINK_TEXT, "chat.php")  # Or change this selector based on your page
-
-    print("Connexion réussie !")
-
-    # After logging in, you can now execute JavaScript on the page
-    driver.execute_script('console.log("JavaScript executed successfully!")')
-
-    # Navigate to another page or interact with elements (like clicking buttons)
-    driver.get(action_url)  # Navigate to another page after login if needed
-    time.sleep(3)  # Wait for the new page to load
-
-    # Perform actions or scraping as needed
-    print("Page d'action récupérée et analysée.")
-
-    # Example: Print the page title to confirm the page load
-    print("Page Title:", driver.title)
-
-except Exception as e:
-    print("Échec de la connexion.")
-    print(e)
-
-# After finishing tasks, close the browser
-driver.quit()
+if __name__ == "__main__":
+    main()

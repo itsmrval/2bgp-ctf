@@ -60,17 +60,28 @@ services:
       backend:
         condition: service_healthy
 
-  auto_login:
+# Selenium for auto login
+  selenium_chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: selenium_chrome
+    shm_size: 2g
+    restart: unless-stopped
+
+# Auto login
+  selenium_login:
     image: python:3.9-slim
-    container_name: auto_login
+    container_name: selenium_login
     volumes:
       - ./scripts/login_script.py:/app/login_script.py
       - ./scripts/login_run.sh:/app/run_loop.sh
     working_dir: /app
-    command: ["/bin/bash", "-c", "pip install requests beautifulsoup4 selenium webdriver-manager && chmod +x run_loop.sh && ./run_loop.sh"]
-    restart: unless-stopped
     environment:
       - DISPLAY=:99
+      - SELENIUM_URL=http://selenium_chrome:4444/wd/hub
+    depends_on:
+      - selenium
+    command: ["/bin/bash", "-c", "pip install requests beautifulsoup4 selenium webdriver-manager && chmod +x run_loop.sh && ./run_loop.sh"]
+    restart: unless-stopped
 
 
 ### Levels
