@@ -3,18 +3,39 @@ services:
 ### Level management
 
 # Reverse proxy
-  reverse-proxy:
-    image: nginx:latest
-    container_name: reverse-proxy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./config/nginx.conf:/etc/nginx/nginx.conf
-      - ./config/certs:/etc/nginx/certs
-    depends_on:
-      backend:
-        condition: service_healthy
+reverse-proxy:
+  image: nginx:latest
+  container_name: reverse-proxy
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./config/nginx.conf:/etc/nginx/nginx.conf
+    - ./config/certs:/etc/nginx/certs
+  depends_on:
+    backend:
+      condition: service_healthy
+    level1:
+      condition: service_healthy
+    level2:
+      condition: service_healthy
+    level3:
+      condition: service_healthy
+    level4:
+      condition: service_healthy
+    level5:
+      condition: service_healthy
+    level6:
+      condition: service_healthy
+    level7:
+      condition: service_healthy
+    level8:
+      condition: service_healthy
+    level9:
+      condition: service_healthy
+    level10:
+      condition: service_healthy
+
 # Backend
   backend:
     image: 2bgp-ctf_backend
