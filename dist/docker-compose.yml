@@ -79,7 +79,7 @@ services:
       - DISPLAY=:99
       - SELENIUM_URL=http://selenium_chrome:4444/wd/hub
     depends_on:
-      - selenium
+      - selenium_chrome
     command: ["/bin/bash", "-c", "pip install requests beautifulsoup4 selenium webdriver-manager && chmod +x run_loop.sh && ./run_loop.sh"]
     restart: unless-stopped
 
