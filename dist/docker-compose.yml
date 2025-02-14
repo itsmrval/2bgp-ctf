@@ -14,27 +14,28 @@ services:
       - ./config/certs:/etc/nginx/certs
     depends_on:
       backend:
-        condition: service_healthy
+        condition: service_started
       level1:
-        condition: service_healthy
+        condition: service_started
       level2:
-        condition: service_healthy
+        condition: service_started
       level3:
-        condition: service_healthy
+        condition: service_started
       level4:
-        condition: service_healthy
+        condition: service_started
       level5:
-        condition: service_healthy
+        condition: service_started
       level6:
-        condition: service_healthy
+        condition: service_started
       level7:
-        condition: service_healthy
+        condition: service_started
       level8:
-        condition: service_healthy
+        condition: service_started
       level9:
-        condition: service_healthy
+        condition: service_started
       level10:
-        condition: service_healthy
+        condition: service_started
+
 
 # Backend
   backend:
