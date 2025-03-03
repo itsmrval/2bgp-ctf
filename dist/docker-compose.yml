@@ -4,6 +4,7 @@ services:
 
 # Reverse proxy
   haproxy:
+    platform: linux/x86_64
     container_name: haproxy
     image: haproxy:latest
     ports:
@@ -60,6 +61,7 @@ services:
 
 # MongoDB Database
   mongodb:
+    platform: linux/x86_64
     image: mongo
     container_name: mongodb
     volumes:
@@ -71,6 +73,7 @@ services:
 
 # Deploy
   deploy:
+    platform: linux/x86_64
     image: curlimages/curl
     container_name: deploy
     volumes:
@@ -84,6 +87,7 @@ services:
 
 # Selenium for auto login
   selenium_chrome:
+    platform: linux/x86_64
     image: selenium/standalone-chrome:latest
     container_name: selenium_chrome
     shm_size: 2g
@@ -91,6 +95,7 @@ services:
 
 # Auto login
   selenium_login:
+    platform: linux/x86_64
     image: python:3.9-slim
     container_name: selenium_login
     volumes:
@@ -110,6 +115,7 @@ services:
 
 # Database
   mysql:
+    platform: linux/x86_64
     image: mysql:latest
     container_name: mysql
     environment:
