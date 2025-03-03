@@ -47,7 +47,7 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/levels"]
       interval: 2s
-      timeout: 1s
+      timeout: 5s
       retries: 3
       start_period: 3s
 
@@ -62,7 +62,7 @@ services:
 # MongoDB Database
   mongodb:
     platform: linux/x86_64
-    image: mongo
+    image: mongo:4.4.6
     container_name: mongodb
     volumes:
       - mongodata:/data/db
@@ -129,7 +129,7 @@ services:
     container_name: level1
     depends_on:
       backend:
-        condition: service_healthy   
+        condition: service_healthy
 
 # Level 2
   level2:
