@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} bombe\.txt [NC]
+    RewriteRule .* - [F,L]
+</IfModule>

@@ -30,4 +30,4 @@ build_image "levels/9" "2bgp-ctf_level9"
 build_image "levels/10" "2bgp-ctf_level10"
 
 
-echo "Docker images built successfully for frontend, backend, and level2."
+echo "Docker images built ended."
