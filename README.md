@@ -107,6 +107,7 @@ Ensure you have the following installed:
 
 7. **Access the Platform**
    - Once all containers are running and the backend is healthy, access the platform at [https://2bgp-ctf.vpws.eu](https://2bgp-ctf.vpws.eu).
+   - Note: the first user registered is an admin.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
