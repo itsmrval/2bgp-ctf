@@ -1336,3 +1336,13 @@ font-family: Arial, sans-serif;
       transform: scale(1.2);
   }
 }
+
+.mission-description p a {
+  text-decoration: none;
+  color: #EBD71C;
+}
+
+.mission-description p a:hover {
+  text-decoration: none;
+  color: #9e9752;
+}

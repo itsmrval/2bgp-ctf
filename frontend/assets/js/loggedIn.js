@@ -531,6 +531,10 @@ async function main() {
         displayContent();
     }
 
+    if (await checkPath('about')) {
+        displayContent();
+    }
+
     // Level page
     if (await checkPath('level')) {
         const level = await getLevel(localStorage.getItem('levelId'));
