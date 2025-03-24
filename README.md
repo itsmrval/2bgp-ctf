@@ -97,7 +97,7 @@ Ensure you have the following installed:
    - Optionally, modify MongoDB credentials in `config/backend.env` and `config/mongodb.env`.
 
 5. **Modify Hosts File**
-   - Add `2bgp-ctf.vpws.eu` to `127.0.0.1` in your `/etc/hosts` file.
+   - Add `2bgp-ctf.rvcs.fr` to `127.0.0.1` in your `/etc/hosts` file.
    - For Windows, edit `C:\Windows\System32\drivers\etc\hosts`.
 
 6. **Start Docker Containers**
@@ -106,7 +106,7 @@ Ensure you have the following installed:
    ```
 
 7. **Access the Platform**
-   - Once all containers are running and the backend is healthy, access the platform at [https://2bgp-ctf.vpws.eu](https://2bgp-ctf.vpws.eu).
+   - Once all containers are running and the backend is healthy, access the platform at [https://2bgp-ctf.rvcs.fr](https://2bgp-ctf.rvcs.fr).
    - Note: the first user registered is an admin.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

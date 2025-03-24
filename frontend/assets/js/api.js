@@ -1,6 +1,6 @@
 const API_URL = window.location.hostname === 'localhost' 
     ? 'http://localhost:3001' // Dev. URL
-    : 'https://api.2bgp-ctf.vpws.eu'; // Production URL
+    : 'https://api.2bgp-ctf.rvcs.fr'; // Production URL
 
 // Login user and return token
 async function login(username, password) {

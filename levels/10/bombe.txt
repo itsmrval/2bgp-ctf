@@ -1,2 +1,2 @@
 fichier = valko_bombe_infos.txt
-URL de la bombe = {amplockjdeduepeo.2bgp-ctf.vpws.eu}
+URL de la bombe = {amplockjdeduepeo.2bgp-ctf.rvcs.fr}

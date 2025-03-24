@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Définir l'URL de la page de connexion
-login_url = "https://target9.2bgp-ctf.vpws.eu/"
+login_url = "https://target9.2bgp-ctf.rvcs.fr/"
 
 # Créer une session pour enregistrer les cookies
 session = requests.Session()

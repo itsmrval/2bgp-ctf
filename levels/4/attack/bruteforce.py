@@ -1,7 +1,7 @@
 import requests
 
 # URL de la page vulnérable
-url = "https://target4.2bgp-ctf.vpws.eu/"
+url = "https://target4.2bgp-ctf.rvcs.fr/"
 
 # Fonction pour tester un code
 def brute_force_code():
